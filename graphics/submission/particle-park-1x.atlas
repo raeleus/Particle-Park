@@ -1,0 +1,292 @@
+
+particle-park-1x.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+city
+  rotate: false
+  xy: 1, 1124
+  size: 1630, 923
+  orig: 1630, 923
+  offset: 0, 0
+  index: -1
+city-foreground
+  rotate: false
+  xy: 1, 632
+  size: 1630, 490
+  orig: 1630, 490
+  offset: 0, 0
+  index: -1
+droplet
+  rotate: false
+  xy: 1599, 579
+  size: 25, 51
+  orig: 25, 51
+  offset: 0, 0
+  index: -1
+fly
+  rotate: false
+  xy: 2037, 2036
+  size: 10, 11
+  orig: 10, 11
+  offset: 0, 0
+  index: -1
+foot-left
+  rotate: true
+  xy: 1289, 1
+  size: 113, 91
+  orig: 113, 91
+  offset: 0, 0
+  index: -1
+foot-right
+  rotate: false
+  xy: 1382, 23
+  size: 122, 91
+  orig: 122, 91
+  offset: 0, 0
+  index: -1
+gun-base
+  rotate: false
+  xy: 1599, 57
+  size: 422, 222
+  orig: 422, 222
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 1506, 16
+  size: 76, 98
+  orig: 76, 98
+  offset: 0, 0
+  index: -1
+lightning-b-1
+  rotate: false
+  xy: 1633, 281
+  size: 375, 881
+  orig: 375, 881
+  offset: 0, 0
+  index: -1
+lightning-b-2
+  rotate: false
+  xy: 1633, 1164
+  size: 378, 883
+  orig: 378, 883
+  offset: 0, 0
+  index: -1
+logo
+  rotate: false
+  xy: 787, 36
+  size: 500, 78
+  orig: 500, 78
+  offset: 0, 0
+  index: -1
+park
+  rotate: false
+  xy: 787, 116
+  size: 810, 514
+  orig: 810, 514
+  offset: 0, 0
+  index: -1
+rock
+  rotate: false
+  xy: 1584, 13
+  size: 45, 42
+  orig: 45, 42
+  offset: 0, 0
+  index: -1
+train-arm
+  rotate: true
+  xy: 2013, 1920
+  size: 127, 22
+  orig: 127, 22
+  offset: 0, 0
+  index: -1
+tub
+  rotate: true
+  xy: 1, 4
+  size: 626, 784
+  orig: 626, 784
+  offset: 0, 0
+  index: -1
+
+particle-park-1x2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+brick
+  rotate: false
+  xy: 365, 1516
+  size: 648, 495
+  orig: 648, 495
+  offset: 0, 0
+  index: -1
+brick-mouth
+  rotate: true
+  xy: 1726, 970
+  size: 355, 78
+  orig: 355, 78
+  offset: 0, 0
+  index: -1
+brick-mouth-angry
+  rotate: true
+  xy: 1257, 714
+  size: 355, 172
+  orig: 355, 172
+  offset: 0, 0
+  index: -1
+camp-fire
+  rotate: false
+  xy: 1407, 1120
+  size: 317, 205
+  orig: 317, 205
+  offset: 0, 0
+  index: -1
+chest
+  rotate: false
+  xy: 1836, 1829
+  size: 175, 182
+  orig: 175, 182
+  offset: 0, 0
+  index: -1
+cloud
+  rotate: true
+  xy: 562, 643
+  size: 538, 360
+  orig: 538, 360
+  offset: 0, 0
+  index: -1
+gun-slide
+  rotate: false
+  xy: 1431, 708
+  size: 395, 67
+  orig: 395, 67
+  offset: 0, 0
+  index: -1
+hand
+  rotate: false
+  xy: 939, 1444
+  size: 74, 70
+  orig: 74, 70
+  offset: 0, 0
+  index: -1
+hip
+  rotate: false
+  xy: 368, 353
+  size: 109, 70
+  orig: 109, 70
+  offset: 0, 0
+  index: -1
+lightning-a-1
+  rotate: true
+  xy: 1015, 1827
+  size: 184, 819
+  orig: 184, 819
+  offset: 0, 0
+  index: -1
+lightning-a-2
+  rotate: false
+  xy: 195, 317
+  size: 171, 829
+  orig: 171, 829
+  offset: 0, 0
+  index: -1
+lightning-a-3
+  rotate: false
+  xy: 1, 319
+  size: 192, 827
+  orig: 192, 827
+  offset: 0, 0
+  index: -1
+lightning-b-3
+  rotate: false
+  xy: 1, 1148
+  size: 362, 863
+  orig: 362, 863
+  offset: 0, 0
+  index: -1
+moon
+  rotate: false
+  xy: 1489, 1327
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: -1
+poop
+  rotate: false
+  xy: 924, 736
+  size: 331, 333
+  orig: 331, 333
+  offset: 0, 0
+  index: -1
+race-car
+  rotate: false
+  xy: 1015, 1407
+  size: 472, 220
+  orig: 472, 220
+  offset: 0, 0
+  index: -1
+rocket
+  rotate: false
+  xy: 562, 417
+  size: 341, 224
+  orig: 341, 224
+  offset: 0, 0
+  index: -1
+train
+  rotate: false
+  xy: 939, 1071
+  size: 466, 334
+  orig: 466, 334
+  offset: 0, 0
+  index: -1
+welder-body
+  rotate: true
+  xy: 365, 1183
+  size: 331, 572
+  orig: 331, 572
+  offset: 0, 0
+  index: -1
+welder-hand-left
+  rotate: false
+  xy: 192, 150
+  size: 127, 165
+  orig: 127, 165
+  offset: 0, 0
+  index: -1
+welder-hand-right
+  rotate: false
+  xy: 1431, 895
+  size: 251, 223
+  orig: 251, 223
+  offset: 0, 0
+  index: -1
+welder-head
+  rotate: false
+  xy: 1, 66
+  size: 189, 251
+  orig: 189, 251
+  offset: 0, 0
+  index: -1
+welder-table
+  rotate: false
+  xy: 1015, 1629
+  size: 761, 196
+  orig: 761, 196
+  offset: 0, 0
+  index: -1
+window
+  rotate: false
+  xy: 368, 425
+  size: 192, 756
+  orig: 192, 756
+  offset: 0, 0
+  index: -1
+window-crack
+  rotate: true
+  xy: 1431, 777
+  size: 116, 266
+  orig: 116, 266
+  offset: 0, 0
+  index: -1
