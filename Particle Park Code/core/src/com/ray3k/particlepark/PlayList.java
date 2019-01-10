@@ -51,6 +51,10 @@ public class PlayList<T> {
         return list.get(index >= 0 ? index : list.size + index);
     }
     
+    public T getCurrent() {
+        return get(index);
+    }
+    
     public T next() {
         return get(++index);
     }
