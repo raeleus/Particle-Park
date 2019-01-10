@@ -1,0 +1,101 @@
+{
+"skeleton": { "hash": "y6kzXo0okarGl2Zfbfo1Xqx275k", "spine": "3.7.86", "width": 904.28, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"bones": [
+	{ "name": "root" },
+	{
+		"name": "bone",
+		"parent": "root",
+		"length": 155.31,
+		"rotation": 89.47,
+		"x": 562.92,
+		"y": -298.15,
+		"color": "abe323ff"
+	},
+	{ "name": "rock", "parent": "root", "length": 54.64, "x": -1050.45, "y": 25.9 }
+],
+"slots": [
+	{ "name": "bg", "bone": "root", "attachment": "bg" },
+	{ "name": "window", "bone": "root", "attachment": "window" },
+	{ "name": "rock", "bone": "rock", "attachment": "rock" },
+	{ "name": "window-crack", "bone": "root", "attachment": "window-crack" }
+],
+"transform": [
+	{
+		"name": "bone",
+		"order": 0,
+		"bones": [ "rock" ],
+		"target": "bone",
+		"relative": true,
+		"rotateMix": 0,
+		"scaleMix": 0,
+		"shearMix": 0
+	}
+],
+"skins": {
+	"default": {
+		"bg": {
+			"bg": { "width": 800, "height": 800 }
+		},
+		"rock": {
+			"rock": { "x": 5.75, "y": 1.44, "width": 45, "height": 42 }
+		},
+		"window": {
+			"window": { "x": 220.68, "y": 0.95, "width": 192, "height": 756 }
+		},
+		"window-crack": {
+			"window-crack": { "x": 212.05, "y": 5.27, "width": 116, "height": 266 }
+		}
+	}
+},
+"events": {
+	"glass": { "audio": "glass.ogg" }
+},
+"animations": {
+	"animation": {
+		"slots": {
+			"window-crack": {
+				"attachment": [
+					{ "time": 0, "name": null },
+					{ "time": 0.5, "name": "window-crack" }
+				]
+			}
+		},
+		"bones": {
+			"rock": {
+				"translate": [
+					{ "time": 0, "x": 0, "y": -53.23 },
+					{ "time": 0.6667, "x": 924.63, "y": -53.23 }
+				]
+			},
+			"bone": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.151, 0.63, 0.75, 1 ]
+					},
+					{
+						"time": 0.3333,
+						"x": 0,
+						"y": 432.43,
+						"curve": [ 0.366, 0, 0.849, 0.55 ]
+					},
+					{ "time": 0.6667, "x": 0, "y": 0 }
+				]
+			}
+		},
+		"drawOrder": [
+			{
+				"time": 0.5,
+				"offsets": [
+					{ "slot": "window", "offset": 1 }
+				]
+			}
+		],
+		"events": [
+			{ "time": 0.5, "name": "glass" }
+		]
+	}
+}
+}

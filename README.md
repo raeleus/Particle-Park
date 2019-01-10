@@ -21,3 +21,13 @@ We are accepting particle effect submissions! Please create an issue and attach 
 Specify the type of license you wish to be attached to your work. We suggest looking at [Creative Commons](https://creativecommons.org/) for guidance in this matter.
 
 Suggest an existing scene for this effect to be added to. New scenes can be suggested with consideration to time/interest. All submissions are subject to approval based on quality and usefulness.
+
+## About
+
+Particle Park is developed by Raeleus for the LibGDX community.
+Copyright (c) 2019 Raymond Buckley.
+
+All particle effects donated graciously by community members.
+See attached credit files.
+
+Music from Jukedeck - create your own at http://jukedeck.com

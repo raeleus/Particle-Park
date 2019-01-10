@@ -1,0 +1,63 @@
+{
+"skeleton": { "hash": "w5P2+iuZAq4HImxyUXF/enZlRck", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"bones": [
+	{ "name": "root" },
+	{ "name": "fly", "parent": "root", "length": 24.2, "rotation": -1.04, "x": 216.05, "y": 93.43 }
+],
+"slots": [
+	{ "name": "bg", "bone": "root", "attachment": "bg" },
+	{ "name": "poop", "bone": "root", "attachment": "poop" },
+	{ "name": "fly", "bone": "fly", "attachment": "fly" },
+	{ "name": "fly-path", "bone": "root", "attachment": "fly-path" }
+],
+"path": [
+	{
+		"name": "fly-path",
+		"order": 0,
+		"bones": [ "fly" ],
+		"target": "fly-path"
+	}
+],
+"skins": {
+	"default": {
+		"bg": {
+			"bg": { "width": 800, "height": 800 }
+		},
+		"fly": {
+			"fly": { "x": 2.1, "y": -0.04, "rotation": 1.04, "width": 10, "height": 11 }
+		},
+		"fly-path": {
+			"fly-path": {
+				"type": "path",
+				"closed": true,
+				"lengths": [ 103.55, 222.13, 311.1, 366.2, 432.28, 561.33, 712.73, 813.18, 910.22, 955.98, 1052.63, 1107.09, 1199.62, 1258.77 ],
+				"vertexCount": 42,
+				"vertices": [ 195.71, 96.34, 227.87, 97.3, 260.03, 98.26, 301.2, 147.63, 281.07, 170.64, 260.94, 193.65, 224.99, 225.28, 176.1, 206.59, 127.21, 187.89, 186.16, 136.13, 196.23, 146.19, 206.3, 156.26, 178.97, 187.89, 219.24, 183.58, 259.5, 179.27, 256.63, 151.94, 237.93, 141.88, 219.24, 131.81, 111.39, 72.85, 128.64, 118.87, 144.09, 160.06, 190.48, 254.04, 138.71, 252.6, 86.94, 251.17, 111.39, 167.76, 72.56, 195.08, 33.74, 222.41, 43.8, 128.94, 71.12, 128.94, 98.45, 128.94, 94.13, 100.18, 86.94, 97.3, 79.75, 94.42, 108.51, 8.14, 141.59, 36.9, 174.66, 65.66, 112.83, 49.85, 148.78, 77.17, 184.73, 104.49, 214.92, 29.71, 230.74, 65.66, 246.56, 101.61 ]
+			}
+		},
+		"poop": {
+			"poop": { "y": -31.88, "width": 331, "height": 333 }
+		}
+	}
+},
+"events": {
+	"fart1": { "audio": "fart1.ogg" },
+	"fly": { "audio": "fly.ogg" }
+},
+"animations": {
+	"animation": {
+		"paths": {
+			"fly-path": {
+				"position": [
+					{ "time": 0 },
+					{ "time": 4, "position": 1 }
+				]
+			}
+		},
+		"events": [
+			{ "time": 0, "name": "fart1" },
+			{ "time": 1.9333, "name": "fly" }
+		]
+	}
+}
+}

@@ -1,0 +1,62 @@
+{
+"skeleton": { "hash": "t4PVNwPW7f9QDxLsQ+WWhJhHrgo", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"bones": [
+	{ "name": "root" },
+	{ "name": "droplet", "parent": "root", "length": 51.96, "rotation": -90, "x": 37.63, "y": 288.5 }
+],
+"slots": [
+	{ "name": "bg", "bone": "root", "attachment": "bg" },
+	{ "name": "tub", "bone": "root", "attachment": "tub" },
+	{ "name": "clip", "bone": "root", "attachment": "clip" },
+	{ "name": "droplet", "bone": "droplet", "attachment": "droplet" }
+],
+"skins": {
+	"default": {
+		"bg": {
+			"bg": { "width": 800, "height": 800 }
+		},
+		"clip": {
+			"clip": {
+				"type": "clipping",
+				"end": "clip",
+				"vertexCount": 4,
+				"vertices": [ -309.62, 357.11, 269.62, 355.5, 253.53, -85.37, -277.44, -86.98 ],
+				"color": "ce3a3aff"
+			}
+		},
+		"droplet": {
+			"droplet": { "x": 23.68, "y": 0.09, "rotation": 90, "width": 25, "height": 51 }
+		},
+		"tub": {
+			"tub": { "width": 626, "height": 784 }
+		}
+	}
+},
+"events": {
+	"drop": { "audio": "drop.ogg" }
+},
+"animations": {
+	"animation": {
+		"bones": {
+			"droplet": {
+				"translate": [
+					{
+						"time": 0.2667,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.499, 0, 0.717, 0.5 ]
+					},
+					{ "time": 0.8333, "x": 0, "y": -379.72 }
+				],
+				"scale": [
+					{ "time": 0, "x": 0, "y": 0 },
+					{ "time": 0.2667, "x": 1, "y": 1 }
+				]
+			}
+		},
+		"events": [
+			{ "time": 0.8, "name": "drop" }
+		]
+	}
+}
+}

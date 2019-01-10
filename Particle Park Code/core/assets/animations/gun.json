@@ -1,0 +1,118 @@
+{
+"skeleton": { "hash": "pW9Y9xyk4Pir1ru2j1fbjM7vHbk", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"bones": [
+	{ "name": "root" },
+	{ "name": "bone", "parent": "root", "rotation": 0.63, "color": "abe323ff" },
+	{ "name": "cartridge", "parent": "root", "length": 27, "rotation": -0.21, "x": -167.77, "y": 2.51 },
+	{ "name": "gun-base", "parent": "root", "length": 226.3, "rotation": 0.63, "x": -288.07, "y": -61.93 },
+	{ "name": "gun-slide", "parent": "gun-base", "length": 336.51, "rotation": -0.78, "x": -40.02, "y": 86.96 }
+],
+"slots": [
+	{ "name": "bg", "bone": "root", "attachment": "bg" },
+	{ "name": "gun-base", "bone": "gun-base", "attachment": "gun-base" },
+	{ "name": "gun-slide", "bone": "gun-slide", "attachment": "gun-slide" },
+	{ "name": "gun-slide-clip", "bone": "gun-slide", "attachment": "gun-slide-clip" },
+	{ "name": "cartridge", "bone": "cartridge", "attachment": "cartridge" }
+],
+"transform": [
+	{
+		"name": "cartridge constraint",
+		"order": 0,
+		"bones": [ "cartridge" ],
+		"target": "bone",
+		"relative": true,
+		"rotateMix": 0,
+		"scaleMix": 0,
+		"shearMix": 0
+	}
+],
+"skins": {
+	"default": {
+		"bg": {
+			"bg": { "width": 800, "height": 800 }
+		},
+		"cartridge": {
+			"cartridge": { "x": 0.51, "y": 0.03, "rotation": 0.21, "width": 55, "height": 35 }
+		},
+		"gun-base": {
+			"gun-base": { "x": 115.77, "y": -22.56, "rotation": -0.63, "width": 434, "height": 266 }
+		},
+		"gun-slide": {
+			"gun-slide": { "x": 173.01, "y": 8.23, "rotation": 0.14, "width": 395, "height": 67 }
+		},
+		"gun-slide-clip": {
+			"gun-slide-clip": {
+				"type": "clipping",
+				"end": "gun-slide-clip",
+				"vertexCount": 8,
+				"vertices": [ 29.64, 87.1, 31.95, -4.08, 100.48, -1.53, 177.96, -0.44, 188.38, 3.16, 194.32, 11.52, 194.29, 22.54, 196.21, 89.3 ],
+				"color": "ce3a3aff"
+			}
+		}
+	}
+},
+"events": {
+	"pistol": { "audio": "pistol.ogg" }
+},
+"animations": {
+	"animation": {
+		"bones": {
+			"gun-slide": {
+				"translate": [
+					{ "time": 0, "x": 0, "y": 0 },
+					{ "time": 0.0667, "x": -53.44, "y": 0.59 },
+					{ "time": 0.1667, "x": 0, "y": 0 }
+				]
+			},
+			"gun-base": {
+				"rotate": [
+					{ "time": 0.0333, "angle": 0 },
+					{ "time": 0.1333, "angle": 7.03 },
+					{ "time": 0.2, "angle": 0 }
+				]
+			},
+			"cartridge": {
+				"rotate": [
+					{ "time": 0.0667, "angle": 0 },
+					{ "time": 0.1667, "angle": 90.21 },
+					{ "time": 0.2667, "angle": -179.79 },
+					{ "time": 0.3667, "angle": -89.79 }
+				],
+				"translate": [
+					{ "time": 0, "x": 0, "y": 0 },
+					{ "time": 0.0667, "x": -59.98, "y": 0 },
+					{ "time": 0.3333, "x": -265.85, "y": 0 }
+				]
+			},
+			"bone": {
+				"translate": [
+					{
+						"time": 0.0667,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.203, 0.39, 0.75, 1 ]
+					},
+					{
+						"time": 0.2,
+						"x": 0,
+						"y": 121.96,
+						"curve": [ 0.25, 0, 0.96, 0.67 ]
+					},
+					{ "time": 0.3333, "x": 0, "y": 0 }
+				]
+			}
+		},
+		"drawOrder": [
+			{
+				"time": 0.1333,
+				"offsets": [
+					{ "slot": "gun-slide-clip", "offset": 1 }
+				]
+			}
+		],
+		"events": [
+			{ "time": 0.0333, "name": "pistol" }
+		]
+	}
+}
+}

@@ -1,0 +1,55 @@
+{
+"skeleton": { "hash": "rT0k6AA4wynXaP/YMYozfaEhQ3I", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"bones": [
+	{ "name": "root" },
+	{ "name": "race-car-wheels", "parent": "root", "length": 341.11, "x": -103.67, "y": -109.5 },
+	{ "name": "race-car", "parent": "race-car-wheels", "length": 130.33, "rotation": -90, "x": 120.68, "y": 152.85 }
+],
+"slots": [
+	{ "name": "bg", "bone": "root", "attachment": "bg" },
+	{ "name": "race-car", "bone": "race-car", "attachment": "race-car" },
+	{ "name": "race-car-wheels", "bone": "race-car-wheels", "attachment": "race-car-wheels" }
+],
+"skins": {
+	"default": {
+		"bg": {
+			"bg": { "width": 800, "height": 800 }
+		},
+		"race-car": {
+			"race-car": { "x": 43.35, "y": 66.66, "rotation": 90, "width": 472, "height": 220 }
+		},
+		"race-car-wheels": {
+			"race-car-wheels": { "x": 187.34, "y": 109.5, "width": 472, "height": 220 }
+		}
+	}
+},
+"events": {
+	"burnout": { "audio": "burnout.ogg" },
+	"drop car": { "audio": "drop car.ogg" }
+},
+"animations": {
+	"animation": {
+		"bones": {
+			"race-car-wheels": {
+				"translate": [
+					{ "time": 0, "x": 0, "y": 516.49 },
+					{ "time": 0.4, "x": 0, "y": 21.01, "curve": "stepped" },
+					{ "time": 1.8333, "x": 0, "y": 21.01 },
+					{ "time": 2.2333, "x": 563.15, "y": 21.01 }
+				]
+			},
+			"race-car": {
+				"translate": [
+					{ "time": 0.4, "x": 0, "y": 0 },
+					{ "time": 0.5, "x": 0, "y": -11.26 },
+					{ "time": 0.6, "x": 0, "y": 0 }
+				]
+			}
+		},
+		"events": [
+			{ "time": 0.0333, "name": "drop car" },
+			{ "time": 0.4, "name": "burnout" }
+		]
+	}
+}
+}

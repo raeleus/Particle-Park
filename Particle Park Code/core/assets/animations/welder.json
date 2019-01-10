@@ -1,0 +1,104 @@
+{
+"skeleton": { "hash": "tvdytfggeR6LrI0jGnjZZqFIvXI", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"bones": [
+	{ "name": "root" },
+	{ "name": "welder-body", "parent": "root", "length": 473.39, "rotation": 90.42, "x": 1.73, "y": -169.44 },
+	{ "name": "welder-hand-left", "parent": "welder-body", "length": 94.66, "rotation": 171.15, "x": 205.85, "y": 168.43 },
+	{ "name": "welder-hand-right", "parent": "welder-body", "length": 87.27, "rotation": 130.55, "x": 217.02, "y": -201.01 },
+	{ "name": "welder-head", "parent": "welder-body", "length": 159.11, "rotation": 19.99, "x": 393.65, "y": 2.32 },
+	{ "name": "welder-table", "parent": "root", "length": 596.51, "rotation": -179.67, "x": 308.64, "y": -91.41 }
+],
+"slots": [
+	{ "name": "bg", "bone": "root", "attachment": "bg" },
+	{ "name": "welder-body", "bone": "welder-body", "attachment": "welder-body" },
+	{ "name": "welder-table", "bone": "welder-table", "attachment": "welder-table" },
+	{ "name": "welder-hand-left", "bone": "welder-hand-left", "attachment": "welder-hand-left" },
+	{ "name": "welder-hand-right", "bone": "welder-hand-right", "attachment": "welder-hand-right" },
+	{ "name": "welder-head", "bone": "welder-head", "attachment": "welder-head" },
+	{ "name": "particles", "bone": "welder-hand-right", "attachment": "particles" }
+],
+"skins": {
+	"default": {
+		"bg": {
+			"bg": { "width": 800, "height": 800 }
+		},
+		"particles": {
+			"particles": { "type": "point", "x": 262.04, "y": -9.82, "rotation": 14.4 }
+		},
+		"welder-body": {
+			"welder-body": { "x": 192.46, "y": -3.14, "rotation": -90.42, "width": 331, "height": 572 }
+		},
+		"welder-hand-left": {
+			"welder-hand-left": { "x": 40.91, "y": 7.81, "rotation": 98.43, "width": 127, "height": 165 }
+		},
+		"welder-hand-right": {
+			"welder-hand-right": { "x": 99.05, "y": -10.23, "rotation": 139.03, "width": 251, "height": 223 }
+		},
+		"welder-head": {
+			"welder-head": { "x": 43.39, "y": 17.16, "rotation": -110.41, "width": 189, "height": 251 }
+		},
+		"welder-table": {
+			"welder-table": { "x": 308.6, "y": -10.46, "rotation": 179.67, "width": 761, "height": 196 }
+		}
+	}
+},
+"events": {
+	"welder": { "audio": "welder.ogg" },
+	"welding": { "audio": "welding.ogg" }
+},
+"animations": {
+	"animation": {
+		"bones": {
+			"welder-hand-right": {
+				"translate": [
+					{ "time": 0.6667, "x": 0, "y": 0 },
+					{ "time": 1, "x": -60, "y": 98.86 },
+					{ "time": 1.3333, "x": 0, "y": 0 },
+					{ "time": 1.6333, "x": 1.04, "y": 142.39 },
+					{ "time": 1.9667, "x": 0, "y": 0 }
+				]
+			},
+			"welder-hand-left": {
+				"rotate": [
+					{ "time": 2.3, "angle": 0 },
+					{ "time": 2.6333, "angle": 50.63 },
+					{ "time": 2.9667, "angle": 0 }
+				],
+				"translate": [
+					{ "time": 2.3, "x": 0, "y": 0 },
+					{ "time": 2.6333, "x": -0.97, "y": -131.92 },
+					{ "time": 2.9667, "x": 0, "y": 0 }
+				]
+			},
+			"welder-head": {
+				"rotate": [
+					{ "time": 0, "angle": 0 },
+					{ "time": 0.3333, "angle": 1.87 },
+					{ "time": 0.6667, "angle": 0 }
+				],
+				"translate": [
+					{ "time": 0, "x": 0, "y": 0 },
+					{ "time": 0.3333, "x": -8.37, "y": 0.21 },
+					{ "time": 0.6667, "x": 0, "y": 0 }
+				]
+			},
+			"welder-body": {
+				"rotate": [
+					{ "time": 0, "angle": 0 },
+					{ "time": 0.3333, "angle": 1.04 },
+					{ "time": 0.6667, "angle": 0 },
+					{ "time": 1, "angle": 1.09 },
+					{ "time": 1.3333, "angle": 0 },
+					{ "time": 1.6333, "angle": 1.09 },
+					{ "time": 1.9667, "angle": 0, "curve": "stepped" },
+					{ "time": 2.3, "angle": 0 },
+					{ "time": 2.6333, "angle": -0.52 }
+				]
+			}
+		},
+		"events": [
+			{ "time": 0.6667, "name": "welding" }
+		]
+	}
+}
+}

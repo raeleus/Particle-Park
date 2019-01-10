@@ -1,0 +1,51 @@
+{
+"skeleton": { "hash": "+gjdRww0EMzm5gV8D/TGFfeyIRw", "spine": "3.7.86", "width": 849, "height": 811.01, "images": "../output/1x/", "audio": "" },
+"bones": [
+	{ "name": "root" },
+	{ "name": "city", "parent": "root", "length": 140.45, "y": -179.84 },
+	{ "name": "city-foreground", "parent": "root", "length": 161.26, "y": -311.63 }
+],
+"slots": [
+	{ "name": "bg", "bone": "root" },
+	{ "name": "city", "bone": "city", "attachment": "city" },
+	{ "name": "city-foreground", "bone": "city-foreground", "attachment": "city-foreground" }
+],
+"skins": {
+	"default": {
+		"city": {
+			"city": { "y": 54.99, "width": 825, "height": 484 }
+		},
+		"city-foreground": {
+			"city-foreground": { "y": 15.11, "width": 849, "height": 229 }
+		}
+	}
+},
+"animations": {
+	"reveal": {
+		"bones": {
+			"city": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.126, 0.34, 0.3, 0.69 ]
+					},
+					{ "time": 1, "x": 0, "y": 25 }
+				]
+			},
+			"city-foreground": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.126, 0.34, 0.3, 0.69 ]
+					},
+					{ "time": 1, "x": 0, "y": -25 }
+				]
+			}
+		}
+	}
+}
+}

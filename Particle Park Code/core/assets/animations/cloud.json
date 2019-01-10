@@ -1,0 +1,69 @@
+{
+"skeleton": { "hash": "RZAu9ebAgAWr7S4VOi8MTGV/h/Q", "spine": "3.7.86", "width": 800, "height": 881, "images": "../output/1x/", "audio": "../../audio/output/" },
+"bones": [
+	{ "name": "root" },
+	{ "name": "lightning-a", "parent": "root", "x": -239.04, "y": -5.98 },
+	{ "name": "lightning-b", "parent": "root", "x": 201.69, "y": -23.9 }
+],
+"slots": [
+	{ "name": "bg", "bone": "root", "attachment": "bg" },
+	{ "name": "cloud", "bone": "root", "attachment": "cloud" },
+	{ "name": "lightning-a", "bone": "lightning-a", "attachment": "lightning-a-1" },
+	{ "name": "lightning-b", "bone": "lightning-b", "attachment": "lightning-b-1" }
+],
+"skins": {
+	"default": {
+		"bg": {
+			"bg": { "width": 800, "height": 800 }
+		},
+		"cloud": {
+			"cloud": { "y": 247.21, "width": 341, "height": 228 }
+		},
+		"lightning-a": {
+			"lightning-a-1": { "y": 0.5, "width": 184, "height": 819 },
+			"lightning-a-2": { "x": 0.5, "y": 0.5, "width": 171, "height": 829 },
+			"lightning-a-3": { "y": 0.5, "width": 192, "height": 827 }
+		},
+		"lightning-b": {
+			"lightning-b-1": { "x": 0.5, "y": 0.5, "width": 375, "height": 881 },
+			"lightning-b-2": { "y": 0.5, "width": 378, "height": 883 },
+			"lightning-b-3": { "y": 0.5, "width": 362, "height": 863 }
+		}
+	}
+},
+"events": {
+	"rain": { "audio": "rain.ogg" },
+	"thunder": { "audio": "thunder.ogg" },
+	"thunder2": { "audio": "thunder2.ogg" }
+},
+"animations": {
+	"animation": {
+		"slots": {
+			"lightning-a": {
+				"color": [
+					{ "time": 0.1, "color": "ffffffff" },
+					{ "time": 0.5, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "time": 0, "name": null },
+					{ "time": 0.0333, "name": "lightning-a-1" }
+				]
+			},
+			"lightning-b": {
+				"color": [
+					{ "time": 1.2667, "color": "ffffffff" },
+					{ "time": 1.6333, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "time": 0, "name": null },
+					{ "time": 1.2, "name": "lightning-b-2" }
+				]
+			}
+		},
+		"events": [
+			{ "time": 0, "name": "rain" },
+			{ "time": 0.5333, "name": "thunder2" }
+		]
+	}
+}
+}
