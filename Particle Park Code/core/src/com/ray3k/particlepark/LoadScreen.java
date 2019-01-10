@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.mygdx.game;
+package com.ray3k.particlepark;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -132,7 +132,7 @@ public class LoadScreen implements Screen {
         root.pad(20);
         
         progressBar = new ProgressBar(0, 1, .01f, false, skin);
-        progressBar.setValue(0);
+        progressBar.setAnimateDuration(.5f);
         root.add(progressBar).growX();
     }
     
