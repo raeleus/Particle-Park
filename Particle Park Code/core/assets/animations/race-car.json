@@ -1,20 +1,17 @@
 {
-"skeleton": { "hash": "rT0k6AA4wynXaP/YMYozfaEhQ3I", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "jeVNVDi49Dai5OnMPeh98sMi6i0", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "race-car-wheels", "parent": "root", "length": 341.11, "x": -103.67, "y": -109.5 },
 	{ "name": "race-car", "parent": "race-car-wheels", "length": 130.33, "rotation": -90, "x": 120.68, "y": 152.85 }
 ],
 "slots": [
-	{ "name": "bg", "bone": "root", "attachment": "bg" },
+	{ "name": "bg", "bone": "root" },
 	{ "name": "race-car", "bone": "race-car", "attachment": "race-car" },
 	{ "name": "race-car-wheels", "bone": "race-car-wheels", "attachment": "race-car-wheels" }
 ],
 "skins": {
 	"default": {
-		"bg": {
-			"bg": { "width": 800, "height": 800 }
-		},
 		"race-car": {
 			"race-car": { "x": 43.35, "y": 66.66, "rotation": 90, "width": 472, "height": 220 }
 		},

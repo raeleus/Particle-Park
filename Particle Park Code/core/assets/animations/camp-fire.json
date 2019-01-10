@@ -1,20 +1,17 @@
 {
-"skeleton": { "hash": "wNMR33ZU8LbUPuAccwuVvlYzE00", "spine": "3.7.86", "width": 841.12, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "HXRvrNdSjg3ixmu6ElZaItkBmL0", "spine": "3.7.86", "width": 841.12, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "star", "parent": "root", "length": 48.76, "x": -437.73, "y": 358.11 }
 ],
 "slots": [
-	{ "name": "bg", "bone": "root", "attachment": "bg" },
+	{ "name": "bg", "bone": "root" },
 	{ "name": "camp-fire", "bone": "root", "attachment": "camp-fire" },
 	{ "name": "moon", "bone": "root", "attachment": "moon" },
 	{ "name": "star", "bone": "star", "attachment": "star" }
 ],
 "skins": {
 	"default": {
-		"bg": {
-			"bg": { "width": 800, "height": 800 }
-		},
 		"camp-fire": {
 			"camp-fire": { "y": -233.34, "width": 317, "height": 205 }
 		},

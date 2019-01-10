@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "pW9Y9xyk4Pir1ru2j1fbjM7vHbk", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "WgNcAHBUzc0aGTe9As7MmwuVBTA", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone", "parent": "root", "rotation": 0.63, "color": "abe323ff" },
@@ -8,7 +8,7 @@
 	{ "name": "gun-slide", "parent": "gun-base", "length": 336.51, "rotation": -0.78, "x": -40.02, "y": 86.96 }
 ],
 "slots": [
-	{ "name": "bg", "bone": "root", "attachment": "bg" },
+	{ "name": "bg", "bone": "root" },
 	{ "name": "gun-base", "bone": "gun-base", "attachment": "gun-base" },
 	{ "name": "gun-slide", "bone": "gun-slide", "attachment": "gun-slide" },
 	{ "name": "gun-slide-clip", "bone": "gun-slide", "attachment": "gun-slide-clip" },
@@ -28,9 +28,6 @@
 ],
 "skins": {
 	"default": {
-		"bg": {
-			"bg": { "width": 800, "height": 800 }
-		},
 		"cartridge": {
 			"cartridge": { "x": 0.51, "y": 0.03, "rotation": 0.21, "width": 55, "height": 35 }
 		},

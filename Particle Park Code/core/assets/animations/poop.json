@@ -1,11 +1,11 @@
 {
-"skeleton": { "hash": "w5P2+iuZAq4HImxyUXF/enZlRck", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "cwnPZgv0CdzmAb6TaqmOAdtwY6A", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "fly", "parent": "root", "length": 24.2, "rotation": -1.04, "x": 216.05, "y": 93.43 }
 ],
 "slots": [
-	{ "name": "bg", "bone": "root", "attachment": "bg" },
+	{ "name": "bg", "bone": "root" },
 	{ "name": "poop", "bone": "root", "attachment": "poop" },
 	{ "name": "fly", "bone": "fly", "attachment": "fly" },
 	{ "name": "fly-path", "bone": "root", "attachment": "fly-path" }
@@ -20,9 +20,6 @@
 ],
 "skins": {
 	"default": {
-		"bg": {
-			"bg": { "width": 800, "height": 800 }
-		},
 		"fly": {
 			"fly": { "x": 2.1, "y": -0.04, "rotation": 1.04, "width": 10, "height": 11 }
 		},

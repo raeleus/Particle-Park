@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "9L3Nrpo5LVCePSw4aYvTDywHsec", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "X3CbgLdcKaJ2FbdySPkYOwvhGTA", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone3", "parent": "root", "x": -90.77, "y": -213.74, "color": "ff3f00ff" },
@@ -45,7 +45,7 @@
 	{ "name": "head", "parent": "chest", "length": 76.21, "rotation": 0.18, "x": 143.59, "y": -5.7 }
 ],
 "slots": [
-	{ "name": "bg", "bone": "root", "attachment": "bg" },
+	{ "name": "bg", "bone": "root" },
 	{ "name": "hip", "bone": "hip", "attachment": "hip" },
 	{ "name": "chest", "bone": "chest", "attachment": "chest" },
 	{ "name": "head", "bone": "head", "attachment": "head" },
@@ -71,9 +71,6 @@
 ],
 "skins": {
 	"default": {
-		"bg": {
-			"bg": { "width": 800, "height": 800 }
-		},
 		"chest": {
 			"chest": { "x": 49.36, "y": -1.87, "rotation": -88.7, "width": 175, "height": 182 }
 		},

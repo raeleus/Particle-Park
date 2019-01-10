@@ -1,12 +1,12 @@
 {
-"skeleton": { "hash": "mmok1M/51FOlZaa6RW88SK8q67Y", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "gbT2zJOu6rBjDpFxqDyf3aICvtk", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "train", "parent": "root", "length": 295, "rotation": -179.81, "x": 198.95, "y": -69.83 },
 	{ "name": "train-arm", "parent": "train", "length": 110.2, "rotation": 0.18, "x": 216.83, "y": 57.71 }
 ],
 "slots": [
-	{ "name": "bg", "bone": "root", "attachment": "bg" },
+	{ "name": "bg", "bone": "root" },
 	{ "name": "train", "bone": "train", "attachment": "train" },
 	{ "name": "train-arm", "bone": "train-arm", "attachment": "train-arm" },
 	{ "name": "arm-path", "bone": "train", "attachment": "arm-path" }
@@ -30,9 +30,6 @@
 				"vertexCount": 6,
 				"vertices": [ 215.7, 20.85, 216.83, 57.71, 217.93, 93.86, 159.72, 95.67, 159.69, 59.18, 159.66, 19.97 ]
 			}
-		},
-		"bg": {
-			"bg": { "width": 800, "height": 800 }
 		},
 		"train": {
 			"train": { "x": 198.72, "y": -70.5, "rotation": 179.81, "width": 466, "height": 334 }

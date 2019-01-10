@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "y6kzXo0okarGl2Zfbfo1Xqx275k", "spine": "3.7.86", "width": 904.28, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "QFySSsSuVIFhPl/gnvBu9iQUPhA", "spine": "3.7.86", "width": 904.28, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{
@@ -14,7 +14,7 @@
 	{ "name": "rock", "parent": "root", "length": 54.64, "x": -1050.45, "y": 25.9 }
 ],
 "slots": [
-	{ "name": "bg", "bone": "root", "attachment": "bg" },
+	{ "name": "bg", "bone": "root" },
 	{ "name": "window", "bone": "root", "attachment": "window" },
 	{ "name": "rock", "bone": "rock", "attachment": "rock" },
 	{ "name": "window-crack", "bone": "root", "attachment": "window-crack" }
@@ -33,9 +33,6 @@
 ],
 "skins": {
 	"default": {
-		"bg": {
-			"bg": { "width": 800, "height": 800 }
-		},
 		"rock": {
 			"rock": { "x": 5.75, "y": 1.44, "width": 45, "height": 42 }
 		},
