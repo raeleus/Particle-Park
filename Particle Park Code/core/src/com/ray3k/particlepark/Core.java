@@ -28,6 +28,12 @@ public class Core extends Game {
     public void create() {
         batch = new TwoColorPolygonBatch();
         
+        addAssets();
+        
+        setScreen(new LoadScreen(this));
+    }
+    
+    private void addAssets() {
         localAssetManager = new AssetManager(new LocalFileHandleResolver());
         localAssetManager.setLoader(SkeletonData.class, new SkeletonDataLoader(localAssetManager.getFileHandleResolver()));
         
@@ -51,8 +57,6 @@ public class Core extends Game {
         for (FileHandle fileHandle : getInternalFiles("sound")) {
             internalAssetManager.load(fileHandle.path(), Sound.class);
         }
-        
-        setScreen(new LoadScreen(this));
     }
     
     private Array<FileHandle> getInternalFiles(String internalFolder) {
