@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "jeVNVDi49Dai5OnMPeh98sMi6i0", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "jeVNVDi49Dai5OnMPeh98sMi6i0", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "race-car-wheels", "parent": "root", "length": 341.11, "x": -103.67, "y": -109.5 },

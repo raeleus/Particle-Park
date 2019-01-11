@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "JAeIxEdFYLvp7+1uHoYK3Z+SsRI", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "JAeIxEdFYLvp7+1uHoYK3Z+SsRI", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "rocket", "parent": "root", "length": 300.89, "rotation": 90, "y": -291.32 }

@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "HXRvrNdSjg3ixmu6ElZaItkBmL0", "spine": "3.7.86", "width": 841.12, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "HXRvrNdSjg3ixmu6ElZaItkBmL0", "spine": "3.7.87", "width": 841.12, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "star", "parent": "root", "length": 48.76, "x": -437.73, "y": 358.11 }

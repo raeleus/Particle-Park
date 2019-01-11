@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.ray3k.particlepark;
+package com.ray3k.particlepark.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -39,6 +39,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.ray3k.particlepark.Core;
 
 public class LoadScreen implements Screen {
     private final Core core;
@@ -71,7 +72,7 @@ public class LoadScreen implements Screen {
         
         if (!finishedLoading && core.internalAssetManager.update() && core.localAssetManager.update()) {
             finishedLoading = true;
-            progressBar.addAction(Actions.sequence(Actions.fadeOut(1f), new LoadingCompleteAction()));
+            progressBar.addAction(Actions.sequence(Actions.fadeOut(1f), new LoadingCompleteAction(core)));
         }
     }
 
@@ -137,9 +138,15 @@ public class LoadScreen implements Screen {
     }
     
     private static class LoadingCompleteAction extends Action {
+        private Core core;
+
+        public LoadingCompleteAction(Core core) {
+            this.core = core;
+        }
+        
         @Override
         public boolean act(float delta) {
-            System.out.println("hit");
+            core.setScreen(new TitleScreen(core));
             return true;
         }
         

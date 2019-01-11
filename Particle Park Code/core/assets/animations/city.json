@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "+gjdRww0EMzm5gV8D/TGFfeyIRw", "spine": "3.7.86", "width": 849, "height": 811.01, "images": "../output/1x/", "audio": "" },
+"skeleton": { "hash": "+gjdRww0EMzm5gV8D/TGFfeyIRw", "spine": "3.7.87", "width": 849, "height": 811.01, "images": "../output/1x/", "audio": "" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "city", "parent": "root", "length": 140.45, "y": -179.84 },

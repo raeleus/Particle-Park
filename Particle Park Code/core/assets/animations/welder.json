@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "OJi4tjwyFy23aS0CKF8ebvHLU7k", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "OJi4tjwyFy23aS0CKF8ebvHLU7k", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "welder-body", "parent": "root", "length": 473.39, "rotation": 90.42, "x": 1.73, "y": -169.44 },

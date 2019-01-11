@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "wki1UorbuaPinNTrDtggMNudosQ", "spine": "3.7.86", "width": 800, "height": 881, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "wki1UorbuaPinNTrDtggMNudosQ", "spine": "3.7.87", "width": 800, "height": 881, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "lightning-a", "parent": "root", "x": -239.04, "y": -5.98 },

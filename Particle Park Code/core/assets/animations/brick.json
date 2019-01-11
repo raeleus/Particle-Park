@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "pts2tawqBMDw8mZ3bRk8dXPFAxU", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "pts2tawqBMDw8mZ3bRk8dXPFAxU", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "brick", "parent": "root", "length": 325.01, "rotation": 89.54, "x": 179.18, "y": 15.81 }

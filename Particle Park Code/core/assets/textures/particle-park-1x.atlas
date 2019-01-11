@@ -1,0 +1,313 @@
+
+particle-park-1x.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+brick
+  rotate: false
+  xy: 1313, 36
+  size: 475, 362
+  orig: 475, 362
+  offset: 0, 0
+  index: -1
+brick-mouth
+  rotate: true
+  xy: 690, 37
+  size: 260, 56
+  orig: 260, 56
+  offset: 0, 0
+  index: -1
+brick-mouth-angry
+  rotate: true
+  xy: 1, 9
+  size: 270, 133
+  orig: 270, 133
+  offset: 0, 0
+  index: -1
+camp-fire
+  rotate: true
+  xy: 1830, 1302
+  size: 317, 205
+  orig: 317, 205
+  offset: 0, 0
+  index: -1
+cartridge
+  rotate: false
+  xy: 656, 1181
+  size: 55, 35
+  orig: 55, 35
+  offset: 0, 0
+  index: -1
+chest
+  rotate: true
+  xy: 1056, 132
+  size: 175, 182
+  orig: 175, 182
+  offset: 0, 0
+  index: -1
+city
+  rotate: true
+  xy: 785, 1222
+  size: 825, 484
+  orig: 825, 484
+  offset: 0, 0
+  index: -1
+city-foreground
+  rotate: true
+  xy: 381, 1198
+  size: 849, 229
+  orig: 849, 229
+  offset: 0, 0
+  index: -1
+cloud
+  rotate: false
+  xy: 1604, 1621
+  size: 341, 228
+  orig: 341, 228
+  offset: 0, 0
+  index: -1
+droplet
+  rotate: true
+  xy: 572, 4
+  size: 25, 51
+  orig: 25, 51
+  offset: 0, 0
+  index: -1
+fly
+  rotate: true
+  xy: 136, 1
+  size: 10, 11
+  orig: 10, 11
+  offset: 0, 0
+  index: -1
+foot-left
+  rotate: false
+  xy: 1122, 1129
+  size: 113, 91
+  orig: 113, 91
+  offset: 0, 0
+  index: -1
+foot-right
+  rotate: true
+  xy: 1056, 8
+  size: 122, 91
+  orig: 122, 91
+  offset: 0, 0
+  index: -1
+gun-base
+  rotate: false
+  xy: 136, 13
+  size: 434, 266
+  orig: 434, 266
+  offset: 0, 0
+  index: -1
+gun-slide
+  rotate: true
+  xy: 1244, 3
+  size: 395, 67
+  orig: 395, 67
+  offset: 0, 0
+  index: -1
+hand
+  rotate: false
+  xy: 1122, 985
+  size: 74, 70
+  orig: 74, 70
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 1149, 32
+  size: 76, 98
+  orig: 76, 98
+  offset: 0, 0
+  index: -1
+hip
+  rotate: false
+  xy: 1122, 1057
+  size: 109, 70
+  orig: 109, 70
+  offset: 0, 0
+  index: -1
+lightning-a-1
+  rotate: false
+  xy: 936, 401
+  size: 184, 819
+  orig: 184, 819
+  offset: 0, 0
+  index: -1
+lightning-a-2
+  rotate: false
+  xy: 612, 1218
+  size: 171, 829
+  orig: 171, 829
+  offset: 0, 0
+  index: -1
+lightning-a-3
+  rotate: false
+  xy: 742, 389
+  size: 192, 827
+  orig: 192, 827
+  offset: 0, 0
+  index: -1
+lightning-b-1
+  rotate: false
+  xy: 1, 281
+  size: 375, 881
+  orig: 375, 881
+  offset: 0, 0
+  index: -1
+lightning-b-2
+  rotate: false
+  xy: 1, 1164
+  size: 378, 883
+  orig: 378, 883
+  offset: 0, 0
+  index: -1
+lightning-b-3
+  rotate: false
+  xy: 378, 299
+  size: 362, 863
+  orig: 362, 863
+  offset: 0, 0
+  index: -1
+logo
+  rotate: false
+  xy: 742, 309
+  size: 500, 78
+  orig: 500, 78
+  offset: 0, 0
+  index: -1
+moon
+  rotate: false
+  xy: 754, 7
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: -1
+rock
+  rotate: true
+  xy: 612, 1171
+  size: 45, 42
+  orig: 45, 42
+  offset: 0, 0
+  index: -1
+rocket
+  rotate: true
+  xy: 1604, 1278
+  size: 341, 224
+  orig: 341, 224
+  offset: 0, 0
+  index: -1
+star
+  rotate: false
+  xy: 149, 1
+  size: 10, 10
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
+train-arm
+  rotate: false
+  xy: 625, 7
+  size: 127, 22
+  orig: 127, 22
+  offset: 0, 0
+  index: -1
+tub
+  rotate: true
+  xy: 1244, 594
+  size: 626, 784
+  orig: 626, 784
+  offset: 0, 0
+  index: -1
+welder-body
+  rotate: false
+  xy: 1271, 1277
+  size: 331, 572
+  orig: 331, 572
+  offset: 0, 0
+  index: -1
+welder-hand-left
+  rotate: true
+  xy: 1880, 465
+  size: 127, 165
+  orig: 127, 165
+  offset: 0, 0
+  index: -1
+welder-hand-right
+  rotate: false
+  xy: 1790, 175
+  size: 251, 223
+  orig: 251, 223
+  offset: 0, 0
+  index: -1
+welder-table
+  rotate: false
+  xy: 1271, 1851
+  size: 761, 196
+  orig: 761, 196
+  offset: 0, 0
+  index: -1
+window
+  rotate: true
+  xy: 1122, 400
+  size: 192, 756
+  orig: 192, 756
+  offset: 0, 0
+  index: -1
+window-crack
+  rotate: false
+  xy: 572, 31
+  size: 116, 266
+  orig: 116, 266
+  offset: 0, 0
+  index: -1
+
+particle-park-1x2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+park
+  rotate: false
+  xy: 1, 811
+  size: 810, 514
+  orig: 810, 514
+  offset: 0, 0
+  index: -1
+poop
+  rotate: false
+  xy: 469, 476
+  size: 331, 333
+  orig: 331, 333
+  offset: 0, 0
+  index: -1
+race-car
+  rotate: false
+  xy: 813, 1105
+  size: 472, 220
+  orig: 472, 220
+  offset: 0, 0
+  index: -1
+race-car-wheels
+  rotate: true
+  xy: 1, 1
+  size: 472, 220
+  orig: 472, 220
+  offset: 0, 0
+  index: -1
+train
+  rotate: false
+  xy: 1, 475
+  size: 466, 334
+  orig: 466, 334
+  offset: 0, 0
+  index: -1
+welder-head
+  rotate: false
+  xy: 813, 852
+  size: 189, 251
+  orig: 189, 251
+  offset: 0, 0
+  index: -1

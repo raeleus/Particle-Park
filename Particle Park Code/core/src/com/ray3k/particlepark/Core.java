@@ -13,11 +13,13 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Array;
 import com.esotericsoftware.spine.SkeletonData;
+import com.esotericsoftware.spine.SkeletonRenderer;
 import com.esotericsoftware.spine.utils.TwoColorPolygonBatch;
 import com.ray3k.particlepark.SkeletonDataLoader.SkeletonDataLoaderParameter;
 import java.io.IOException;
 import java.net.URL;
 import java.security.CodeSource;
+import java.util.Locale;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -26,10 +28,13 @@ public class Core extends Game {
     public AssetManager localAssetManager;
     public AssetManager internalAssetManager;
     public PlayList<Music> playList;
+    public SkeletonRenderer skeletonRenderer;
     
     @Override
     public void create() {
         batch = new TwoColorPolygonBatch();
+        skeletonRenderer = new SkeletonRenderer();
+        skeletonRenderer.setPremultipliedAlpha(true);
         
         addAssets();
         
@@ -46,11 +51,13 @@ public class Core extends Game {
         internalAssetManager.load("Particle Park UI/Particle Park UI.json", Skin.class);
         
         for (FileHandle atlasHandle : getInternalFiles("textures")) {
-            SkeletonDataLoaderParameter parameter = new SkeletonDataLoaderParameter(atlasHandle.path());
-            for (FileHandle fileHandle : getInternalFiles("animations")) {
-                internalAssetManager.load(fileHandle.path(), SkeletonData.class, parameter);
+            if (atlasHandle.extension().toLowerCase(Locale.ROOT).equals("atlas")) {
+                SkeletonDataLoaderParameter parameter = new SkeletonDataLoaderParameter(atlasHandle.path());
+                for (FileHandle fileHandle : getInternalFiles("animations")) {
+                    internalAssetManager.load(fileHandle.path(), SkeletonData.class, parameter);
+                }
+                break;
             }
-            break;
         }
         
         for (FileHandle fileHandle : getInternalFiles("music")) {

@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "cwnPZgv0CdzmAb6TaqmOAdtwY6A", "spine": "3.7.86", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "cwnPZgv0CdzmAb6TaqmOAdtwY6A", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "fly", "parent": "root", "length": 24.2, "rotation": -1.04, "x": 216.05, "y": 93.43 }
