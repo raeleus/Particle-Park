@@ -27,6 +27,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -36,7 +37,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationStateData;
 import com.esotericsoftware.spine.Event;
@@ -49,6 +52,7 @@ import com.ray3k.particlepark.Core;
  * @author Raymond
  */
 public class TitleScreen implements Screen {
+    private Viewport spineViewport;
     private Stage stage;
     private Skin skin;
     private Label label;
@@ -58,6 +62,8 @@ public class TitleScreen implements Screen {
     private long parkSoundID;
 
     public TitleScreen(Core core) {
+        spineViewport = new FitViewport(800, 800, new OrthographicCamera());
+        
         this.core = core;
         stage = new Stage(new ScreenViewport(), core.batch);
         Gdx.input.setInputProcessor(stage);
@@ -95,17 +101,18 @@ public class TitleScreen implements Screen {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         
-        core.batch.setProjectionMatrix(stage.getCamera().combined);
+        core.batch.setProjectionMatrix(spineViewport.getCamera().combined);
+        spineViewport.apply();
         core.batch.begin();
         core.batch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA);
         animationState.update(delta);
-        skeleton.setPosition(Gdx.graphics.getWidth() / 2.0f, Gdx.graphics.getWidth() / 2.0f);
         skeleton.updateWorldTransform();
         animationState.apply(skeleton);
         core.skeletonRenderer.draw(core.batch, skeleton);
         core.batch.end();
         
         core.batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+        stage.getViewport().apply();
         stage.act();
         stage.draw();
     }
@@ -113,6 +120,7 @@ public class TitleScreen implements Screen {
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);
+        spineViewport.update(width, height, true);
     }
 
     @Override
@@ -166,13 +174,14 @@ public class TitleScreen implements Screen {
         
         animationState.setAnimation(0, "reveal", false);
         animationState.apply(skeleton);
+        skeleton.setPosition(400, 400);
+        skeleton.updateWorldTransform();
     }
     
     private void fadeOutParkSound() {
         stage.addAction(Actions.sequence(new TemporalAction(1.0f) {
             @Override
             protected void update(float percent) {
-                System.out.println(percent);
                 TitleScreen.this.core.internalAssetManager.get("sound/park.ogg", Sound.class).setVolume(parkSoundID, 1 - percent);
             }
         }, new Action() {
