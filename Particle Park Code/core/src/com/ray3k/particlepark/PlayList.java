@@ -70,4 +70,12 @@ public class PlayList<T> {
     public void setIndex(int index) {
         this.index = index;
     }
+    
+    public void shuffle() {
+        list.shuffle();
+    }
+    
+    public Array<T> getAll() {
+        return list;
+    }
 }
