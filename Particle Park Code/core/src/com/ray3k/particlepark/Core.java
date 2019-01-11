@@ -1,11 +1,13 @@
 package com.ray3k.particlepark;
 
+import com.ray3k.particlepark.screens.LoadScreen;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.assets.loaders.resolvers.LocalFileHandleResolver;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Music.OnCompletionListener;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -23,6 +25,7 @@ public class Core extends Game {
     public TwoColorPolygonBatch batch;
     public AssetManager localAssetManager;
     public AssetManager internalAssetManager;
+    public PlayList<Music> playList;
     
     @Override
     public void create() {
@@ -96,6 +99,29 @@ public class Core extends Game {
         }
         
         return assetFiles;
+    }
+    
+    public void playSong() {
+        if (playList == null) {
+            playList = new PlayList<Music>();
+            Array<Music> musics = internalAssetManager.getAll(Music.class, new Array<Music>());
+            playList.addAll(musics.toArray());
+        }
+        
+        if (playList.getIndex() == 0) {
+            OnCompletionListener listener = new Music.OnCompletionListener() {
+                @Override
+                public void onCompletion(Music music) {
+                    playList.next().play();
+                }
+            };
+            for (Music music : playList.getAll()) {
+                music.setOnCompletionListener(listener);
+            }
+            
+            playList.shuffle();
+            playList.next().play();
+        }
     }
 
     @Override
