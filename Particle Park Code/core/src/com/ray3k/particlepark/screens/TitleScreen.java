@@ -156,6 +156,7 @@ public class TitleScreen implements Screen {
                     label.addAction(Actions.sequence(Actions.fadeOut(.5f), Actions.delay(.5f), new Action() {
                         @Override
                         public boolean act(float delta) {
+                            core.setScreen(new MenuScreen(core));
                             return true;
                         }
                     }));
