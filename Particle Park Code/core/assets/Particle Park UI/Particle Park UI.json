@@ -14,6 +14,12 @@ com.badlogic.gdx.graphics.g2d.BitmapFont: {
 	}
 }
 com.badlogic.gdx.graphics.Color: {
+	bg: {
+		r: 0.3529412
+		g: 0.38039216
+		b: 0.43529412
+		a: 1
+	}
 	black: {
 		r: 0
 		g: 0
@@ -64,6 +70,10 @@ com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable: {
 		name: white
 		color: highlight
 	}
+	bg: {
+		name: white
+		color: bg
+	}
 }
 com.badlogic.gdx.scenes.scene2d.utils.TiledDrawable: {
 	progress-bar-knob-t: {
@@ -109,6 +119,28 @@ com.badlogic.gdx.scenes.scene2d.ui.CheckBox$CheckBoxStyle: {
 }
 com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle: {
 	default: {
+		up: button-normal
+		down: button-normal-pressed
+		over: button-normal-over
+		focused: button-normal-over
+	}
+	bgm: {
+		imageUp: icon-bgm
+		imageDown: icon-bgm-checked
+		imageOver: icon-bgm-over
+		imageChecked: icon-bgm-checked
+		imageCheckedOver: icon-bgm-checked-over
+		up: button-normal
+		down: button-normal-pressed
+		over: button-normal-over
+		focused: button-normal-over
+	}
+	sfx: {
+		imageUp: icon-sfx
+		imageDown: icon-sfx-checked
+		imageOver: icon-sfx-over
+		imageChecked: icon-sfx-checked
+		imageCheckedOver: icon-sfx-checked-over
 		up: button-normal
 		down: button-normal-pressed
 		over: button-normal-over
@@ -174,6 +206,11 @@ com.badlogic.gdx.scenes.scene2d.ui.ScrollPane$ScrollPaneStyle: {
 	}
 	list: {
 		background: list
+		hScrollKnob: scrollbar
+		vScrollKnob: scrollbar
+	}
+	bg: {
+		background: table-bg
 		hScrollKnob: scrollbar
 		vScrollKnob: scrollbar
 	}
