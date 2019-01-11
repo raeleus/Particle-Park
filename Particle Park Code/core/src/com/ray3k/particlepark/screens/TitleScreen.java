@@ -31,6 +31,7 @@ import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.actions.TemporalAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -54,6 +55,7 @@ public class TitleScreen implements Screen {
     private Core core;
     private Skeleton skeleton;
     private AnimationState animationState;
+    private long parkSoundID;
 
     public TitleScreen(Core core) {
         this.core = core;
@@ -77,6 +79,7 @@ public class TitleScreen implements Screen {
                 animationState.setAnimation(0, "hide", false);
                 Gdx.input.setInputProcessor(null);
                 TitleScreen.this.core.internalAssetManager.get("sound/woosh.ogg", Sound.class).play();
+                fadeOutParkSound();
             }
         });
         
@@ -135,9 +138,6 @@ public class TitleScreen implements Screen {
         AnimationStateData animationStateData = new AnimationStateData(skeletonData);
         animationStateData.setDefaultMix(.25f);
         animationState = new AnimationState(animationStateData);
-        animationState.setAnimation(0, "reveal", false);
-        animationState.apply(skeleton);
-        
         animationState.addListener(new AnimationState.AnimationStateAdapter() {
             @Override
             public void event(AnimationState.TrackEntry entry, Event event) {
@@ -154,7 +154,7 @@ public class TitleScreen implements Screen {
                 } else if (name.equals("boing")) {
                     core.internalAssetManager.get("sound/boing.ogg", Sound.class).play();
                 } else if (name.equals("park")) {
-                    core.internalAssetManager.get("sound/park.ogg", Sound.class).play();
+                    parkSoundID = core.internalAssetManager.get("sound/park.ogg", Sound.class).play(1.0f);
                 } else if (name.equals("tap")) {
                     core.internalAssetManager.get("sound/tap.ogg", Sound.class).play();
                 } else if (name.equals("woosh")) {
@@ -163,5 +163,24 @@ public class TitleScreen implements Screen {
             }
             
         });
+        
+        animationState.setAnimation(0, "reveal", false);
+        animationState.apply(skeleton);
+    }
+    
+    private void fadeOutParkSound() {
+        stage.addAction(Actions.sequence(new TemporalAction(1.0f) {
+            @Override
+            protected void update(float percent) {
+                System.out.println(percent);
+                TitleScreen.this.core.internalAssetManager.get("sound/park.ogg", Sound.class).setVolume(parkSoundID, 1 - percent);
+            }
+        }, new Action() {
+            @Override
+            public boolean act(float delta) {
+                TitleScreen.this.core.internalAssetManager.get("sound/park.ogg", Sound.class).stop();
+                return true;
+            }
+        }));
     }
 }
