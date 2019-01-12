@@ -115,6 +115,10 @@ public class Core extends Game {
             playList = new PlayList<Music>();
             Array<Music> musics = internalAssetManager.getAll(Music.class, new Array<Music>());
             playList.addAll(musics.toArray());
+            
+            for (Music music : musics) {
+                music.setVolume(.5f);
+            }
         }
         
         if (playList.getIndex() == 0) {

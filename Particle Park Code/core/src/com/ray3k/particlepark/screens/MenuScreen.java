@@ -25,10 +25,12 @@ package com.ray3k.particlepark.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.actions.TemporalAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.HorizontalGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -37,6 +39,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.ray3k.particlepark.Core;
 
@@ -87,96 +91,19 @@ public class MenuScreen implements Screen {
         root.add(scrollPane).grow().padTop(5);
         stage.setScrollFocus(scrollPane);
         
-        Button button = new Button(skin);
-        horizontalGroup.addActor(button);
-        button.addListener(core.handListener);
-        
-        image = new Image(skin, "thumb-city");
-        button.add(image);
-        
-        button = new Button(skin);
-        horizontalGroup.addActor(button);
-        button.addListener(core.handListener);
-        
-        image = new Image(skin, "thumb-welder");
-        button.add(image);
-        
-        button = new Button(skin);
-        horizontalGroup.addActor(button);
-        button.addListener(core.handListener);
-        
-        image = new Image(skin, "thumb-camp-fire");
-        button.add(image);
-        
-        button = new Button(skin);
-        horizontalGroup.addActor(button);
-        button.addListener(core.handListener);
-        
-        image = new Image(skin, "thumb-tub");
-        button.add(image);
-        
-        button = new Button(skin);
-        horizontalGroup.addActor(button);
-        button.addListener(core.handListener);
-        
-        image = new Image(skin, "thumb-race-car");
-        button.add(image);
-        
-        button = new Button(skin);
-        horizontalGroup.addActor(button);
-        button.addListener(core.handListener);
-        
-        image = new Image(skin, "thumb-space-ship");
-        button.add(image);
-        
-        button = new Button(skin);
-        horizontalGroup.addActor(button);
-        button.addListener(core.handListener);
-        
-        image = new Image(skin, "thumb-poop");
-        button.add(image);
-        
-        button = new Button(skin);
-        horizontalGroup.addActor(button);
-        button.addListener(core.handListener);
-        
-        image = new Image(skin, "thumb-window");
-        button.add(image);
-        
-        button = new Button(skin);
-        horizontalGroup.addActor(button);
-        button.addListener(core.handListener);
-        
-        image = new Image(skin, "thumb-gun");
-        button.add(image);
-        
-        button = new Button(skin);
-        horizontalGroup.addActor(button);
-        button.addListener(core.handListener);
-        
-        image = new Image(skin, "thumb-train");
-        button.add(image);
-        
-        button = new Button(skin);
-        horizontalGroup.addActor(button);
-        button.addListener(core.handListener);
-        
-        image = new Image(skin, "thumb-brick");
-        button.add(image);
-        
-        button = new Button(skin);
-        horizontalGroup.addActor(button);
-        button.addListener(core.handListener);
-        
-        image = new Image(skin, "thumb-cloud");
-        button.add(image);
-        
-        button = new Button(skin);
-        horizontalGroup.addActor(button);
-        button.addListener(core.handListener);
-        
-        image = new Image(skin, "thumb-fighter");
-        button.add(image);
+        horizontalGroup.addActor(createSceneButton("animations/city.json", "animation", "thumb-city"));
+        horizontalGroup.addActor(createSceneButton("animations/welder.json", "animation", "thumb-welder"));
+        horizontalGroup.addActor(createSceneButton("animations/camp-fire.json", "animation", "thumb-camp-fire"));
+        horizontalGroup.addActor(createSceneButton("animations/tub.json", "animation", "thumb-tub"));
+        horizontalGroup.addActor(createSceneButton("animations/race-car.json", "animation", "thumb-race-car"));
+        horizontalGroup.addActor(createSceneButton("animations/space-ship.json", "animation", "thumb-space-ship"));
+        horizontalGroup.addActor(createSceneButton("animations/poop.json", "animation", "thumb-poop"));
+        horizontalGroup.addActor(createSceneButton("animations/window.json", "animation", "thumb-window"));
+        horizontalGroup.addActor(createSceneButton("animations/gun.json", "animation", "thumb-gun"));
+        horizontalGroup.addActor(createSceneButton("animations/train.json", "animation", "thumb-train"));
+        horizontalGroup.addActor(createSceneButton("animations/brick.json", "animation", "thumb-brick"));
+        horizontalGroup.addActor(createSceneButton("animations/cloud.json", "animation", "thumb-cloud"));
+        horizontalGroup.addActor(createSceneButton("animations/fighter.json", "animation", "thumb-fighter"));
         
         root.row();
         label = new Label("Copyright 2019 Raymond Buckley", skin);
@@ -197,8 +124,41 @@ public class MenuScreen implements Screen {
         imageButton.addListener(core.handListener);
     }
     
+    private Button createSceneButton(final String animationPath, final String animationName, String thumbnailName) {
+        Button button = new Button(skin);
+        button.addListener(core.handListener);
+        button.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeListener.ChangeEvent event, Actor actor) {
+                core.setScreen(new DemoScreen(core, animationPath, animationName));
+            }
+        });
+        
+        Image image = new Image(skin, thumbnailName);
+        button.add(image);
+        
+        return button;
+    }
+    
     @Override
     public void show() {
+        Array<Music> musics = core.internalAssetManager.getAll(Music.class, new Array<Music>());
+        for (final Music music : musics) {
+            stage.addAction(new TemporalAction(1.0f) {
+                private float startVolume;
+                private float targetVolume;
+                
+                {
+                    startVolume = music.getVolume();
+                    targetVolume = .5f;
+                }
+                
+                @Override
+                protected void update(float percent) {
+                    music.setVolume((1 - percent) * (startVolume - targetVolume) + targetVolume);
+                }
+            });
+        }
     }
 
     @Override

@@ -100,6 +100,11 @@ com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
 		down: spinner-down-pressed
 		over: spinner-down-over
 	}
+	close: {
+		up: button-close
+		down: button-close-pressed
+		over: button-close-over
+	}
 }
 com.badlogic.gdx.scenes.scene2d.ui.CheckBox$CheckBoxStyle: {
 	default: {
@@ -141,6 +146,15 @@ com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle: {
 		imageOver: icon-sfx-over
 		imageChecked: icon-sfx-checked
 		imageCheckedOver: icon-sfx-checked-over
+		up: button-normal
+		down: button-normal-pressed
+		over: button-normal-over
+		focused: button-normal-over
+	}
+	menu: {
+		imageUp: icon-menu
+		imageDown: icon-menu-over
+		imageOver: icon-menu-over
 		up: button-normal
 		down: button-normal-pressed
 		over: button-normal-over

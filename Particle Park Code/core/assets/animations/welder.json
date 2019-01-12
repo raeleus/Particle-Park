@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "OJi4tjwyFy23aS0CKF8ebvHLU7k", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "d5t65lmeu9fyl1HY/vY2+TiG280", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "welder-body", "parent": "root", "length": 473.39, "rotation": 90.42, "x": 1.73, "y": -169.44 },
@@ -94,7 +94,8 @@
 			}
 		},
 		"events": [
-			{ "time": 0.6667, "name": "welding" }
+			{ "time": 0.6667, "name": "welding" },
+			{ "time": 1, "name": "welder" }
 		]
 	}
 }
