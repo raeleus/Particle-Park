@@ -1,20 +1,21 @@
 {
-"skeleton": { "hash": "wki1UorbuaPinNTrDtggMNudosQ", "spine": "3.7.87", "width": 800, "height": 881, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "E0HFDkDg27B+scZtIVyptPAYsIw", "spine": "3.7.87", "width": 800, "height": 881, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "lightning-a", "parent": "root", "x": -239.04, "y": -5.98 },
-	{ "name": "lightning-b", "parent": "root", "x": 201.69, "y": -23.9 }
+	{ "name": "lightning-b", "parent": "root", "x": 201.69, "y": -23.9 },
+	{ "name": "cloud", "parent": "root", "length": 209.48, "rotation": -1.23, "x": -23.23, "y": 228.78 }
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
-	{ "name": "cloud", "bone": "root", "attachment": "cloud" },
+	{ "name": "cloud", "bone": "cloud", "attachment": "cloud" },
 	{ "name": "lightning-a", "bone": "lightning-a", "attachment": "lightning-a-1" },
 	{ "name": "lightning-b", "bone": "lightning-b", "attachment": "lightning-b-1" }
 ],
 "skins": {
 	"default": {
 		"cloud": {
-			"cloud": { "y": 247.21, "width": 341, "height": 228 }
+			"cloud": { "x": 22.83, "y": 18.93, "rotation": 1.23, "width": 341, "height": 228 }
 		},
 		"lightning-a": {
 			"lightning-a-1": { "y": 0.5, "width": 184, "height": 819 },
@@ -61,6 +62,50 @@
 			{ "time": 0, "name": "rain" },
 			{ "time": 0.5333, "name": "thunder2" }
 		]
+	},
+	"hide": {
+		"slots": {
+			"lightning-a": {
+				"color": [
+					{ "time": 0, "color": "ffffff00" }
+				]
+			},
+			"lightning-b": {
+				"color": [
+					{ "time": 0, "color": "ffffff00" }
+				]
+			}
+		},
+		"bones": {
+			"cloud": {
+				"translate": [
+					{ "time": 0, "x": 0, "y": 0 },
+					{ "time": 0.6667, "x": 0, "y": 306.27 }
+				]
+			}
+		}
+	},
+	"show": {
+		"slots": {
+			"lightning-a": {
+				"color": [
+					{ "time": 0, "color": "ffffff00" }
+				]
+			},
+			"lightning-b": {
+				"color": [
+					{ "time": 0, "color": "ffffff00" }
+				]
+			}
+		},
+		"bones": {
+			"cloud": {
+				"translate": [
+					{ "time": 0, "x": 0, "y": 306.27 },
+					{ "time": 0.6667, "x": 0, "y": 0 }
+				]
+			}
+		}
 	}
 }
 }

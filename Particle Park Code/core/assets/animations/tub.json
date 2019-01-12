@@ -1,12 +1,13 @@
 {
-"skeleton": { "hash": "EdO6qK83fstzAgZlqfzgbqxWzMo", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "XKFyX7UQxe5dd9wq005Qsqq6A5o", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
-	{ "name": "droplet", "parent": "root", "length": 51.96, "rotation": -90, "x": 37.63, "y": 288.5 }
+	{ "name": "droplet", "parent": "root", "length": 51.96, "rotation": -90, "x": 37.63, "y": 288.5 },
+	{ "name": "tub", "parent": "root", "length": 421.13, "rotation": 0.31, "x": -18.73, "y": -190.1 }
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
-	{ "name": "tub", "bone": "root", "attachment": "tub" },
+	{ "name": "tub", "bone": "tub", "attachment": "tub" },
 	{ "name": "clip", "bone": "root", "attachment": "clip" },
 	{ "name": "droplet", "bone": "droplet", "attachment": "droplet" }
 ],
@@ -25,7 +26,7 @@
 			"droplet": { "x": 23.68, "y": 0.09, "rotation": 90, "width": 25, "height": 51 }
 		},
 		"tub": {
-			"tub": { "width": 626, "height": 784 }
+			"tub": { "x": 19.74, "y": 189.99, "rotation": -0.31, "width": 626, "height": 784 }
 		}
 	}
 },
@@ -54,6 +55,50 @@
 		"events": [
 			{ "time": 0.8, "name": "drop" }
 		]
+	},
+	"hide": {
+		"slots": {
+			"droplet": {
+				"attachment": [
+					{ "time": 0, "name": null }
+				]
+			}
+		},
+		"bones": {
+			"tub": {
+				"scale": [
+					{
+						"time": 0,
+						"x": 1,
+						"y": 1,
+						"curve": [ 0.25, 0, 0.952, 0.48 ]
+					},
+					{ "time": 0.8667, "x": 1, "y": 0 }
+				]
+			}
+		}
+	},
+	"show": {
+		"slots": {
+			"droplet": {
+				"attachment": [
+					{ "time": 0, "name": null }
+				]
+			}
+		},
+		"bones": {
+			"tub": {
+				"scale": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.25, 0, 0.488, 1.62 ]
+					},
+					{ "time": 0.8667, "x": 1, "y": 1 }
+				]
+			}
+		}
 	}
 }
 }

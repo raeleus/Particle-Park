@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "d5t65lmeu9fyl1HY/vY2+TiG280", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "cydvXRrr7p2fLv+rG0awrYQrhNs", "spine": "3.7.87", "width": 800, "height": 1471.43, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "welder-body", "parent": "root", "length": 473.39, "rotation": 90.42, "x": 1.73, "y": -169.44 },
@@ -97,6 +97,58 @@
 			{ "time": 0.6667, "name": "welding" },
 			{ "time": 1, "name": "welder" }
 		]
+	},
+	"hide": {
+		"bones": {
+			"welder-body": {
+				"translate": [
+					{
+						"time": 0.5667,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.382, 0.01, 0.566, 1 ]
+					},
+					{ "time": 1.1667, "x": 0, "y": -808.47 }
+				]
+			},
+			"welder-table": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.382, 0.01, 0.566, 1 ]
+					},
+					{ "time": 0.5667, "x": 0, "y": -452.65 }
+				]
+			}
+		}
+	},
+	"show": {
+		"bones": {
+			"welder-body": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 664.34,
+						"curve": [ 0.25, 0, 0.326, 0.97 ]
+					},
+					{ "time": 0.6667, "x": 0, "y": 0 }
+				]
+			},
+			"welder-table": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 896.3,
+						"y": 0,
+						"curve": [ 0.25, 0, 0.326, 0.97 ]
+					},
+					{ "time": 0.6667, "x": 0, "y": 0 }
+				]
+			}
+		}
 	}
 }
 }

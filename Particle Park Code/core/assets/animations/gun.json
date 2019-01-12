@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "WgNcAHBUzc0aGTe9As7MmwuVBTA", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "+3xZpE4Jlqw0VFpNvr7T28uDMWA", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone", "parent": "root", "rotation": 0.63, "color": "abe323ff" },
@@ -110,6 +110,38 @@
 		"events": [
 			{ "time": 0.0333, "name": "pistol" }
 		]
+	},
+	"hide": {
+		"slots": {
+			"gun-base": {
+				"color": [
+					{ "time": 0, "color": "ffffffff" },
+					{ "time": 0.8333, "color": "ffffff00" }
+				]
+			},
+			"gun-slide": {
+				"color": [
+					{ "time": 0, "color": "ffffffff" },
+					{ "time": 0.8333, "color": "ffffff00" }
+				]
+			}
+		}
+	},
+	"show": {
+		"slots": {
+			"gun-base": {
+				"color": [
+					{ "time": 0, "color": "ffffff00" },
+					{ "time": 0.8333, "color": "ffffffff" }
+				]
+			},
+			"gun-slide": {
+				"color": [
+					{ "time": 0, "color": "ffffff00" },
+					{ "time": 0.8333, "color": "ffffffff" }
+				]
+			}
+		}
 	}
 }
 }

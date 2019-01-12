@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "gbT2zJOu6rBjDpFxqDyf3aICvtk", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "naSQVekk9Hy+S/tkLx6gqVsGdmY", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "train", "parent": "root", "length": 295, "rotation": -179.81, "x": 198.95, "y": -69.83 },
@@ -82,6 +82,31 @@
 		"events": [
 			{ "time": 0, "name": "train" }
 		]
+	},
+	"hide": {
+		"slots": {
+			"train": {
+				"color": [
+					{ "time": 0, "color": "ffffffff" },
+					{ "time": 0.8333, "color": "ffffff00" }
+				]
+			},
+			"train-arm": {
+				"color": [
+					{ "time": 0, "color": "ffffffff" },
+					{ "time": 0.8333, "color": "ffffff00" }
+				]
+			}
+		}
+	},
+	"show": {
+		"bones": {
+			"train": {
+				"translate": [
+					{ "time": 0, "x": 647.89, "y": 0 }
+				]
+			}
+		}
 	}
 }
 }

@@ -68,14 +68,12 @@ public class DemoScreen implements Screen {
     private Skeleton skeleton;
     private AnimationState animationState;
     private String animationPath;
-    private String animationName;
     private Dialog dialog;
     private ImageButton menuButton;
 
-    public DemoScreen(Core core, String animationPath, String animationName) {
+    public DemoScreen(Core core, String animationPath) {
         this.core = core;
         this.animationPath = animationPath;
-        this.animationName = animationName;
         
         spineViewport = new FitViewport(800, 800, new OrthographicCamera());
         
@@ -170,6 +168,10 @@ public class DemoScreen implements Screen {
                 for (Sound sound : sounds) {
                     sound.stop();
                 }
+                
+                if (entry.getAnimation().getName().equals("hide")) {
+                    core.setScreen(new MenuScreen(core));
+                }
             }
             
             @Override
@@ -184,7 +186,8 @@ public class DemoScreen implements Screen {
             
         });
         
-        animationState.setAnimation(0, animationName, true);
+        animationState.setAnimation(0, "show", false);
+        animationState.addAnimation(0, "animation", true, 2);
         animationState.apply(skeleton);
         skeleton.setPosition(400, 400);
         skeleton.updateWorldTransform();
@@ -245,7 +248,11 @@ public class DemoScreen implements Screen {
             textButton.addListener(new ChangeListener() {
                 @Override
                 public void changed(ChangeListener.ChangeEvent event, Actor actor) {
-                    core.setScreen(new MenuScreen(core));
+                    Gdx.input.setInputProcessor(null);
+                    
+                    animationState.setAnimation(0, "hide", false);
+                    
+                    stage.getRoot().addAction(Actions.fadeOut(.5f));
                 }
             });
             

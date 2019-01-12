@@ -91,19 +91,19 @@ public class MenuScreen implements Screen {
         root.add(scrollPane).grow().padTop(5);
         stage.setScrollFocus(scrollPane);
         
-        horizontalGroup.addActor(createSceneButton("animations/city.json", "animation", "thumb-city"));
-        horizontalGroup.addActor(createSceneButton("animations/welder.json", "animation", "thumb-welder"));
-        horizontalGroup.addActor(createSceneButton("animations/camp-fire.json", "animation", "thumb-camp-fire"));
-        horizontalGroup.addActor(createSceneButton("animations/tub.json", "animation", "thumb-tub"));
-        horizontalGroup.addActor(createSceneButton("animations/race-car.json", "animation", "thumb-race-car"));
-        horizontalGroup.addActor(createSceneButton("animations/space-ship.json", "animation", "thumb-space-ship"));
-        horizontalGroup.addActor(createSceneButton("animations/poop.json", "animation", "thumb-poop"));
-        horizontalGroup.addActor(createSceneButton("animations/window.json", "animation", "thumb-window"));
-        horizontalGroup.addActor(createSceneButton("animations/gun.json", "animation", "thumb-gun"));
-        horizontalGroup.addActor(createSceneButton("animations/train.json", "animation", "thumb-train"));
-        horizontalGroup.addActor(createSceneButton("animations/brick.json", "animation", "thumb-brick"));
-        horizontalGroup.addActor(createSceneButton("animations/cloud.json", "animation", "thumb-cloud"));
-        horizontalGroup.addActor(createSceneButton("animations/fighter.json", "animation", "thumb-fighter"));
+        horizontalGroup.addActor(createSceneButton("animations/city.json", "thumb-city"));
+        horizontalGroup.addActor(createSceneButton("animations/welder.json", "thumb-welder"));
+        horizontalGroup.addActor(createSceneButton("animations/camp-fire.json", "thumb-camp-fire"));
+        horizontalGroup.addActor(createSceneButton("animations/tub.json", "thumb-tub"));
+        horizontalGroup.addActor(createSceneButton("animations/race-car.json", "thumb-race-car"));
+        horizontalGroup.addActor(createSceneButton("animations/space-ship.json", "thumb-space-ship"));
+        horizontalGroup.addActor(createSceneButton("animations/poop.json", "thumb-poop"));
+        horizontalGroup.addActor(createSceneButton("animations/window.json", "thumb-window"));
+        horizontalGroup.addActor(createSceneButton("animations/gun.json", "thumb-gun"));
+        horizontalGroup.addActor(createSceneButton("animations/train.json", "thumb-train"));
+        horizontalGroup.addActor(createSceneButton("animations/brick.json", "thumb-brick"));
+        horizontalGroup.addActor(createSceneButton("animations/cloud.json", "thumb-cloud"));
+        horizontalGroup.addActor(createSceneButton("animations/fighter.json", "thumb-fighter"));
         
         root.row();
         label = new Label("Copyright 2019 Raymond Buckley", skin);
@@ -124,13 +124,13 @@ public class MenuScreen implements Screen {
         imageButton.addListener(core.handListener);
     }
     
-    private Button createSceneButton(final String animationPath, final String animationName, String thumbnailName) {
+    private Button createSceneButton(final String animationPath, String thumbnailName) {
         Button button = new Button(skin);
         button.addListener(core.handListener);
         button.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeListener.ChangeEvent event, Actor actor) {
-                core.setScreen(new DemoScreen(core, animationPath, animationName));
+                core.setScreen(new DemoScreen(core, animationPath));
             }
         });
         

@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "wVSxSkfLEE7JZoNo50ax7zvHvLA", "spine": "3.7.87", "width": 849, "height": 811.01, "images": "../output/1x/", "audio": "" },
+"skeleton": { "hash": "mKjVMuG1lqtasNq35WM+ybSzHoo", "spine": "3.7.87", "width": 849, "height": 836.02, "images": "../output/1x/", "audio": "" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "city", "parent": "root", "length": 140.45, "y": -179.84 },
@@ -22,6 +22,46 @@
 },
 "animations": {
 	"animation": {
+		"bones": {
+			"city": {
+				"translate": [
+					{ "time": 0, "x": 0, "y": 25 }
+				]
+			},
+			"city-foreground": {
+				"translate": [
+					{ "time": 0, "x": 0, "y": -25 }
+				]
+			}
+		}
+	},
+	"hide": {
+		"bones": {
+			"city": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 25,
+						"curve": [ 0.25, 0, 0.824, 0.37 ]
+					},
+					{ "time": 1, "x": 0, "y": -511.11 }
+				]
+			},
+			"city-foreground": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": -25,
+						"curve": [ 0.25, 0, 0.824, 0.37 ]
+					},
+					{ "time": 1, "x": 0, "y": -561.12 }
+				]
+			}
+		}
+	},
+	"show": {
 		"bones": {
 			"city": {
 				"translate": [

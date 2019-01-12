@@ -1,22 +1,24 @@
 {
-"skeleton": { "hash": "HXRvrNdSjg3ixmu6ElZaItkBmL0", "spine": "3.7.87", "width": 841.12, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "kZD2Q4tUTPCp3+lD/HOoxTXFF3E", "spine": "3.7.87", "width": 841.12, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
-	{ "name": "star", "parent": "root", "length": 48.76, "x": -437.73, "y": 358.11 }
+	{ "name": "star", "parent": "root", "length": 48.76, "x": -437.73, "y": 358.11 },
+	{ "name": "moon", "parent": "root", "length": 254.49, "rotation": 0.51, "x": 195.21, "y": 183.74 },
+	{ "name": "camp-fire", "parent": "root", "length": 313.03, "x": -0.71, "y": -235.14 }
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
-	{ "name": "camp-fire", "bone": "root", "attachment": "camp-fire" },
-	{ "name": "moon", "bone": "root", "attachment": "moon" },
+	{ "name": "camp-fire", "bone": "camp-fire", "attachment": "camp-fire" },
+	{ "name": "moon", "bone": "moon", "attachment": "moon" },
 	{ "name": "star", "bone": "star", "attachment": "star" }
 ],
 "skins": {
 	"default": {
 		"camp-fire": {
-			"camp-fire": { "y": -233.34, "width": 317, "height": 205 }
+			"camp-fire": { "x": 0.71, "y": 1.8, "width": 317, "height": 205 }
 		},
 		"moon": {
-			"moon": { "x": 207.79, "y": 179.18, "width": 300, "height": 300 }
+			"moon": { "x": 12.53, "y": -4.66, "rotation": -0.51, "width": 300, "height": 300 }
 		},
 		"star": {
 			"star": { "x": 1.61, "y": 0.1, "width": 10, "height": 10 }
@@ -28,17 +30,77 @@
 },
 "animations": {
 	"animation": {
+		"slots": {
+			"star": {
+				"attachment": [
+					{ "time": 0.5, "name": null },
+					{ "time": 5.3333, "name": "star" }
+				]
+			}
+		},
 		"bones": {
 			"star": {
 				"translate": [
 					{ "time": 0, "x": 0, "y": 0 },
-					{ "time": 0.5, "x": 928.84, "y": -319.36 }
+					{ "time": 0.5, "x": 928.84, "y": -319.36 },
+					{ "time": 5.3333, "x": 0, "y": 0 }
 				]
 			}
 		},
 		"events": [
 			{ "time": 0, "name": "fire" }
 		]
+	},
+	"hide": {
+		"slots": {
+			"camp-fire": {
+				"color": [
+					{
+						"time": 0,
+						"color": "ffffffff",
+						"curve": [ 0, 0.77, 0.75, 1 ]
+					},
+					{ "time": 1.2, "color": "ffffff00" }
+				]
+			},
+			"moon": {
+				"color": [
+					{
+						"time": 0,
+						"color": "ffffffff",
+						"curve": [ 0, 0.77, 0.75, 1 ]
+					},
+					{ "time": 1.2, "color": "ffffff00" }
+				]
+			}
+		}
+	},
+	"show": {
+		"bones": {
+			"moon": {
+				"translate": [
+					{ "time": 0, "x": 585.52, "y": 0, "curve": "stepped" },
+					{
+						"time": 0.1333,
+						"x": 585.52,
+						"y": 0,
+						"curve": [ 0.25, 0, 0.566, 2.32 ]
+					},
+					{ "time": 0.9667, "x": 0, "y": 0 }
+				]
+			},
+			"camp-fire": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 585.52,
+						"y": 0,
+						"curve": [ 0.25, 0, 0.566, 2.32 ]
+					},
+					{ "time": 0.8333, "x": 0, "y": 0 }
+				]
+			}
+		}
 	}
 }
 }

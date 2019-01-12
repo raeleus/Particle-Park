@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "jeVNVDi49Dai5OnMPeh98sMi6i0", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "430G5qFc8LgDmemYz+jDEDcWURY", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "race-car-wheels", "parent": "root", "length": 341.11, "x": -103.67, "y": -109.5 },
@@ -47,6 +47,31 @@
 			{ "time": 0.0333, "name": "drop car" },
 			{ "time": 0.4, "name": "burnout" }
 		]
+	},
+	"hide": {
+		"slots": {
+			"race-car": {
+				"color": [
+					{ "time": 0, "color": "ffffffff" },
+					{ "time": 1, "color": "ffffff00" }
+				]
+			},
+			"race-car-wheels": {
+				"color": [
+					{ "time": 0, "color": "ffffffff" },
+					{ "time": 1, "color": "ffffff00" }
+				]
+			}
+		}
+	},
+	"show": {
+		"bones": {
+			"race-car-wheels": {
+				"translate": [
+					{ "time": 0, "x": 0, "y": 516.49 }
+				]
+			}
+		}
 	}
 }
 }

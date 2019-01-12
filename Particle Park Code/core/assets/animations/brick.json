@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "pts2tawqBMDw8mZ3bRk8dXPFAxU", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "yvf5XAg48DMPaR2HNs74xt4WwLo", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "brick", "parent": "root", "length": 325.01, "rotation": 89.54, "x": 179.18, "y": 15.81 }
@@ -55,6 +55,36 @@
 			{ "time": 0.5, "name": "woosh2" },
 			{ "time": 0.6667, "name": "thud" }
 		]
+	},
+	"hide": {
+		"bones": {
+			"brick": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.572, 0.19, 0.884, 0.52 ]
+					},
+					{ "time": 0.5, "x": 0, "y": -792.7 }
+				]
+			}
+		}
+	},
+	"show": {
+		"bones": {
+			"brick": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 423.38,
+						"curve": [ 0.207, 0.55, 0.75, 1 ]
+					},
+					{ "time": 0.8333, "x": 0, "y": 0 }
+				]
+			}
+		}
 	}
 }
 }

@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "QFySSsSuVIFhPl/gnvBu9iQUPhA", "spine": "3.7.87", "width": 904.28, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "46IIA+UEHp4gB4HEFbheh/+3XkU", "spine": "3.7.87", "width": 904.28, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{
@@ -11,13 +11,14 @@
 		"y": -298.15,
 		"color": "abe323ff"
 	},
-	{ "name": "rock", "parent": "root", "length": 54.64, "x": -1050.45, "y": 25.9 }
+	{ "name": "rock", "parent": "root", "length": 54.64, "x": -1050.45, "y": 25.9 },
+	{ "name": "window", "parent": "root", "length": 241.01, "rotation": 1.07, "x": 204.22, "y": -9.94 }
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
-	{ "name": "window", "bone": "root", "attachment": "window" },
+	{ "name": "window", "bone": "window", "attachment": "window" },
 	{ "name": "rock", "bone": "rock", "attachment": "rock" },
-	{ "name": "window-crack", "bone": "root", "attachment": "window-crack" }
+	{ "name": "window-crack", "bone": "window", "attachment": "window-crack" }
 ],
 "transform": [
 	{
@@ -37,10 +38,10 @@
 			"rock": { "x": 5.75, "y": 1.44, "width": 45, "height": 42 }
 		},
 		"window": {
-			"window": { "x": 220.68, "y": 0.95, "width": 192, "height": 756 }
+			"window": { "x": 16.66, "y": 10.58, "rotation": -1.07, "width": 192, "height": 756 }
 		},
 		"window-crack": {
-			"window-crack": { "x": 212.05, "y": 5.27, "width": 116, "height": 266 }
+			"window-crack": { "x": 8.11, "y": 15.06, "rotation": -1.07, "width": 116, "height": 266 }
 		}
 	}
 },
@@ -93,6 +94,48 @@
 		"events": [
 			{ "time": 0.5, "name": "glass" }
 		]
+	},
+	"hide": {
+		"bones": {
+			"window": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.25, 0, 1, 0.41 ]
+					},
+					{ "time": 0.6667, "x": 0, "y": -801.71 }
+				]
+			}
+		}
+	},
+	"show": {
+		"slots": {
+			"window-crack": {
+				"attachment": [
+					{ "time": 0, "name": null }
+				]
+			}
+		},
+		"bones": {
+			"rock": {
+				"translate": [
+					{ "time": 0.0333, "x": 0, "y": -53.23 }
+				]
+			},
+			"window": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 328.79,
+						"y": 0,
+						"curve": [ 0.323, 0.53, 0.711, 2.12 ]
+					},
+					{ "time": 0.6667, "x": 0, "y": 0 }
+				]
+			}
+		}
 	}
 }
 }
