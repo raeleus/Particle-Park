@@ -29,12 +29,14 @@ public class Core extends Game {
     public AssetManager internalAssetManager;
     public PlayList<Music> playList;
     public SkeletonRenderer skeletonRenderer;
+    public HandListener handListener;
     
     @Override
     public void create() {
         batch = new TwoColorPolygonBatch();
         skeletonRenderer = new SkeletonRenderer();
         skeletonRenderer.setPremultipliedAlpha(true);
+        handListener = new HandListener();
         
         addAssets();
         

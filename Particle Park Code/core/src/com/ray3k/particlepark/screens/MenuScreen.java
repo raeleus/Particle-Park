@@ -89,78 +89,91 @@ public class MenuScreen implements Screen {
         
         Button button = new Button(skin);
         horizontalGroup.addActor(button);
+        button.addListener(core.handListener);
         
         image = new Image(skin, "thumb-city");
         button.add(image);
         
         button = new Button(skin);
         horizontalGroup.addActor(button);
+        button.addListener(core.handListener);
         
         image = new Image(skin, "thumb-welder");
         button.add(image);
         
         button = new Button(skin);
         horizontalGroup.addActor(button);
+        button.addListener(core.handListener);
         
         image = new Image(skin, "thumb-camp-fire");
         button.add(image);
         
         button = new Button(skin);
         horizontalGroup.addActor(button);
+        button.addListener(core.handListener);
         
         image = new Image(skin, "thumb-tub");
         button.add(image);
         
         button = new Button(skin);
         horizontalGroup.addActor(button);
+        button.addListener(core.handListener);
         
         image = new Image(skin, "thumb-race-car");
         button.add(image);
         
         button = new Button(skin);
         horizontalGroup.addActor(button);
+        button.addListener(core.handListener);
         
         image = new Image(skin, "thumb-space-ship");
         button.add(image);
         
         button = new Button(skin);
         horizontalGroup.addActor(button);
+        button.addListener(core.handListener);
         
         image = new Image(skin, "thumb-poop");
         button.add(image);
         
         button = new Button(skin);
         horizontalGroup.addActor(button);
+        button.addListener(core.handListener);
         
         image = new Image(skin, "thumb-window");
         button.add(image);
         
         button = new Button(skin);
         horizontalGroup.addActor(button);
+        button.addListener(core.handListener);
         
         image = new Image(skin, "thumb-gun");
         button.add(image);
         
         button = new Button(skin);
         horizontalGroup.addActor(button);
+        button.addListener(core.handListener);
         
         image = new Image(skin, "thumb-train");
         button.add(image);
         
         button = new Button(skin);
         horizontalGroup.addActor(button);
+        button.addListener(core.handListener);
         
         image = new Image(skin, "thumb-brick");
         button.add(image);
         
         button = new Button(skin);
         horizontalGroup.addActor(button);
+        button.addListener(core.handListener);
         
         image = new Image(skin, "thumb-cloud");
         button.add(image);
         
         button = new Button(skin);
         horizontalGroup.addActor(button);
+        button.addListener(core.handListener);
         
         image = new Image(skin, "thumb-fighter");
         button.add(image);
@@ -176,10 +189,12 @@ public class MenuScreen implements Screen {
         ImageButton imageButton = new ImageButton(skin, "bgm");
         imageButton.setChecked(true);
         table.add(imageButton).expand().bottom().right();
+        imageButton.addListener(core.handListener);
         
         imageButton = new ImageButton(skin, "sfx");
         imageButton.setChecked(true);
         table.add(imageButton).bottom();
+        imageButton.addListener(core.handListener);
     }
     
     @Override

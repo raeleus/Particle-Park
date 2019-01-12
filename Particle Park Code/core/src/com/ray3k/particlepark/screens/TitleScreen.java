@@ -26,11 +26,13 @@ package com.ray3k.particlepark.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.TemporalAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -74,6 +76,8 @@ public class TitleScreen implements Screen {
         root.setFillParent(true);
         stage.addActor(root);
         root.pad(20.0f);
+        root.setTouchable(Touchable.enabled);
+        root.addListener(core.handListener);
         
         label = new Label("Click anywhere to begin...", skin);
         label.setColor(1, 1, 1, 0);
@@ -84,6 +88,7 @@ public class TitleScreen implements Screen {
             public void clicked(InputEvent event, float x, float y) {
                 animationState.setAnimation(0, "hide", false);
                 Gdx.input.setInputProcessor(null);
+                Gdx.graphics.setSystemCursor(Cursor.SystemCursor.Arrow);
                 TitleScreen.this.core.internalAssetManager.get("sound/woosh.ogg", Sound.class).play();
                 fadeOutParkSound();
             }
