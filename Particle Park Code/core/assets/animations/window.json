@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "46IIA+UEHp4gB4HEFbheh/+3XkU", "spine": "3.7.87", "width": 904.28, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "m7QbVJz8KtZ5pzmSg61pxp1pK9E", "spine": "3.7.87", "width": 865.35, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{
@@ -26,6 +26,7 @@
 		"order": 0,
 		"bones": [ "rock" ],
 		"target": "bone",
+		"local": true,
 		"relative": true,
 		"rotateMix": 0,
 		"scaleMix": 0,
@@ -79,7 +80,8 @@
 						"y": 432.43,
 						"curve": [ 0.366, 0, 0.849, 0.55 ]
 					},
-					{ "time": 0.6667, "x": 0, "y": 0 }
+					{ "time": 0.6667, "x": 0, "y": 0, "curve": "stepped" },
+					{ "time": 2.1667, "x": 0, "y": 0 }
 				]
 			}
 		},
@@ -96,6 +98,14 @@
 		]
 	},
 	"hide": {
+		"slots": {
+			"rock": {
+				"color": [
+					{ "time": 0, "color": "ffffffff" },
+					{ "time": 0.6667, "color": "ffffff00" }
+				]
+			}
+		},
 		"bones": {
 			"window": {
 				"translate": [

@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "bzdA/cfGogNnVZt9N9CkIZwyWkk", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "RGIQXJhB75LCg+Yvqd7yLZ8NiEY", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone3", "parent": "root", "x": -90.77, "y": -213.74, "color": "ff3f00ff" },
@@ -191,6 +191,11 @@
 					{ "time": 0.1667, "angle": 12.43 },
 					{ "time": 0.3333, "angle": -0.31 },
 					{ "time": 0.6667, "angle": 0 }
+				]
+			},
+			"hand2": {
+				"rotate": [
+					{ "time": 2.6667, "angle": 0 }
 				]
 			}
 		},

@@ -27,6 +27,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Interpolation;
@@ -79,6 +80,9 @@ public class DemoScreen implements Screen {
         
         stage = new Stage(new ScreenViewport(), core.batch);
         Gdx.input.setInputProcessor(stage);
+        
+        stage.getRoot().setColor(1, 1, 1, 0);
+        stage.getRoot().addAction(Actions.fadeIn(.5f));
         
         skin = core.internalAssetManager.get("Particle Park UI/Particle Park UI.json", Skin.class);
         
@@ -178,7 +182,11 @@ public class DemoScreen implements Screen {
             public void event(AnimationState.TrackEntry entry, Event event) {
                 String audioPath = event.getData().getAudioPath();
                 if (audioPath != null) {
-                    core.internalAssetManager.get("sound/" + audioPath, Sound.class).play();
+                    if (event.getString() == null || event.getString().equals("")) {
+                        core.internalAssetManager.get("sound/" + audioPath, Sound.class).play();
+                    } else if (event.getString().equals("loop")) {
+                        core.internalAssetManager.get("sound/" + audioPath, Sound.class).loop();
+                    }
                 } else {
                     
                 }
@@ -249,8 +257,10 @@ public class DemoScreen implements Screen {
                 @Override
                 public void changed(ChangeListener.ChangeEvent event, Actor actor) {
                     Gdx.input.setInputProcessor(null);
+                    Gdx.graphics.setSystemCursor(Cursor.SystemCursor.Arrow);
                     
-                    animationState.setAnimation(0, "hide", false);
+                    animationState.getCurrent(0).setTimeScale(0);
+                    animationState.setAnimation(1, "hide", false);
                     
                     stage.getRoot().addAction(Actions.fadeOut(.5f));
                 }

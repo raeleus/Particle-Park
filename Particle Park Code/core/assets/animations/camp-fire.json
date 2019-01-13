@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "kZD2Q4tUTPCp3+lD/HOoxTXFF3E", "spine": "3.7.87", "width": 841.12, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "2lEBjmYbG2St7zc/6V3cu4+6/LQ", "spine": "3.7.87", "width": 841.12, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "star", "parent": "root", "length": 48.76, "x": -437.73, "y": 358.11 },
@@ -70,6 +70,12 @@
 						"color": "ffffffff",
 						"curve": [ 0, 0.77, 0.75, 1 ]
 					},
+					{ "time": 1.2, "color": "ffffff00" }
+				]
+			},
+			"star": {
+				"color": [
+					{ "time": 0, "color": "ffffffff" },
 					{ "time": 1.2, "color": "ffffff00" }
 				]
 			}

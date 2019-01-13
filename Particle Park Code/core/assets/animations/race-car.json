@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "430G5qFc8LgDmemYz+jDEDcWURY", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "LUqWUnHffjSTwaF9AGWEcN4MIaM", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "race-car-wheels", "parent": "root", "length": 341.11, "x": -103.67, "y": -109.5 },
@@ -32,7 +32,8 @@
 					{ "time": 0, "x": 0, "y": 516.49 },
 					{ "time": 0.4, "x": 0, "y": 21.01, "curve": "stepped" },
 					{ "time": 1.8333, "x": 0, "y": 21.01 },
-					{ "time": 2.2333, "x": 563.15, "y": 21.01 }
+					{ "time": 2.2333, "x": 563.15, "y": 21.01, "curve": "stepped" },
+					{ "time": 4.2667, "x": 563.15, "y": 21.01 }
 				]
 			},
 			"race-car": {
@@ -44,8 +45,8 @@
 			}
 		},
 		"events": [
-			{ "time": 0.0333, "name": "drop car" },
-			{ "time": 0.4, "name": "burnout" }
+			{ "time": 0.4, "name": "burnout" },
+			{ "time": 0.4, "name": "drop car" }
 		]
 	},
 	"hide": {

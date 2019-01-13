@@ -26,7 +26,9 @@ package com.ray3k.particlepark.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
@@ -130,7 +132,16 @@ public class MenuScreen implements Screen {
         button.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeListener.ChangeEvent event, Actor actor) {
-                core.setScreen(new DemoScreen(core, animationPath));
+                Gdx.input.setInputProcessor(null);
+                Gdx.graphics.setSystemCursor(Cursor.SystemCursor.Arrow);
+                
+                stage.getRoot().addAction(Actions.sequence(Actions.fadeOut(.5f), new Action() {
+                    @Override
+                    public boolean act(float delta) {
+                        core.setScreen(new DemoScreen(core, animationPath));
+                        return true;
+                    }
+                }));
             }
         });
         

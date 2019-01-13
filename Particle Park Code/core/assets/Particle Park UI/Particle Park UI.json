@@ -15,9 +15,9 @@ com.badlogic.gdx.graphics.g2d.BitmapFont: {
 }
 com.badlogic.gdx.graphics.Color: {
 	bg: {
-		r: 0.3529412
-		g: 0.38039216
-		b: 0.43529412
+		r: 0.20699523
+		g: 0.2235868
+		b: 0.2552941
 		a: 1
 	}
 	black: {

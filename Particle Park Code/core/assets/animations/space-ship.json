@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "FOpXhKtBLbdJe/q2mRolYQjgwiQ", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "CsQrwvmBV/c4+mKvidANb1aeTM8", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "rocket", "parent": "root", "length": 300.89, "rotation": 90, "y": -291.32 }
@@ -24,12 +24,13 @@
 			"rocket": {
 				"translate": [
 					{ "time": 0, "x": 0, "y": -423.17 },
-					{ "time": 4, "x": 0, "y": 729.98 }
+					{ "time": 16, "x": 0, "y": 729.98, "curve": "stepped" },
+					{ "time": 17, "x": 0, "y": 729.98 }
 				]
 			}
 		},
 		"events": [
-			{ "time": 0, "name": "rocket" }
+			{ "time": 0, "name": "rocket", "string": "loop" }
 		]
 	},
 	"hide": {

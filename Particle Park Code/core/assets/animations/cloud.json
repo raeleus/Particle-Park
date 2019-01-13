@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "E0HFDkDg27B+scZtIVyptPAYsIw", "spine": "3.7.87", "width": 800, "height": 881, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "ib4hT8MgQrBv1oYESqSnFqpv0ho", "spine": "3.7.87", "width": 800, "height": 881, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "lightning-a", "parent": "root", "x": -239.04, "y": -5.98 },
@@ -54,7 +54,8 @@
 				],
 				"attachment": [
 					{ "time": 0, "name": null },
-					{ "time": 1.2, "name": "lightning-b-2" }
+					{ "time": 1.2, "name": "lightning-b-2" },
+					{ "time": 9.9667, "name": "lightning-b-2" }
 				]
 			}
 		},
