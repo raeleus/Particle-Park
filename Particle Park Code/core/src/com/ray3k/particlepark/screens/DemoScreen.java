@@ -47,6 +47,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.ObjectMap;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -71,6 +72,7 @@ public class DemoScreen implements Screen {
     private String animationPath;
     private Dialog dialog;
     private ImageButton menuButton;
+    private ObjectMap<Sound, Array<Long>> soundMap;
 
     public DemoScreen(Core core, String animationPath) {
         this.core = core;
@@ -85,6 +87,8 @@ public class DemoScreen implements Screen {
         stage.getRoot().addAction(Actions.fadeIn(.5f));
         
         skin = core.internalAssetManager.get("Particle Park UI/Particle Park UI.json", Skin.class);
+        
+        soundMap = new ObjectMap<Sound, Array<Long>>();
         
         createMenu();
         loadAnimation();
@@ -182,10 +186,27 @@ public class DemoScreen implements Screen {
             public void event(AnimationState.TrackEntry entry, Event event) {
                 String audioPath = event.getData().getAudioPath();
                 if (audioPath != null) {
+                    Sound sound = core.internalAssetManager.get("sound/" + audioPath, Sound.class);
+                    long id = -1;
                     if (event.getString() == null || event.getString().equals("")) {
-                        core.internalAssetManager.get("sound/" + audioPath, Sound.class).play();
+                        if (core.preferences.getBoolean("sfx", true)) {
+                            id = sound.play();
+                        } else {
+                            id = sound.play(0);
+                        }
                     } else if (event.getString().equals("loop")) {
-                        core.internalAssetManager.get("sound/" + audioPath, Sound.class).loop();
+                        if (core.preferences.getBoolean("sfx", true)) {
+                            id = sound.loop();
+                        } else {
+                            id = sound.loop(0);
+                        }
+                    }
+                    
+                    if (id != -1) {
+                        if (!soundMap.containsKey(sound)) {
+                            soundMap.put(sound, new Array<Long>());
+                        }
+                        soundMap.get(sound).add(id);
                     }
                 } else {
                     
@@ -218,15 +239,50 @@ public class DemoScreen implements Screen {
             }
         });
         
-        ImageButton imageButton = new ImageButton(skin, "bgm");
-        imageButton.setChecked(true);
-        root.add(imageButton).expand().bottom().right();
-        imageButton.addListener(core.handListener);
+        final ImageButton bgmButton = new ImageButton(skin, "bgm");
+        bgmButton.setChecked(core.preferences.getBoolean("bgm", true));
+        root.add(bgmButton).expand().bottom().right();
+        bgmButton.addListener(core.handListener);
+        bgmButton.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeListener.ChangeEvent event, Actor actor) {
+                core.preferences.putBoolean("bgm", bgmButton.isChecked());
+                core.preferences.flush();
+                
+                if (bgmButton.isChecked()) {
+                    core.playSong();
+                } else {
+                    core.stopSong();
+                }
+            }
+        });
         
-        imageButton = new ImageButton(skin, "sfx");
-        imageButton.setChecked(true);
-        root.add(imageButton).bottom();
-        imageButton.addListener(core.handListener);
+        final ImageButton sfxButton = new ImageButton(skin, "sfx");
+        sfxButton.setChecked(core.preferences.getBoolean("sfx", true));
+        root.add(sfxButton).bottom();
+        sfxButton.addListener(core.handListener);
+        sfxButton.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeListener.ChangeEvent event, Actor actor) {
+                core.preferences.putBoolean("sfx", sfxButton.isChecked());
+                core.preferences.flush();
+                
+                Array<Sound> sounds = core.internalAssetManager.getAll(Sound.class, new Array<Sound>());
+                if (sfxButton.isChecked()) {
+                    for (Sound sound : sounds) {
+                        if (soundMap.get(sound) != null) for (long id : soundMap.get(sound)) {
+                            sound.setVolume(id, 1);
+                        }
+                    }
+                } else {
+                    for (Sound sound : sounds) {
+                        if (soundMap.get(sound) != null) for (long id : soundMap.get(sound)) {
+                            sound.setVolume(id, 0);
+                        }
+                    }
+                }
+            }
+        });
     }
     
     private void createWindow(Vector2 position) {

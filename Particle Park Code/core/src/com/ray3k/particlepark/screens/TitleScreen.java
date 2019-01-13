@@ -63,7 +63,7 @@ public class TitleScreen implements Screen {
     private AnimationState animationState;
     private long parkSoundID;
 
-    public TitleScreen(Core core) {
+    public TitleScreen(final Core core) {
         spineViewport = new FitViewport(800, 800, new OrthographicCamera());
         
         this.core = core;
@@ -89,8 +89,10 @@ public class TitleScreen implements Screen {
                 animationState.setAnimation(0, "hide", false);
                 Gdx.input.setInputProcessor(null);
                 Gdx.graphics.setSystemCursor(Cursor.SystemCursor.Arrow);
-                TitleScreen.this.core.internalAssetManager.get("sound/woosh.ogg", Sound.class).play();
-                fadeOutParkSound();
+                if (core.preferences.getBoolean("sfx", true)) {
+                    TitleScreen.this.core.internalAssetManager.get("sound/woosh.ogg", Sound.class).play();
+                    fadeOutParkSound();
+                }
             }
         });
         
@@ -166,13 +168,21 @@ public class TitleScreen implements Screen {
                         }
                     }));
                 } else if (name.equals("boing")) {
-                    core.internalAssetManager.get("sound/boing.ogg", Sound.class).play();
+                    if (core.preferences.getBoolean("sfx", true)) {
+                        core.internalAssetManager.get("sound/boing.ogg", Sound.class).play();
+                    }
                 } else if (name.equals("park")) {
-                    parkSoundID = core.internalAssetManager.get("sound/park.ogg", Sound.class).play(1.0f);
+                    if (core.preferences.getBoolean("sfx", true)) {
+                        parkSoundID = core.internalAssetManager.get("sound/park.ogg", Sound.class).play(1.0f);
+                    }
                 } else if (name.equals("tap")) {
-                    core.internalAssetManager.get("sound/tap.ogg", Sound.class).play();
+                    if (core.preferences.getBoolean("sfx", true)) {
+                        core.internalAssetManager.get("sound/tap.ogg", Sound.class).play();
+                    }
                 } else if (name.equals("woosh")) {
-                    core.internalAssetManager.get("sound/woosh.ogg", Sound.class).play();
+                    if (core.preferences.getBoolean("sfx", true)) {
+                        core.internalAssetManager.get("sound/woosh.ogg", Sound.class).play();
+                    }
                 }
             }
             

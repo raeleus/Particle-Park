@@ -3,6 +3,7 @@ package com.ray3k.particlepark;
 import com.ray3k.particlepark.screens.LoadScreen;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.assets.loaders.resolvers.LocalFileHandleResolver;
@@ -30,6 +31,7 @@ public class Core extends Game {
     public PlayList<Music> playList;
     public SkeletonRenderer skeletonRenderer;
     public HandListener handListener;
+    public Preferences preferences;
     
     @Override
     public void create() {
@@ -37,6 +39,7 @@ public class Core extends Game {
         skeletonRenderer = new SkeletonRenderer();
         skeletonRenderer.setPremultipliedAlpha(true);
         handListener = new HandListener();
+        preferences = Gdx.app.getPreferences("particle-park");
         
         addAssets();
         
@@ -111,15 +114,7 @@ public class Core extends Game {
     }
     
     public void playSong() {
-        if (playList == null) {
-            playList = new PlayList<Music>();
-            Array<Music> musics = internalAssetManager.getAll(Music.class, new Array<Music>());
-            playList.addAll(musics.toArray());
-            
-            for (Music music : musics) {
-                music.setVolume(.5f);
-            }
-        }
+        createPlayList();
         
         if (playList.getIndex() == 0) {
             OnCompletionListener listener = new Music.OnCompletionListener() {
@@ -131,9 +126,27 @@ public class Core extends Game {
             for (Music music : playList.getAll()) {
                 music.setOnCompletionListener(listener);
             }
+        }
+        
+        playList.shuffle();
+        playList.next().play();
+    }
+    
+    public void stopSong() {
+        createPlayList();
+        
+        playList.getCurrent().stop();
+    }
+    
+    private void createPlayList() {
+        if (playList == null) {
+            playList = new PlayList<Music>();
+            Array<Music> musics = internalAssetManager.getAll(Music.class, new Array<Music>());
+            playList.addAll(musics.toArray());
             
-            playList.shuffle();
-            playList.next().play();
+            for (Music music : musics) {
+                music.setVolume(.5f);
+            }
         }
     }
 

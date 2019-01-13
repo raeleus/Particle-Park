@@ -58,7 +58,9 @@ public class MenuScreen implements Screen {
     public MenuScreen(Core core) {
         this.core = core;
         
-        core.playSong();
+        if (core.preferences.getBoolean("bgm", true)) {
+            core.playSong();
+        }
         
         stage = new Stage(new ScreenViewport(), core.batch);
         Gdx.input.setInputProcessor(stage);
@@ -115,15 +117,35 @@ public class MenuScreen implements Screen {
         table.setFillParent(true);
         stage.addActor(table);
         
-        ImageButton imageButton = new ImageButton(skin, "bgm");
-        imageButton.setChecked(true);
-        table.add(imageButton).expand().bottom().right();
-        imageButton.addListener(core.handListener);
+        final ImageButton bgmButton = new ImageButton(skin, "bgm");
+        bgmButton.setChecked(core.preferences.getBoolean("bgm", true));
+        table.add(bgmButton).expand().bottom().right();
+        bgmButton.addListener(core.handListener);
+        bgmButton.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeListener.ChangeEvent event, Actor actor) {
+                core.preferences.putBoolean("bgm", bgmButton.isChecked());
+                core.preferences.flush();
+                
+                if (bgmButton.isChecked()) {
+                    core.playSong();
+                } else {
+                    core.stopSong();
+                }
+            }
+        });
         
-        imageButton = new ImageButton(skin, "sfx");
-        imageButton.setChecked(true);
-        table.add(imageButton).bottom();
-        imageButton.addListener(core.handListener);
+        final ImageButton sfxButton = new ImageButton(skin, "sfx");
+        sfxButton.setChecked(core.preferences.getBoolean("sfx", true));
+        table.add(sfxButton).bottom();
+        sfxButton.addListener(core.handListener);
+        sfxButton.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeListener.ChangeEvent event, Actor actor) {
+                core.preferences.putBoolean("sfx", sfxButton.isChecked());
+                core.preferences.flush();
+            }
+        });
     }
     
     private Button createSceneButton(final String animationPath, String thumbnailName) {
