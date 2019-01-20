@@ -114,22 +114,27 @@ public class Core extends Game {
     }
     
     public void playSong() {
-        createPlayList();
-        
-        if (playList.getIndex() == 0) {
-            OnCompletionListener listener = new Music.OnCompletionListener() {
-                @Override
-                public void onCompletion(Music music) {
-                    playList.next().play();
+        if (playList == null) {
+            createPlayList();
+
+            if (playList.getIndex() == 0) {
+                OnCompletionListener listener = new Music.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(Music music) {
+                        playList.next().play();
+                    }
+                };
+                for (Music music : playList.getAll()) {
+                    music.setOnCompletionListener(listener);
                 }
-            };
-            for (Music music : playList.getAll()) {
-                music.setOnCompletionListener(listener);
             }
+
+            playList.shuffle();
         }
         
-        playList.shuffle();
-        playList.next().play();
+        if (!playList.getCurrent().isPlaying()) {
+            playList.next().play();
+        }
     }
     
     public void stopSong() {
