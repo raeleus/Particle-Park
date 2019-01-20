@@ -1,0 +1,488 @@
+{
+"skeleton": { "hash": "qq0XZggs12BpnstOlntJmhjUBdk", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../Particle Park Code/core/assets/sound/" },
+"bones": [
+	{ "name": "root" },
+	{ "name": "teleporter-pad", "parent": "root", "length": 162.53, "rotation": -0.35, "x": -36.54, "y": -37.82 },
+	{ "name": "teleporter sphere", "parent": "root", "length": 67.6, "rotation": 1.3, "x": -324.21, "y": 68.95 }
+],
+"slots": [
+	{ "name": "bg", "bone": "root" },
+	{ "name": "teleporter", "bone": "root", "attachment": "teleporter" },
+	{ "name": "teleporter-pad", "bone": "teleporter-pad", "attachment": "teleporter-pad" },
+	{ "name": "teleporter cursor", "bone": "root", "attachment": "teleporter cursor" },
+	{ "name": "teleporter sphere", "bone": "teleporter sphere", "attachment": "teleporter sphere" },
+	{ "name": "teleporter led", "bone": "root", "attachment": "teleporter led" },
+	{ "name": "teleporter led2", "bone": "root", "attachment": "teleporter led" },
+	{ "name": "portal", "bone": "teleporter-pad", "attachment": "portal" },
+	{ "name": "sphere", "bone": "teleporter sphere", "attachment": "sphere" }
+],
+"skins": {
+	"default": {
+		"portal": {
+			"portal": { "type": "point", "x": 10.43, "y": 98.23 }
+		},
+		"sphere": {
+			"sphere": { "type": "point", "x": 4.41, "y": -0.1 }
+		},
+		"teleporter": {
+			"teleporter": { "width": 770, "height": 245 }
+		},
+		"teleporter cursor": {
+			"teleporter cursor": { "x": 247.14, "y": 63.64, "rotation": -0.35, "width": 12, "height": 13 }
+		},
+		"teleporter led": {
+			"teleporter led": { "x": 311.67, "y": 0.9, "width": 12, "height": 12 }
+		},
+		"teleporter led2": {
+			"teleporter led": { "x": 326.53, "y": 0.98, "width": 12, "height": 12 }
+		},
+		"teleporter sphere": {
+			"teleporter sphere": { "x": 3.98, "y": -0.48, "rotation": -1.3, "width": 90, "height": 89 }
+		},
+		"teleporter-pad": {
+			"teleporter-pad": { "x": 13.88, "y": 0.47, "rotation": 0.35, "width": 308, "height": 97 }
+		}
+	}
+},
+"events": {
+	"portal": {},
+	"sphere": {},
+	"teleporter": { "audio": "teleporter.ogg" }
+},
+"animations": {
+	"animation": {
+		"slots": {
+			"teleporter cursor": {
+				"attachment": [
+					{ "time": 0.5333, "name": null },
+					{ "time": 1, "name": "teleporter cursor" },
+					{ "time": 1.5333, "name": null },
+					{ "time": 2, "name": "teleporter cursor" },
+					{ "time": 2.5333, "name": null },
+					{ "time": 3, "name": "teleporter cursor" },
+					{ "time": 3.5333, "name": null },
+					{ "time": 4, "name": "teleporter cursor" },
+					{ "time": 4.5333, "name": null },
+					{ "time": 5, "name": "teleporter cursor" },
+					{ "time": 5.5333, "name": null },
+					{ "time": 6, "name": "teleporter cursor" },
+					{ "time": 6.5333, "name": null },
+					{ "time": 7, "name": "teleporter cursor" },
+					{ "time": 7.5333, "name": null },
+					{ "time": 8, "name": "teleporter cursor" },
+					{ "time": 8.5333, "name": null },
+					{ "time": 9, "name": "teleporter cursor" },
+					{ "time": 9.5333, "name": null },
+					{ "time": 10, "name": "teleporter cursor" },
+					{ "time": 10.5333, "name": null },
+					{ "time": 11, "name": "teleporter cursor" },
+					{ "time": 11.5333, "name": null },
+					{ "time": 12, "name": "teleporter cursor" },
+					{ "time": 12.5333, "name": null },
+					{ "time": 13, "name": "teleporter cursor" },
+					{ "time": 13.5333, "name": null },
+					{ "time": 14, "name": "teleporter cursor" },
+					{ "time": 14.5333, "name": null },
+					{ "time": 15, "name": "teleporter cursor" },
+					{ "time": 15.5333, "name": null },
+					{ "time": 16.2667, "name": "teleporter cursor" }
+				]
+			},
+			"teleporter led": {
+				"color": [
+					{ "time": 0, "color": "ffffffff" },
+					{ "time": 1, "color": "ffffff00" },
+					{ "time": 2, "color": "ffffffff" },
+					{ "time": 3, "color": "ffffff00" },
+					{ "time": 4, "color": "ffffffff" },
+					{ "time": 5, "color": "ffffff00" },
+					{ "time": 6, "color": "ffffffff" },
+					{ "time": 7, "color": "ffffff00" },
+					{ "time": 8, "color": "ffffffff" },
+					{ "time": 9, "color": "ffffff00" },
+					{ "time": 10, "color": "ffffffff" },
+					{ "time": 11, "color": "ffffff00" },
+					{ "time": 12, "color": "ffffffff" },
+					{ "time": 13, "color": "ffffff00" },
+					{ "time": 14, "color": "ffffffff" },
+					{ "time": 15, "color": "ffffff00" },
+					{ "time": 16.2667, "color": "ffffffff" }
+				]
+			},
+			"teleporter led2": {
+				"color": [
+					{ "time": 0, "color": "ffffff00" },
+					{ "time": 1, "color": "ffffffff" },
+					{ "time": 2, "color": "ffffff00" },
+					{ "time": 3, "color": "ffffffff" },
+					{ "time": 4, "color": "ffffff00" },
+					{ "time": 5, "color": "ffffffff" },
+					{ "time": 6, "color": "ffffff00" },
+					{ "time": 7, "color": "ffffffff" },
+					{ "time": 8, "color": "ffffff00" },
+					{ "time": 9, "color": "ffffffff" },
+					{ "time": 10, "color": "ffffff00" },
+					{ "time": 11, "color": "ffffffff" },
+					{ "time": 12, "color": "ffffff00" },
+					{ "time": 13, "color": "ffffffff" },
+					{ "time": 14, "color": "ffffff00" },
+					{ "time": 15, "color": "ffffffff" },
+					{ "time": 16.2667, "color": "ffffff00" }
+				]
+			}
+		},
+		"bones": {
+			"teleporter-pad": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.301, 0.52, 0.57, 0.8 ]
+					},
+					{
+						"time": 4,
+						"x": 0,
+						"y": 16.9,
+						"curve": [ 0.25, 0, 0.557, 0.8 ]
+					},
+					{
+						"time": 8,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.301, 0.52, 0.57, 0.8 ]
+					},
+					{
+						"time": 12,
+						"x": 0,
+						"y": 16.9,
+						"curve": [ 0.25, 0, 0.557, 0.8 ]
+					},
+					{ "time": 16.2667, "x": 0, "y": 0 }
+				]
+			},
+			"teleporter sphere": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.544, 0.04, 0.413, 0.85 ]
+					},
+					{
+						"time": 0.5,
+						"x": 0,
+						"y": 7.26,
+						"curve": [ 0.678, 0.33, 0.512, 0.82 ]
+					},
+					{
+						"time": 1,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.544, 0.04, 0.413, 0.85 ]
+					},
+					{
+						"time": 1.5,
+						"x": 0,
+						"y": 7.26,
+						"curve": [ 0.678, 0.33, 0.512, 0.82 ]
+					},
+					{
+						"time": 2,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.544, 0.04, 0.413, 0.85 ]
+					},
+					{
+						"time": 2.5,
+						"x": 0,
+						"y": 7.26,
+						"curve": [ 0.678, 0.33, 0.512, 0.82 ]
+					},
+					{
+						"time": 3,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.544, 0.04, 0.413, 0.85 ]
+					},
+					{
+						"time": 3.5,
+						"x": 0,
+						"y": 7.26,
+						"curve": [ 0.678, 0.33, 0.512, 0.82 ]
+					},
+					{
+						"time": 4,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.544, 0.04, 0.413, 0.85 ]
+					},
+					{
+						"time": 4.5,
+						"x": 0,
+						"y": 7.26,
+						"curve": [ 0.678, 0.33, 0.512, 0.82 ]
+					},
+					{
+						"time": 5,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.544, 0.04, 0.413, 0.85 ]
+					},
+					{
+						"time": 5.5,
+						"x": 0,
+						"y": 7.26,
+						"curve": [ 0.678, 0.33, 0.512, 0.82 ]
+					},
+					{
+						"time": 6,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.544, 0.04, 0.413, 0.85 ]
+					},
+					{
+						"time": 6.5,
+						"x": 0,
+						"y": 7.26,
+						"curve": [ 0.678, 0.33, 0.512, 0.82 ]
+					},
+					{
+						"time": 7,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.544, 0.04, 0.413, 0.85 ]
+					},
+					{
+						"time": 7.5,
+						"x": 0,
+						"y": 7.26,
+						"curve": [ 0.678, 0.33, 0.512, 0.82 ]
+					},
+					{
+						"time": 8,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.544, 0.04, 0.413, 0.85 ]
+					},
+					{
+						"time": 8.5,
+						"x": 0,
+						"y": 7.26,
+						"curve": [ 0.678, 0.33, 0.512, 0.82 ]
+					},
+					{
+						"time": 9,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.544, 0.04, 0.413, 0.85 ]
+					},
+					{
+						"time": 9.5,
+						"x": 0,
+						"y": 7.26,
+						"curve": [ 0.678, 0.33, 0.512, 0.82 ]
+					},
+					{
+						"time": 10,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.544, 0.04, 0.413, 0.85 ]
+					},
+					{
+						"time": 10.5,
+						"x": 0,
+						"y": 7.26,
+						"curve": [ 0.678, 0.33, 0.512, 0.82 ]
+					},
+					{
+						"time": 11,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.544, 0.04, 0.413, 0.85 ]
+					},
+					{
+						"time": 11.5,
+						"x": 0,
+						"y": 7.26,
+						"curve": [ 0.678, 0.33, 0.512, 0.82 ]
+					},
+					{
+						"time": 12,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.544, 0.04, 0.413, 0.85 ]
+					},
+					{
+						"time": 12.5,
+						"x": 0,
+						"y": 7.26,
+						"curve": [ 0.678, 0.33, 0.512, 0.82 ]
+					},
+					{
+						"time": 13,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.544, 0.04, 0.413, 0.85 ]
+					},
+					{
+						"time": 13.5,
+						"x": 0,
+						"y": 7.26,
+						"curve": [ 0.678, 0.33, 0.512, 0.82 ]
+					},
+					{
+						"time": 14,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.544, 0.04, 0.413, 0.85 ]
+					},
+					{
+						"time": 14.5,
+						"x": 0,
+						"y": 7.26,
+						"curve": [ 0.678, 0.33, 0.512, 0.82 ]
+					},
+					{
+						"time": 15,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.544, 0.04, 0.413, 0.85 ]
+					},
+					{
+						"time": 15.5,
+						"x": 0,
+						"y": 7.26,
+						"curve": [ 0.678, 0.33, 0.512, 0.82 ]
+					},
+					{ "time": 16.2667, "x": 0, "y": 0 }
+				]
+			}
+		},
+		"events": [
+			{ "time": 0, "name": "portal", "string": "portal;start" },
+			{ "time": 0, "name": "sphere", "string": "sphere;start" },
+			{ "time": 0, "name": "teleporter" },
+			{ "time": 16.2667, "name": "portal", "string": "portal;stop" },
+			{ "time": 16.2667, "name": "sphere", "string": "sphere;stop" }
+		]
+	},
+	"hide": {
+		"slots": {
+			"teleporter": {
+				"color": [
+					{ "time": 1, "color": "ffffffff" },
+					{ "time": 2, "color": "ffffff00" }
+				]
+			},
+			"teleporter cursor": {
+				"color": [
+					{ "time": 1, "color": "ffffffff" },
+					{ "time": 2, "color": "ffffff00" }
+				]
+			},
+			"teleporter led": {
+				"color": [
+					{ "time": 1, "color": "ffffffff" },
+					{ "time": 2, "color": "ffffff00" }
+				]
+			},
+			"teleporter led2": {
+				"color": [
+					{ "time": 1, "color": "ffffffff" },
+					{ "time": 2, "color": "ffffff00" }
+				]
+			},
+			"teleporter sphere": {
+				"color": [
+					{ "time": 1, "color": "ffffffff" },
+					{ "time": 2, "color": "ffffff00" }
+				]
+			},
+			"teleporter-pad": {
+				"color": [
+					{ "time": 1, "color": "ffffffff" },
+					{ "time": 2, "color": "ffffff00" }
+				]
+			}
+		},
+		"bones": {
+			"teleporter-pad": {
+				"translate": [
+					{ "time": 0, "x": 0, "y": 0 },
+					{ "time": 1, "x": 0, "y": -30.36 }
+				]
+			},
+			"teleporter sphere": {
+				"translate": [
+					{ "time": 0, "x": 0, "y": 0 },
+					{ "time": 1, "x": 0, "y": -22.37 }
+				]
+			}
+		}
+	},
+	"show": {
+		"slots": {
+			"teleporter": {
+				"color": [
+					{ "time": 0, "color": "ffffff00" },
+					{ "time": 1, "color": "ffffffff" }
+				]
+			},
+			"teleporter cursor": {
+				"color": [
+					{ "time": 0, "color": "ffffff00" },
+					{ "time": 1, "color": "ffffffff" }
+				]
+			},
+			"teleporter led": {
+				"color": [
+					{ "time": 0, "color": "ffffff00" },
+					{ "time": 1, "color": "ffffffff" }
+				]
+			},
+			"teleporter led2": {
+				"color": [
+					{ "time": 0, "color": "ffffff00" }
+				]
+			},
+			"teleporter sphere": {
+				"color": [
+					{ "time": 0, "color": "ffffff00" },
+					{ "time": 1, "color": "ffffffff" }
+				]
+			},
+			"teleporter-pad": {
+				"color": [
+					{ "time": 0, "color": "ffffff00" },
+					{ "time": 1, "color": "ffffffff" }
+				]
+			}
+		},
+		"bones": {
+			"teleporter-pad": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 508.16,
+						"curve": [ 0.113, 0.69, 0.411, 1.01 ]
+					},
+					{ "time": 1, "x": 0, "y": 0 }
+				]
+			},
+			"teleporter sphere": {
+				"translate": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 412.28,
+						"curve": [ 0.113, 0.69, 0.411, 1.01 ]
+					},
+					{ "time": 1, "x": 0, "y": 0 }
+				]
+			}
+		}
+	}
+}
+}

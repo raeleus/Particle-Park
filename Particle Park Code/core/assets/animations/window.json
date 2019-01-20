@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "m7QbVJz8KtZ5pzmSg61pxp1pK9E", "spine": "3.7.87", "width": 865.35, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "lWkE9C8+s9cj2BcYud+QpGt4Rvw", "spine": "3.7.87", "width": 904.28, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{
@@ -18,7 +18,8 @@
 	{ "name": "bg", "bone": "root" },
 	{ "name": "window", "bone": "window", "attachment": "window" },
 	{ "name": "rock", "bone": "rock", "attachment": "rock" },
-	{ "name": "window-crack", "bone": "window", "attachment": "window-crack" }
+	{ "name": "window-crack", "bone": "window", "attachment": "window-crack" },
+	{ "name": "shards", "bone": "root", "attachment": "shards" }
 ],
 "transform": [
 	{
@@ -38,6 +39,9 @@
 		"rock": {
 			"rock": { "x": 5.75, "y": 1.44, "width": 45, "height": 42 }
 		},
+		"shards": {
+			"shards": { "type": "point", "x": 209.58 }
+		},
 		"window": {
 			"window": { "x": 16.66, "y": 10.58, "rotation": -1.07, "width": 192, "height": 756 }
 		},
@@ -47,7 +51,8 @@
 	}
 },
 "events": {
-	"glass": { "audio": "glass.ogg" }
+	"glass": { "audio": "glass.ogg" },
+	"shards": {}
 },
 "animations": {
 	"animation": {
@@ -94,7 +99,8 @@
 			}
 		],
 		"events": [
-			{ "time": 0.5, "name": "glass" }
+			{ "time": 0.5, "name": "glass" },
+			{ "time": 0.5, "name": "shards", "string": "shards" }
 		]
 	},
 	"hide": {

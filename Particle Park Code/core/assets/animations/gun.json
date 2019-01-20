@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "fjH1QNVpmlV4tgHfP4Q+TaGWjCM", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "cgYbsIduO/6uho43heI6SXSkCcg", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone", "parent": "root", "rotation": 0.63, "color": "abe323ff" },
@@ -12,7 +12,8 @@
 	{ "name": "gun-base", "bone": "gun-base", "attachment": "gun-base" },
 	{ "name": "gun-slide", "bone": "gun-slide", "attachment": "gun-slide" },
 	{ "name": "gun-slide-clip", "bone": "gun-slide", "attachment": "gun-slide-clip" },
-	{ "name": "cartridge", "bone": "cartridge", "attachment": "cartridge" }
+	{ "name": "cartridge", "bone": "cartridge", "attachment": "cartridge" },
+	{ "name": "muzzle", "bone": "gun-base", "attachment": "muzzle" }
 ],
 "transform": [
 	{
@@ -46,10 +47,14 @@
 				"vertices": [ 29.64, 87.1, 31.95, -4.08, 100.48, -1.53, 177.96, -0.44, 188.38, 3.16, 194.32, 11.52, 194.29, 22.54, 196.21, 89.3 ],
 				"color": "ce3a3aff"
 			}
+		},
+		"muzzle": {
+			"muzzle": { "type": "point", "x": 328.89, "y": 88.65 }
 		}
 	}
 },
 "events": {
+	"muzzle": {},
 	"pistol": { "audio": "pistol.ogg" }
 },
 "animations": {
@@ -110,6 +115,7 @@
 			}
 		],
 		"events": [
+			{ "time": 0.0333, "name": "muzzle", "string": "muzzle" },
 			{ "time": 0.0333, "name": "pistol" }
 		]
 	},

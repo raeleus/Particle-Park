@@ -108,6 +108,8 @@ public class MenuScreen implements Screen {
         horizontalGroup.addActor(createSceneButton("animations/brick.json", "thumb-brick"));
         horizontalGroup.addActor(createSceneButton("animations/cloud.json", "thumb-cloud"));
         horizontalGroup.addActor(createSceneButton("animations/fighter.json", "thumb-fighter"));
+        horizontalGroup.addActor(createSceneButton("animations/invaders.json", "thumb-invaders"));
+        horizontalGroup.addActor(createSceneButton("animations/portal.json", "thumb-portal"));
         
         root.row();
         label = new Label("Copyright 2019 Raymond Buckley", skin);

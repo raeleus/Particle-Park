@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "RGIQXJhB75LCg+Yvqd7yLZ8NiEY", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "uUnXSHUugpsxg1HnafzNTpzBI20", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone3", "parent": "root", "x": -90.77, "y": -213.74, "color": "ff3f00ff" },
@@ -52,7 +52,8 @@
 	{ "name": "foot-left", "bone": "foot-left", "attachment": "foot-left" },
 	{ "name": "foot-right", "bone": "foot-right", "attachment": "foot-right" },
 	{ "name": "hand", "bone": "hand", "attachment": "hand" },
-	{ "name": "hand2", "bone": "hand2", "attachment": "hand" }
+	{ "name": "hand2", "bone": "hand2", "attachment": "hand" },
+	{ "name": "fireball", "bone": "root", "attachment": "fireball" }
 ],
 "ik": [
 	{
@@ -73,6 +74,9 @@
 	"default": {
 		"chest": {
 			"chest": { "x": 49.36, "y": -1.87, "rotation": -88.7, "width": 175, "height": 182 }
+		},
+		"fireball": {
+			"fireball": { "type": "point", "y": 134.56 }
 		},
 		"foot-left": {
 			"foot-left": { "x": 26.89, "y": -0.56, "rotation": 178.81, "width": 113, "height": 91 }
@@ -95,6 +99,7 @@
 	}
 },
 "events": {
+	"fireball": {},
 	"kung-fu": { "audio": "kung-fu.ogg" }
 },
 "animations": {
@@ -200,7 +205,8 @@
 			}
 		},
 		"events": [
-			{ "time": 0, "name": "kung-fu" }
+			{ "time": 0, "name": "kung-fu" },
+			{ "time": 0.3, "name": "fireball", "string": "fireball" }
 		]
 	},
 	"hide": {

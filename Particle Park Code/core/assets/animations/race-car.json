@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "LUqWUnHffjSTwaF9AGWEcN4MIaM", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "yl9rRHRpYMuXA6rE7YwidPDDxYs", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "race-car-wheels", "parent": "root", "length": 341.11, "x": -103.67, "y": -109.5 },
@@ -8,10 +8,22 @@
 "slots": [
 	{ "name": "bg", "bone": "root" },
 	{ "name": "race-car", "bone": "race-car", "attachment": "race-car" },
-	{ "name": "race-car-wheels", "bone": "race-car-wheels", "attachment": "race-car-wheels" }
+	{ "name": "race-car-wheels", "bone": "race-car-wheels", "attachment": "race-car-wheels" },
+	{ "name": "burn-out", "bone": "root", "attachment": "burn-out" },
+	{ "name": "dust-left", "bone": "root", "attachment": "dust-left" },
+	{ "name": "dust-right", "bone": "root", "attachment": "dust-right" }
 ],
 "skins": {
 	"default": {
+		"burn-out": {
+			"burn-out": { "type": "point", "x": -133.37, "y": -86.8 }
+		},
+		"dust-left": {
+			"dust-left": { "type": "point", "x": -124.9, "y": -91.03 }
+		},
+		"dust-right": {
+			"dust-right": { "type": "point", "x": 234.99, "y": -101.62 }
+		},
 		"race-car": {
 			"race-car": { "x": 43.35, "y": 66.66, "rotation": 90, "width": 472, "height": 220 }
 		},
@@ -21,8 +33,11 @@
 	}
 },
 "events": {
+	"burn-out": {},
 	"burnout": { "audio": "burnout.ogg" },
-	"drop car": { "audio": "drop car.ogg" }
+	"drop car": { "audio": "drop car.ogg" },
+	"dust-left": {},
+	"dust-right": {}
 },
 "animations": {
 	"animation": {
@@ -45,8 +60,12 @@
 			}
 		},
 		"events": [
+			{ "time": 0.4, "name": "burn-out", "string": "burn-out;start" },
 			{ "time": 0.4, "name": "burnout" },
-			{ "time": 0.4, "name": "drop car" }
+			{ "time": 0.4, "name": "drop car" },
+			{ "time": 0.4, "name": "dust-left", "string": "dust-left" },
+			{ "time": 0.4, "name": "dust-right", "string": "dust-right" },
+			{ "time": 1.8333, "name": "burn-out", "string": "burn-out;stop" }
 		]
 	},
 	"hide": {

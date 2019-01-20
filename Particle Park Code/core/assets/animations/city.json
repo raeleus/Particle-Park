@@ -1,14 +1,20 @@
 {
-"skeleton": { "hash": "mKjVMuG1lqtasNq35WM+ybSzHoo", "spine": "3.7.87", "width": 849, "height": 836.02, "images": "../output/1x/", "audio": "" },
+"skeleton": { "hash": "jrnzz8dIlfUATtvgoMjfjT2NfMI", "spine": "3.7.87", "width": 849, "height": 811.01, "images": "../output/1x/", "audio": "" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "city", "parent": "root", "length": 140.45, "y": -179.84 },
-	{ "name": "city-foreground", "parent": "root", "length": 161.26, "y": -311.63 }
+	{ "name": "city-foreground", "parent": "root", "length": 161.26, "y": -311.63 },
+	{ "name": "firework-a", "parent": "root", "x": -190.53, "y": -493.26 },
+	{ "name": "firework-b", "parent": "root", "y": -478.44 },
+	{ "name": "firework-c", "parent": "root", "x": 237.1, "y": -457.27 }
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
 	{ "name": "city", "bone": "city", "attachment": "city" },
-	{ "name": "city-foreground", "bone": "city-foreground", "attachment": "city-foreground" }
+	{ "name": "city-foreground", "bone": "city-foreground", "attachment": "city-foreground" },
+	{ "name": "firework-a", "bone": "firework-a", "attachment": "firework-a" },
+	{ "name": "firework-b", "bone": "firework-b", "attachment": "firework-b" },
+	{ "name": "firework-c", "bone": "firework-c", "attachment": "firework-c" }
 ],
 "skins": {
 	"default": {
@@ -17,8 +23,25 @@
 		},
 		"city-foreground": {
 			"city-foreground": { "y": 15.11, "width": 849, "height": 229 }
+		},
+		"firework-a": {
+			"firework-a": { "type": "point" }
+		},
+		"firework-b": {
+			"firework-b": { "type": "point", "y": 42.34 }
+		},
+		"firework-c": {
+			"firework-c": { "type": "point" }
 		}
 	}
+},
+"events": {
+	"firework-a": {},
+	"firework-b": {},
+	"firework-c": {},
+	"trail-a": {},
+	"trail-b": {},
+	"trail-c": {}
 },
 "animations": {
 	"animation": {
@@ -32,8 +55,37 @@
 				"translate": [
 					{ "time": 0, "x": 0, "y": -25 }
 				]
+			},
+			"firework-a": {
+				"translate": [
+					{ "time": 0, "x": 0, "y": 0 },
+					{ "time": 0.8, "x": 0, "y": 613.93 }
+				]
+			},
+			"firework-c": {
+				"translate": [
+					{ "time": 1.6, "x": 0, "y": 0 },
+					{ "time": 2.4, "x": 0, "y": 609.7 }
+				]
+			},
+			"firework-b": {
+				"translate": [
+					{ "time": 3.2, "x": 0, "y": 0 },
+					{ "time": 4, "x": 0, "y": 717.66 }
+				]
 			}
-		}
+		},
+		"events": [
+			{ "time": 0, "name": "trail-a", "string": "firework-a;start" },
+			{ "time": 0.8, "name": "firework-a", "string": "firework-a" },
+			{ "time": 0.8, "name": "trail-a", "string": "firework-a;stop" },
+			{ "time": 1.6, "name": "trail-c", "string": "start" },
+			{ "time": 2.4, "name": "firework-c", "string": "firework-c" },
+			{ "time": 2.4, "name": "trail-c", "string": "stop" },
+			{ "time": 3.2, "name": "trail-b", "string": "firework-b;start" },
+			{ "time": 4, "name": "firework-b", "string": "firework-b" },
+			{ "time": 4, "name": "trail-b", "string": "firework-b;stop" }
+		]
 	},
 	"hide": {
 		"bones": {

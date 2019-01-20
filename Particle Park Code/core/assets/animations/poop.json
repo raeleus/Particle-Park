@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "neVZawYGc/vPQzaOiB2XfZT4igA", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "x2l2y+SEPg9CLDBjdqEyjAi9pzM", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "fly", "parent": "root", "length": 24.2, "rotation": -1.04, "x": 216.05, "y": 93.43 },
@@ -9,7 +9,9 @@
 	{ "name": "bg", "bone": "root" },
 	{ "name": "poop", "bone": "poop", "attachment": "poop" },
 	{ "name": "fly", "bone": "fly", "attachment": "fly" },
-	{ "name": "fly-path", "bone": "root", "attachment": "fly-path" }
+	{ "name": "fly-path", "bone": "root", "attachment": "fly-path" },
+	{ "name": "trail", "bone": "fly", "attachment": "trail" },
+	{ "name": "fart", "bone": "poop", "attachment": "fart" }
 ],
 "path": [
 	{
@@ -21,6 +23,9 @@
 ],
 "skins": {
 	"default": {
+		"fart": {
+			"fart": { "type": "point", "x": 16.94, "y": 59.28 }
+		},
 		"fly": {
 			"fly": { "x": 2.1, "y": -0.04, "rotation": 1.04, "width": 10, "height": 11 }
 		},
@@ -35,13 +40,18 @@
 		},
 		"poop": {
 			"poop": { "x": 16.48, "y": 52.37, "width": 331, "height": 333 }
+		},
+		"trail": {
+			"trail": { "type": "point" }
 		}
 	}
 },
 "events": {
+	"fart": {},
 	"fart1": { "audio": "fart1.ogg" },
 	"fly": { "audio": "fly.ogg" },
-	"splat": { "audio": "splat.ogg" }
+	"splat": { "audio": "splat.ogg" },
+	"trail": {}
 },
 "animations": {
 	"animation": {
@@ -54,8 +64,12 @@
 			}
 		},
 		"events": [
+			{ "time": 0, "name": "fart", "string": "fart;start" },
 			{ "time": 0, "name": "fart1" },
-			{ "time": 1.9333, "name": "fly" }
+			{ "time": 0, "name": "trail", "string": "trail;start" },
+			{ "time": 1.9333, "name": "fly" },
+			{ "time": 4, "name": "fart", "string": "fart;stop" },
+			{ "time": 4, "name": "trail", "string": "trail;stop" }
 		]
 	},
 	"hide": {

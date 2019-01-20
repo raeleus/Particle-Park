@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "naSQVekk9Hy+S/tkLx6gqVsGdmY", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "Knz3xOF4wLLi2fCbsYA5k6iImOc", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "train", "parent": "root", "length": 295, "rotation": -179.81, "x": 198.95, "y": -69.83 },
@@ -9,7 +9,8 @@
 	{ "name": "bg", "bone": "root" },
 	{ "name": "train", "bone": "train", "attachment": "train" },
 	{ "name": "train-arm", "bone": "train-arm", "attachment": "train-arm" },
-	{ "name": "arm-path", "bone": "train", "attachment": "arm-path" }
+	{ "name": "arm-path", "bone": "train", "attachment": "arm-path" },
+	{ "name": "smoke", "bone": "train", "attachment": "smoke" }
 ],
 "path": [
 	{
@@ -31,6 +32,9 @@
 				"vertices": [ 215.7, 20.85, 216.83, 57.71, 217.93, 93.86, 159.72, 95.67, 159.69, 59.18, 159.66, 19.97 ]
 			}
 		},
+		"smoke": {
+			"smoke": { "type": "point", "x": 284.38, "y": -176.28 }
+		},
 		"train": {
 			"train": { "x": 198.72, "y": -70.5, "rotation": 179.81, "width": 466, "height": 334 }
 		},
@@ -40,6 +44,7 @@
 	}
 },
 "events": {
+	"smoke": {},
 	"train": { "audio": "train.ogg" }
 },
 "animations": {
@@ -80,7 +85,9 @@
 			}
 		},
 		"events": [
-			{ "time": 0, "name": "train" }
+			{ "time": 0, "name": "smoke", "string": "smoke;start" },
+			{ "time": 0, "name": "train" },
+			{ "time": 20, "name": "smoke", "string": "smoke;stop" }
 		]
 	},
 	"hide": {

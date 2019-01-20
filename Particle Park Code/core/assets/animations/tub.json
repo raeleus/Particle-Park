@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "kMNWXgR8fcH3Paklo331rqe99Ho", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "Ecm7LZ9jFJCk/TSSygvka2KkAeY", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "droplet", "parent": "root", "length": 51.96, "rotation": -90, "x": 37.63, "y": 288.5 },
@@ -9,7 +9,8 @@
 	{ "name": "bg", "bone": "root" },
 	{ "name": "tub", "bone": "tub", "attachment": "tub" },
 	{ "name": "clip", "bone": "root", "attachment": "clip" },
-	{ "name": "droplet", "bone": "droplet", "attachment": "droplet" }
+	{ "name": "droplet", "bone": "droplet", "attachment": "droplet" },
+	{ "name": "splash", "bone": "root", "attachment": "splash" }
 ],
 "skins": {
 	"default": {
@@ -25,13 +26,17 @@
 		"droplet": {
 			"droplet": { "x": 23.68, "y": 0.09, "rotation": 90, "width": 25, "height": 51 }
 		},
+		"splash": {
+			"splash": { "type": "point", "x": 50.81, "y": -91.03 }
+		},
 		"tub": {
 			"tub": { "x": 19.74, "y": 189.99, "rotation": -0.31, "width": 626, "height": 784 }
 		}
 	}
 },
 "events": {
-	"drop": { "audio": "drop.ogg" }
+	"drop": { "audio": "drop.ogg" },
+	"splash": {}
 },
 "animations": {
 	"animation": {
@@ -54,7 +59,8 @@
 			}
 		},
 		"events": [
-			{ "time": 0.8, "name": "drop" }
+			{ "time": 0.8, "name": "drop" },
+			{ "time": 0.8, "name": "splash", "string": "splash" }
 		]
 	},
 	"hide": {

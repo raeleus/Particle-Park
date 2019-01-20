@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "2lEBjmYbG2St7zc/6V3cu4+6/LQ", "spine": "3.7.87", "width": 841.12, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "idB/OFKYP6Qu2im9wa+EZlmPNx0", "spine": "3.7.87", "width": 841.12, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "star", "parent": "root", "length": 48.76, "x": -437.73, "y": 358.11 },
@@ -10,23 +10,33 @@
 	{ "name": "bg", "bone": "root" },
 	{ "name": "camp-fire", "bone": "camp-fire", "attachment": "camp-fire" },
 	{ "name": "moon", "bone": "moon", "attachment": "moon" },
-	{ "name": "star", "bone": "star", "attachment": "star" }
+	{ "name": "star", "bone": "star", "attachment": "star" },
+	{ "name": "fire", "bone": "root", "attachment": "fire" },
+	{ "name": "star-trail", "bone": "star", "attachment": "star-trail" }
 ],
 "skins": {
 	"default": {
 		"camp-fire": {
 			"camp-fire": { "x": 0.71, "y": 1.8, "width": 317, "height": 205 }
 		},
+		"fire": {
+			"fire": { "type": "point", "y": -205.35 }
+		},
 		"moon": {
 			"moon": { "x": 12.53, "y": -4.66, "rotation": -0.51, "width": 300, "height": 300 }
 		},
 		"star": {
 			"star": { "x": 1.61, "y": 0.1, "width": 10, "height": 10 }
+		},
+		"star-trail": {
+			"star-trail": { "type": "point" }
 		}
 	}
 },
 "events": {
-	"fire": { "audio": "fire.ogg" }
+	"fire": { "audio": "fire.ogg" },
+	"fire-effect": {},
+	"star-trail": {}
 },
 "animations": {
 	"animation": {
@@ -48,7 +58,11 @@
 			}
 		},
 		"events": [
-			{ "time": 0, "name": "fire" }
+			{ "time": 0, "name": "fire" },
+			{ "time": 0, "name": "fire-effect", "string": "fire;start" },
+			{ "time": 0, "name": "star-trail", "string": "star-trail;start" },
+			{ "time": 0.5, "name": "star-trail", "string": "star-trail;stop" },
+			{ "time": 5.3333, "name": "fire-effect", "string": "fire;stop" }
 		]
 	},
 	"hide": {

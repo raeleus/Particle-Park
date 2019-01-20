@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "ib4hT8MgQrBv1oYESqSnFqpv0ho", "spine": "3.7.87", "width": 800, "height": 881, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "NO/tCTSBWslvIJ+KtyaJntcG8lg", "spine": "3.7.87", "width": 800, "height": 881, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "lightning-a", "parent": "root", "x": -239.04, "y": -5.98 },
@@ -10,7 +10,8 @@
 	{ "name": "bg", "bone": "root" },
 	{ "name": "cloud", "bone": "cloud", "attachment": "cloud" },
 	{ "name": "lightning-a", "bone": "lightning-a", "attachment": "lightning-a-1" },
-	{ "name": "lightning-b", "bone": "lightning-b", "attachment": "lightning-b-1" }
+	{ "name": "lightning-b", "bone": "lightning-b", "attachment": "lightning-b-1" },
+	{ "name": "rain", "bone": "root", "attachment": "rain" }
 ],
 "skins": {
 	"default": {
@@ -26,11 +27,15 @@
 			"lightning-b-1": { "x": 0.5, "y": 0.5, "width": 375, "height": 881 },
 			"lightning-b-2": { "y": 0.5, "width": 378, "height": 883 },
 			"lightning-b-3": { "y": 0.5, "width": 362, "height": 863 }
+		},
+		"rain": {
+			"rain": { "type": "point", "x": -400.39, "y": 404.8 }
 		}
 	}
 },
 "events": {
 	"rain": { "audio": "rain.ogg" },
+	"rain-effect": {},
 	"thunder": { "audio": "thunder.ogg" },
 	"thunder2": { "audio": "thunder2.ogg" }
 },
@@ -54,14 +59,15 @@
 				],
 				"attachment": [
 					{ "time": 0, "name": null },
-					{ "time": 1.2, "name": "lightning-b-2" },
-					{ "time": 9.9667, "name": "lightning-b-2" }
+					{ "time": 1.2, "name": "lightning-b-2" }
 				]
 			}
 		},
 		"events": [
 			{ "time": 0, "name": "rain" },
-			{ "time": 0.5333, "name": "thunder2" }
+			{ "time": 0, "name": "rain-effect", "string": "rain;start" },
+			{ "time": 0.5333, "name": "thunder2" },
+			{ "time": 9.9667, "name": "rain-effect", "string": "rain;stop" }
 		]
 	},
 	"hide": {

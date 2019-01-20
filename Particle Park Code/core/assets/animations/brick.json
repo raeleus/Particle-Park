@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "yvf5XAg48DMPaR2HNs74xt4WwLo", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "qqBmasfU6IaF2SQmcymWU9JrQek", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "brick", "parent": "root", "length": 325.01, "rotation": 89.54, "x": 179.18, "y": 15.81 }
@@ -7,7 +7,9 @@
 "slots": [
 	{ "name": "bg", "bone": "root" },
 	{ "name": "brick", "bone": "brick", "attachment": "brick" },
-	{ "name": "brick-mouth", "bone": "brick", "attachment": "brick-mouth" }
+	{ "name": "brick-mouth", "bone": "brick", "attachment": "brick-mouth" },
+	{ "name": "dust-left", "bone": "brick", "attachment": "dust-left" },
+	{ "name": "dust-right", "bone": "brick", "attachment": "dust-right" }
 ],
 "skins": {
 	"default": {
@@ -17,10 +19,18 @@
 		"brick-mouth": {
 			"brick-mouth": { "x": 97.36, "y": 179.96, "rotation": -89.54, "width": 260, "height": 56 },
 			"brick-mouth-angry": { "x": 89.85, "y": 179.9, "rotation": -89.54, "width": 270, "height": 133 }
+		},
+		"dust-left": {
+			"dust-left": { "type": "point", "x": -3.13, "y": 391.64 }
+		},
+		"dust-right": {
+			"dust-right": { "type": "point", "x": 0.27, "y": -34.32 }
 		}
 	}
 },
 "events": {
+	"dust-left": {},
+	"dust-right": {},
 	"grunt": { "audio": "grunt.ogg" },
 	"thud": { "audio": "thud.ogg" },
 	"woosh2": { "audio": "woosh2.ogg" }
@@ -53,6 +63,8 @@
 		"events": [
 			{ "time": 0.2333, "name": "grunt" },
 			{ "time": 0.5, "name": "woosh2" },
+			{ "time": 0.6667, "name": "dust-left", "string": "dust-left" },
+			{ "time": 0.6667, "name": "dust-right", "string": "dust-right" },
 			{ "time": 0.6667, "name": "thud" }
 		]
 	},

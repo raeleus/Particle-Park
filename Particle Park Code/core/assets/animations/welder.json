@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "cydvXRrr7p2fLv+rG0awrYQrhNs", "spine": "3.7.87", "width": 800, "height": 1471.43, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "GKA0t+4n0frSgn4zrGkkI/FXjjw", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "welder-body", "parent": "root", "length": 473.39, "rotation": 90.42, "x": 1.73, "y": -169.44 },
@@ -15,12 +15,12 @@
 	{ "name": "welder-hand-left", "bone": "welder-hand-left", "attachment": "welder-hand-left" },
 	{ "name": "welder-hand-right", "bone": "welder-hand-right", "attachment": "welder-hand-right" },
 	{ "name": "welder-head", "bone": "welder-head", "attachment": "welder-head" },
-	{ "name": "particles", "bone": "welder-hand-right", "attachment": "particles" }
+	{ "name": "sparks", "bone": "welder-hand-right", "attachment": "sparks" }
 ],
 "skins": {
 	"default": {
-		"particles": {
-			"particles": { "type": "point", "x": 262.04, "y": -9.82, "rotation": 14.4 }
+		"sparks": {
+			"sparks": { "type": "point", "x": 262.04, "y": -9.82, "rotation": 14.4 }
 		},
 		"welder-body": {
 			"welder-body": { "x": 192.46, "y": -3.14, "rotation": -90.42, "width": 331, "height": 572 }
@@ -40,6 +40,7 @@
 	}
 },
 "events": {
+	"sparks": {},
 	"welder": { "audio": "welder.ogg" },
 	"welding": { "audio": "welding.ogg" }
 },
@@ -94,8 +95,10 @@
 			}
 		},
 		"events": [
+			{ "time": 0.6667, "name": "sparks", "string": "sparks;start" },
 			{ "time": 0.6667, "name": "welding" },
-			{ "time": 1, "name": "welder" }
+			{ "time": 1, "name": "welder" },
+			{ "time": 1.9667, "name": "sparks", "string": "sparks;stop" }
 		]
 	},
 	"hide": {
