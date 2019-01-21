@@ -90,7 +90,7 @@ public class DemoScreen implements Screen {
     private ObjectMap<Sound, Array<Long>> soundMap;
     private Array<EventData> particleEvents;
     private Array<Tuple<String, FileHandle>> particleFiles;
-    private ObjectMap<EventData, FileHandle> eventParticleMap;
+    private ObjectMap<EventData, Tuple<String, FileHandle>> eventParticleMap;
     private PixmapPacker pixmapPacker;
     private TextureAtlas particleAtlas;
     private Array<ParticleEffect> particleEffects;
@@ -106,7 +106,7 @@ public class DemoScreen implements Screen {
         
         particleEvents = new Array<EventData>();
         particleFiles = new Array<Tuple<String, FileHandle>>();
-        eventParticleMap = new ObjectMap<EventData, FileHandle>();
+        eventParticleMap = new ObjectMap<EventData, Tuple<String, FileHandle>>();
         particleSlotFollowMap = new ObjectMap<ParticleEffect, Slot>();
         
         pixmapPacker = new PixmapPacker(2048, 2048, Pixmap.Format.RGBA8888, 3, true);
@@ -309,7 +309,7 @@ public class DemoScreen implements Screen {
 
                     if (create) {
                         ParticleEffect particleEffect = new ParticleEffect();
-                        particleEffect.load(eventParticleMap.get(event.getData()), particleAtlas);
+                        particleEffect.load(eventParticleMap.get(event.getData()).y, particleAtlas);
                         particleEffect.start();
                         
                         particleEffect.setPosition(position.x, position.y);
@@ -451,13 +451,14 @@ public class DemoScreen implements Screen {
                 
                 final SelectBox<Tuple<String, FileHandle>> selectBox = new SelectBox<Tuple<String, FileHandle>>(skin);
                 selectBox.setItems(particleFiles);
+                selectBox.setSelected(eventParticleMap.get(particleEvent));
                 table.add(selectBox);
                 selectBox.addListener(core.handListener);
                 selectBox.getList().addListener(core.handListener);
                 selectBox.addListener(new ChangeListener() {
                     @Override
                     public void changed(ChangeListener.ChangeEvent event, Actor actor) {
-                        loadParticleEffect(particleEvent, selectBox.getSelected().y);
+                        loadParticleEffect(particleEvent, selectBox.getSelected());
                         prepareParticleAtlas();
                     }
                 });
@@ -503,15 +504,15 @@ public class DemoScreen implements Screen {
     private void initializeParticles() {
         for (EventData particleEvent : particleEvents) {
             if (particleFiles.size > 0) {
-                loadParticleEffect(particleEvent, particleFiles.first().y);
+                loadParticleEffect(particleEvent, particleFiles.first());
             }
         }
         
         prepareParticleAtlas();
     }
     
-    private void loadParticleEffect(final EventData particleEvent, final FileHandle selected) {
-        for (FileHandle fileHandle : selected.parent().list()) {
+    private void loadParticleEffect(final EventData particleEvent, final Tuple<String, FileHandle> selected) {
+        for (FileHandle fileHandle : selected.y.parent().list()) {
             if (fileHandle.extension().toLowerCase(Locale.ROOT).equals("png")) {
                 if (pixmapPacker.getRect(fileHandle.nameWithoutExtension()) == null) {
                     Pixmap pixmap = new Pixmap(fileHandle);
