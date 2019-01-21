@@ -27,9 +27,15 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
+import com.badlogic.gdx.graphics.g2d.PixmapPacker;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -42,6 +48,9 @@ import com.badlogic.gdx.scenes.scene2d.actions.TemporalAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
+import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -54,9 +63,15 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationStateData;
 import com.esotericsoftware.spine.Event;
+import com.esotericsoftware.spine.EventData;
 import com.esotericsoftware.spine.Skeleton;
 import com.esotericsoftware.spine.SkeletonData;
+import com.esotericsoftware.spine.Slot;
+import com.esotericsoftware.spine.attachments.PointAttachment;
 import com.ray3k.particlepark.Core;
+import com.ray3k.particlepark.Tuple;
+import java.util.Iterator;
+import java.util.Locale;
 
 /**
  *
@@ -73,10 +88,30 @@ public class DemoScreen implements Screen {
     private Dialog dialog;
     private ImageButton menuButton;
     private ObjectMap<Sound, Array<Long>> soundMap;
+    private Array<EventData> particleEvents;
+    private Array<Tuple<String, FileHandle>> particleFiles;
+    private ObjectMap<EventData, FileHandle> eventParticleMap;
+    private PixmapPacker pixmapPacker;
+    private TextureAtlas particleAtlas;
+    private Array<ParticleEffect> particleEffects;
+    private ObjectMap<ParticleEffect, Slot> particleSlotFollowMap;
+    
+    private final Vector2 position;
 
     public DemoScreen(Core core, String animationPath) {
         this.core = core;
         this.animationPath = animationPath;
+        
+        position = new Vector2();
+        
+        particleEvents = new Array<EventData>();
+        particleFiles = new Array<Tuple<String, FileHandle>>();
+        eventParticleMap = new ObjectMap<EventData, FileHandle>();
+        particleSlotFollowMap = new ObjectMap<ParticleEffect, Slot>();
+        
+        pixmapPacker = new PixmapPacker(2048, 2048, Pixmap.Format.RGBA8888, 3, true);
+        particleAtlas = new TextureAtlas();
+        particleEffects = new Array<ParticleEffect>();
         
         spineViewport = new FitViewport(800, 800, new OrthographicCamera());
         
@@ -90,8 +125,10 @@ public class DemoScreen implements Screen {
         
         soundMap = new ObjectMap<Sound, Array<Long>>();
         
-        createMenu();
         loadAnimation();
+        getParticleFiles();
+        initializeParticles();
+        createMenu();
     }
     
     @Override
@@ -125,15 +162,36 @@ public class DemoScreen implements Screen {
         core.batch.begin();
         core.batch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA);
         animationState.update(delta);
-        skeleton.updateWorldTransform();
         animationState.apply(skeleton);
+        skeleton.updateWorldTransform();
         core.skeletonRenderer.draw(core.batch, skeleton);
-        core.batch.end();
+        core.batch.flush();
         
         core.batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+        spineViewport.apply();
+        
+        Iterator<ParticleEffect> iter = particleEffects.iterator();
+        while (iter.hasNext()) {
+            ParticleEffect particleEffect = iter.next();
+            if (particleEffect.isComplete()) {
+                iter.remove();
+                particleSlotFollowMap.remove(particleEffect);
+            } else {
+                Slot slot = particleSlotFollowMap.get(particleEffect);
+                if (slot != null) {
+                    PointAttachment point = (PointAttachment) slot.getAttachment();
+                    point.computeWorldPosition(slot.getBone(), position);
+                    particleEffect.setPosition(position.x, position.y);
+                }
+                particleEffect.draw(core.batch, delta);
+            }
+        }
+        core.batch.end();
+        
         stage.getViewport().apply();
         stage.act();
         stage.draw();
+        
     }
 
     @Override
@@ -161,11 +219,19 @@ public class DemoScreen implements Screen {
     @Override
     public void dispose() {
         stage.dispose();
+        particleAtlas.dispose();
     }
     
     private void loadAnimation() {
         SkeletonData skeletonData = core.internalAssetManager.get(animationPath, SkeletonData.class);
         skeleton = new Skeleton(skeletonData);
+        
+        for (EventData eventData : skeleton.getData().getEvents()) {
+            if (eventData.getAudioPath() == null) {
+                particleEvents.add(eventData);
+            }
+        }
+        
         AnimationStateData animationStateData = new AnimationStateData(skeletonData);
         animationStateData.setDefaultMix(.25f);
         animationState = new AnimationState(animationStateData);
@@ -175,6 +241,10 @@ public class DemoScreen implements Screen {
                 Array<Sound> sounds = core.internalAssetManager.getAll(Sound.class, new Array<Sound>());
                 for (Sound sound : sounds) {
                     sound.stop();
+                }
+                
+                for (ParticleEffect particleEffect : particleEffects) {
+                    particleEffect.allowCompletion();
                 }
                 
                 if (entry.getAnimation().getName().equals("hide")) {
@@ -209,6 +279,46 @@ public class DemoScreen implements Screen {
                         soundMap.get(sound).add(id);
                     }
                 } else {
+                    boolean create = true;
+                    boolean continuous = false;
+                    Slot slot = null;
+                    int index = 0;
+                    for (String string : event.getString().split(";")) {
+                        switch (index) {
+                            case 0:
+                                slot = skeleton.findSlot(string);
+                                PointAttachment point = (PointAttachment) slot.getAttachment();
+                                point.computeWorldPosition(slot.getBone(), position);
+                                break;
+                            case 1:
+                                if (string.equals("start")) {
+                                    continuous = true;
+                                } else if (string.equals("stop")) {
+                                    create = false;
+                                    
+                                    ParticleEffect particleEffect = particleSlotFollowMap.findKey(slot, false);
+                                    if (particleEffect != null) {
+                                        particleEffect.allowCompletion();
+                                        particleSlotFollowMap.remove(particleEffect);
+                                    }
+                                }
+                                break;
+                        }
+                        index++;
+                    }
+
+                    if (create) {
+                        ParticleEffect particleEffect = new ParticleEffect();
+                        particleEffect.load(eventParticleMap.get(event.getData()), particleAtlas);
+                        particleEffect.start();
+                        
+                        particleEffect.setPosition(position.x, position.y);
+                        particleEffects.add(particleEffect);
+                        
+                        if (continuous) {
+                            particleSlotFollowMap.put(particleEffect, slot);
+                        }
+                    }
                     
                 }
             }
@@ -220,6 +330,23 @@ public class DemoScreen implements Screen {
         animationState.apply(skeleton);
         skeleton.setPosition(400, 400);
         skeleton.updateWorldTransform();
+    }
+    
+    private void getParticleFiles() {
+        
+        FileHandle sceneFolder = Gdx.files.local(animationPath);
+        sceneFolder = Gdx.files.local("Particle Park_data/" + sceneFolder.nameWithoutExtension());
+        
+        for (FileHandle particleFolder : sceneFolder.list()) {
+            for (FileHandle fileHandle : particleFolder.list()) {
+                String extension = fileHandle.extension().toLowerCase(Locale.ROOT);
+                
+                if (extension.equals("p")) {
+                    particleFiles.add(new Tuple<String, FileHandle>(fileHandle.nameWithoutExtension(), fileHandle));
+                    break;
+                }
+            }
+        }
     }
     
     private void createMenu() {
@@ -294,7 +421,7 @@ public class DemoScreen implements Screen {
             dialog.getTitleTable().defaults().space(20);
             Button button = new Button(skin, "close");
             dialog.getTitleTable().add(button).expandX().right();
-            dialog.addListener(core.handListener);
+            button.addListener(core.handListener);
             button.addListener(new ChangeListener() {
                 @Override
                 public void changed(ChangeListener.ChangeEvent event, Actor actor) {
@@ -307,8 +434,43 @@ public class DemoScreen implements Screen {
                 }
             });
             
-            TextButton textButton = new TextButton("Return to Menu", skin);
-            dialog.getContentTable().add(textButton);
+            final Table root = new Table();
+            final ScrollPane scrollPane = new ScrollPane(root, skin);
+            scrollPane.setFlickScroll(false);
+            dialog.getContentTable().add(scrollPane).grow();
+            root.setWidth(200);
+            
+            if (particleFiles.size > 0) for (final EventData particleEvent : particleEvents) {
+                root.row();
+                Label label = new Label(particleEvent.getName(), skin);
+                root.add(label).spaceTop(13);
+                
+                root.row();
+                Table table = new Table();
+                root.add(table);
+                
+                final SelectBox<Tuple<String, FileHandle>> selectBox = new SelectBox<Tuple<String, FileHandle>>(skin);
+                selectBox.setItems(particleFiles);
+                table.add(selectBox);
+                selectBox.addListener(core.handListener);
+                selectBox.getList().addListener(core.handListener);
+                selectBox.addListener(new ChangeListener() {
+                    @Override
+                    public void changed(ChangeListener.ChangeEvent event, Actor actor) {
+                        loadParticleEffect(particleEvent, selectBox.getSelected().y);
+                        prepareParticleAtlas();
+                    }
+                });
+                
+                ImageButton imageButton = new ImageButton(skin, "download");
+                table.add(imageButton);
+                imageButton.addListener(core.handListener);
+            }
+            
+            dialog.getContentTable().row();
+            TextButton textButton = new TextButton("Quit to Menu", skin);
+            dialog.getContentTable().add(textButton).growX();
+            textButton.addListener(core.handListener);
             textButton.addListener(new ChangeListener() {
                 @Override
                 public void changed(ChangeListener.ChangeEvent event, Actor actor) {
@@ -324,7 +486,10 @@ public class DemoScreen implements Screen {
             
             dialog.show(stage, null);
             dialog.setKeepWithinStage(false);
+            dialog.setHeight(Math.min(position.y - 10, dialog.getHeight()));
             dialog.setPosition(MathUtils.round(-dialog.getWidth()), MathUtils.round(position.y - dialog.getHeight()));
+            stage.setScrollFocus(scrollPane);
+            
             dialog.addAction(Actions.sequence(Actions.moveTo(position.x, dialog.getY(), .5f, Interpolation.fastSlow), new Action() {
                 @Override
                 public boolean act(float delta) {
@@ -333,5 +498,33 @@ public class DemoScreen implements Screen {
                 }
             }));
         }
+    }
+    
+    private void initializeParticles() {
+        for (EventData particleEvent : particleEvents) {
+            if (particleFiles.size > 0) {
+                loadParticleEffect(particleEvent, particleFiles.first().y);
+            }
+        }
+        
+        prepareParticleAtlas();
+    }
+    
+    private void loadParticleEffect(final EventData particleEvent, final FileHandle selected) {
+        for (FileHandle fileHandle : selected.parent().list()) {
+            if (fileHandle.extension().toLowerCase(Locale.ROOT).equals("png")) {
+                if (pixmapPacker.getRect(fileHandle.nameWithoutExtension()) == null) {
+                    Pixmap pixmap = new Pixmap(fileHandle);
+                    pixmapPacker.pack(fileHandle.nameWithoutExtension(), pixmap);
+                }
+            }
+        }
+        
+        eventParticleMap.put(particleEvent, selected);
+    }
+    
+    private void prepareParticleAtlas() {
+        pixmapPacker.updateTextureAtlas(particleAtlas, Texture.TextureFilter.Linear, Texture.TextureFilter.Linear, false);
+        
     }
 }

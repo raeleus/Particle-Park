@@ -160,6 +160,15 @@ com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle: {
 		over: button-normal-over
 		focused: button-normal-over
 	}
+	download: {
+		imageUp: icon-download
+		imageDown: icon-download-over
+		imageOver: icon-download-over
+		up: button-normal
+		down: button-normal-pressed
+		over: button-normal-over
+		focused: button-normal-over
+	}
 }
 com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton$ImageTextButtonStyle: {
 	default: {
@@ -236,6 +245,7 @@ com.badlogic.gdx.scenes.scene2d.ui.SelectBox$SelectBoxStyle: {
 		background: select-box
 		scrollStyle: list
 		listStyle: list-nobg
+		backgroundOver: select-box-open
 		backgroundOpen: select-box-open
 	}
 }

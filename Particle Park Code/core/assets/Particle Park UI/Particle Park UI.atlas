@@ -136,6 +136,27 @@ icon-bgm-over
   orig: 40, 40
   offset: 0, 0
   index: -1
+icon-download
+  rotate: false
+  xy: 622, 144
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+icon-download-over
+  rotate: false
+  xy: 299, 46
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+icon-download-pressed
+  rotate: false
+  xy: 98, 15
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
 icon-menu
   rotate: false
   xy: 894, 326
@@ -351,7 +372,7 @@ spinner-textfield-selected
   index: -1
 spinner-up
   rotate: false
-  xy: 98, 21
+  xy: 120, 21
   size: 16, 14
   orig: 16, 14
   offset: 0, 0
