@@ -28,12 +28,15 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
+import com.badlogic.gdx.graphics.g2d.ParticleEmitter;
+import com.badlogic.gdx.graphics.g2d.ParticleEmitter.Particle;
 import com.badlogic.gdx.graphics.g2d.PixmapPacker;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Interpolation;
@@ -514,6 +517,14 @@ public class DemoScreen implements Screen {
                     
                     animationState.getCurrent(0).setTimeScale(0);
                     animationState.setAnimation(1, "hide", false);
+                    
+                    for (final ParticleEffect particleEffect : particleEffectsBack) {
+                        particleEffect.allowCompletion();
+                    }
+
+                    for (final ParticleEffect particleEffect : particleEffectsFront) {
+                        particleEffect.allowCompletion();
+                    }
                     
                     stage.getRoot().addAction(Actions.fadeOut(.5f));
                 }
