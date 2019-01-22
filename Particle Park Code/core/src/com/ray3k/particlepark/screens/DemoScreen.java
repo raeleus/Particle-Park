@@ -28,17 +28,18 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
-import com.badlogic.gdx.graphics.g2d.ParticleEmitter;
-import com.badlogic.gdx.graphics.g2d.ParticleEmitter.Particle;
 import com.badlogic.gdx.graphics.g2d.PixmapPacker;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -99,6 +100,8 @@ public class DemoScreen implements Screen {
     private Array<ParticleEffect> particleEffectsBack;
     private Array<ParticleEffect> particleEffectsFront;
     private ObjectMap<ParticleEffect, Slot> particleSlotFollowMap;
+    private SpriteBatch frameBatch;
+    private FrameBuffer frameBuffer;
     
     private final Vector2 position;
 
@@ -117,6 +120,9 @@ public class DemoScreen implements Screen {
         particleAtlas = new TextureAtlas();
         particleEffectsBack = new Array<ParticleEffect>();
         particleEffectsFront = new Array<ParticleEffect>();
+        
+        frameBuffer = new FrameBuffer(Pixmap.Format.RGB888, 800, 800, false, false);
+        frameBatch = new SpriteBatch();
         
         spineViewport = new FitViewport(800, 800, new OrthographicCamera());
         
@@ -162,14 +168,48 @@ public class DemoScreen implements Screen {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         
+        frameBuffer.begin();
+        Gdx.gl.glClearColor(0, 0, 0, 0);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        
+        frameBatch.begin();
+        
+        frameBatch.setBlendFunction(-1, -1);
+        frameBatch.enableBlending();
+        Gdx.gl20.glBlendFuncSeparate(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA, GL20.GL_ONE, GL20.GL_ONE);
+        renderParticlesBack(delta, frameBatch);
+        frameBatch.end();
+        frameBuffer.end();
+        
+        TextureRegion textureRegion = new TextureRegion(frameBuffer.getColorBufferTexture());
+        textureRegion.flip(false, true);
+        
         core.batch.setProjectionMatrix(spineViewport.getCamera().combined);
         spineViewport.apply();
+        core.batch.setBlendFunction(-1, -1);
+        Gdx.gl20.glBlendFuncSeparate(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA,GL20.GL_ONE, GL20.GL_DST_ALPHA);
         core.batch.begin();
+        core.batch.draw(textureRegion, 0, 0);
+        core.batch.flush();
+        
+        core.batch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA);
+        renderSpine(delta);
+        core.batch.end();
         
         core.batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+        core.batch.begin();
+        renderParticlesFront(delta, core.batch);
+        core.batch.end();
+        
+        core.batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+        renderStage(delta);
+    }
+    
+    private void renderParticlesBack(float delta, Batch batch) {
         Iterator<ParticleEffect> iter = particleEffectsBack.iterator();
         while (iter.hasNext()) {
             ParticleEffect particleEffect = iter.next();
+            particleEffect.setEmittersCleanUpBlendFunction(false);
             if (particleEffect.isComplete()) {
                 iter.remove();
                 particleSlotFollowMap.remove(particleEffect);
@@ -180,22 +220,23 @@ public class DemoScreen implements Screen {
                     point.computeWorldPosition(slot.getBone(), position);
                     particleEffect.setPosition(position.x, position.y);
                 }
-                particleEffect.draw(core.batch, delta);
+                particleEffect.draw(batch, delta);
             }
         }
-        core.batch.flush();
-        
-        core.batch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA);
+    }
+    
+    private void renderSpine(float delta) {
         animationState.update(delta);
         animationState.apply(skeleton);
         skeleton.updateWorldTransform();
         core.skeletonRenderer.draw(core.batch, skeleton);
-        core.batch.flush();
-        
-        core.batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
-        iter = particleEffectsFront.iterator();
+    }
+    
+    private void renderParticlesFront(float delta, Batch batch) {
+        Iterator<ParticleEffect> iter = particleEffectsFront.iterator();
         while (iter.hasNext()) {
             ParticleEffect particleEffect = iter.next();
+            particleEffect.setEmittersCleanUpBlendFunction(false);
             if (particleEffect.isComplete()) {
                 iter.remove();
                 particleSlotFollowMap.remove(particleEffect);
@@ -206,15 +247,15 @@ public class DemoScreen implements Screen {
                     point.computeWorldPosition(slot.getBone(), position);
                     particleEffect.setPosition(position.x, position.y);
                 }
-                particleEffect.draw(core.batch, delta);
+                particleEffect.draw(batch, delta);
             }
         }
-        core.batch.end();
-        
+    }
+    
+    private void renderStage(float delta) {
         stage.getViewport().apply();
-        stage.act();
+        stage.act(delta);
         stage.draw();
-        
     }
 
     @Override
@@ -243,6 +284,8 @@ public class DemoScreen implements Screen {
     public void dispose() {
         stage.dispose();
         particleAtlas.dispose();
+        frameBatch.dispose();
+        frameBuffer.dispose();
     }
     
     private void loadAnimation() {
