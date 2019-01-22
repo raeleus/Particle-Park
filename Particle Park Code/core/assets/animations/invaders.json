@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "YYdP8a4xzneygvtCx5OluRMA7EU", "spine": "3.7.87", "width": 800, "height": 808.84, "images": "../output/1x/", "audio": "../../Particle Park Code/core/assets/sound/" },
+"skeleton": { "hash": "Uvd/Tdlgv6+YBWg+7Zl4I/FY/VM", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../Particle Park Code/core/assets/sound/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "shooter", "parent": "root", "length": 136.42, "rotation": 89.42, "x": 6.58, "y": -311.31 },
@@ -198,20 +198,20 @@
 		},
 		"events": [
 			{ "time": 0.6667, "name": "laser" },
-			{ "time": 0.6667, "name": "trail1", "string": "rocket-pod-explosion;start" },
+			{ "time": 0.6667, "name": "trail1", "string": "rocket-pod-explosion;start;back" },
 			{ "time": 1.3333, "name": "explosion" },
 			{ "time": 1.3333, "name": "explosion1", "string": "rocket-pod-explosion" },
-			{ "time": 1.3333, "name": "trail1", "string": "rocket-pod-explosion;stop" },
+			{ "time": 1.3333, "name": "trail1", "string": "rocket-pod-explosion;stop;back" },
 			{ "time": 2, "name": "laser" },
-			{ "time": 2, "name": "trail2", "string": "rocket-pod2-explosion;start" },
+			{ "time": 2, "name": "trail2", "string": "rocket-pod2-explosion;start;back" },
 			{ "time": 2.6667, "name": "explosion" },
 			{ "time": 2.6667, "name": "explosion2", "string": "rocket-pod2-explosion" },
-			{ "time": 2.6667, "name": "trail2", "string": "rocket-pod2-explosion;stop" },
+			{ "time": 2.6667, "name": "trail2", "string": "rocket-pod2-explosion;stop;back" },
 			{ "time": 3.3333, "name": "laser" },
-			{ "time": 3.3333, "name": "trail3", "string": "missile-explosion;start" },
+			{ "time": 3.3333, "name": "trail3", "string": "missile-explosion;start;back" },
 			{ "time": 4.6667, "name": "explosion-big" },
 			{ "time": 4.6667, "name": "explosion3", "string": "missile-explosion" },
-			{ "time": 4.6667, "name": "trail3", "string": "missile-explosion;stop" }
+			{ "time": 4.6667, "name": "trail3", "string": "missile-explosion;stop;back" }
 		]
 	},
 	"hide": {

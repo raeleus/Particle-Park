@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "qqBmasfU6IaF2SQmcymWU9JrQek", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "edKoZY2NpRzah2lyltHhRZLrA+0", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "brick", "parent": "root", "length": 325.01, "rotation": 89.54, "x": 179.18, "y": 15.81 }
@@ -21,10 +21,10 @@
 			"brick-mouth-angry": { "x": 89.85, "y": 179.9, "rotation": -89.54, "width": 270, "height": 133 }
 		},
 		"dust-left": {
-			"dust-left": { "type": "point", "x": -3.13, "y": 391.64 }
+			"dust-left": { "type": "point", "x": -20.58, "y": 401.63 }
 		},
 		"dust-right": {
-			"dust-right": { "type": "point", "x": 0.27, "y": -34.32 }
+			"dust-right": { "type": "point", "x": -17.04, "y": -40.24 }
 		}
 	}
 },
@@ -63,8 +63,8 @@
 		"events": [
 			{ "time": 0.2333, "name": "grunt" },
 			{ "time": 0.5, "name": "woosh2" },
-			{ "time": 0.6667, "name": "dust-left", "string": "dust-left" },
-			{ "time": 0.6667, "name": "dust-right", "string": "dust-right" },
+			{ "time": 0.6667, "name": "dust-left", "string": "dust-left;;back" },
+			{ "time": 0.6667, "name": "dust-right", "string": "dust-right;;back" },
 			{ "time": 0.6667, "name": "thud" }
 		]
 	},

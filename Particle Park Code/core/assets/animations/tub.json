@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "Ecm7LZ9jFJCk/TSSygvka2KkAeY", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "BvTLJdeWVH54/LDmpC2w/ISdPs0", "spine": "3.7.87", "width": 841.37, "height": 811.91, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "droplet", "parent": "root", "length": 51.96, "rotation": -90, "x": 37.63, "y": 288.5 },
@@ -7,6 +7,7 @@
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
+	{ "name": "cutoff", "bone": "root", "attachment": "rect" },
 	{ "name": "tub", "bone": "tub", "attachment": "tub" },
 	{ "name": "clip", "bone": "root", "attachment": "clip" },
 	{ "name": "droplet", "bone": "droplet", "attachment": "droplet" },
@@ -21,6 +22,17 @@
 				"vertexCount": 4,
 				"vertices": [ -309.62, 357.11, 269.62, 355.5, 253.53, -85.37, -277.44, -86.98 ],
 				"color": "ce3a3aff"
+			}
+		},
+		"cutoff": {
+			"rect": {
+				"color": "000000ff",
+				"x": 0.5,
+				"y": -257.07,
+				"scaleX": 93.485,
+				"scaleY": 34.411,
+				"width": 9,
+				"height": 9
 			}
 		},
 		"droplet": {
@@ -60,7 +72,7 @@
 		},
 		"events": [
 			{ "time": 0.8, "name": "drop" },
-			{ "time": 0.8, "name": "splash", "string": "splash" }
+			{ "time": 0.8, "name": "splash", "string": "splash;;back" }
 		]
 	},
 	"hide": {

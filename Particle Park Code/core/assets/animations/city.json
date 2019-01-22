@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "jrnzz8dIlfUATtvgoMjfjT2NfMI", "spine": "3.7.87", "width": 849, "height": 811.01, "images": "../output/1x/", "audio": "" },
+"skeleton": { "hash": "pIh0ZwaHgIfUFZ14dsFI3w81ceQ", "spine": "3.7.87", "width": 849, "height": 836.02, "images": "../output/1x/", "audio": "" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "city", "parent": "root", "length": 140.45, "y": -179.84 },
@@ -76,15 +76,15 @@
 			}
 		},
 		"events": [
-			{ "time": 0, "name": "trail-a", "string": "firework-a;start" },
-			{ "time": 0.8, "name": "firework-a", "string": "firework-a" },
-			{ "time": 0.8, "name": "trail-a", "string": "firework-a;stop" },
-			{ "time": 1.6, "name": "trail-c", "string": "start" },
-			{ "time": 2.4, "name": "firework-c", "string": "firework-c" },
-			{ "time": 2.4, "name": "trail-c", "string": "stop" },
-			{ "time": 3.2, "name": "trail-b", "string": "firework-b;start" },
-			{ "time": 4, "name": "firework-b", "string": "firework-b" },
-			{ "time": 4, "name": "trail-b", "string": "firework-b;stop" }
+			{ "time": 0, "name": "trail-a", "string": "firework-a;start;back" },
+			{ "time": 0.8, "name": "firework-a", "string": "firework-a;back" },
+			{ "time": 0.8, "name": "trail-a", "string": "firework-a;stop;back" },
+			{ "time": 1.6, "name": "trail-c", "string": "firework-c;start;back" },
+			{ "time": 2.4, "name": "firework-c", "string": "firework-c;;back" },
+			{ "time": 2.4, "name": "trail-c", "string": "firework-c;stop;back" },
+			{ "time": 3.2, "name": "trail-b", "string": "firework-b;start;back" },
+			{ "time": 4, "name": "firework-b", "string": "firework-b;;back" },
+			{ "time": 4, "name": "trail-b", "string": "firework-b;stop;back" }
 		]
 	},
 	"hide": {

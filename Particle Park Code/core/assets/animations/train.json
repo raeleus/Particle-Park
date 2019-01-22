@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "Knz3xOF4wLLi2fCbsYA5k6iImOc", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "hWYEKEt3DMjj8BfFshGs2kWZT7o", "spine": "3.7.87", "width": 1274.8, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "train", "parent": "root", "length": 295, "rotation": -179.81, "x": 198.95, "y": -69.83 },
@@ -85,9 +85,9 @@
 			}
 		},
 		"events": [
-			{ "time": 0, "name": "smoke", "string": "smoke;start" },
+			{ "time": 0, "name": "smoke", "string": "smoke;start;back" },
 			{ "time": 0, "name": "train" },
-			{ "time": 20, "name": "smoke", "string": "smoke;stop" }
+			{ "time": 20, "name": "smoke", "string": "smoke;stop;back" }
 		]
 	},
 	"hide": {

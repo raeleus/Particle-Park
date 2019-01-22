@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "cgYbsIduO/6uho43heI6SXSkCcg", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "Lorc3XUfK7MhAyiZTixeYoq3eyU", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone", "parent": "root", "rotation": 0.63, "color": "abe323ff" },
@@ -13,7 +13,8 @@
 	{ "name": "gun-slide", "bone": "gun-slide", "attachment": "gun-slide" },
 	{ "name": "gun-slide-clip", "bone": "gun-slide", "attachment": "gun-slide-clip" },
 	{ "name": "cartridge", "bone": "cartridge", "attachment": "cartridge" },
-	{ "name": "muzzle", "bone": "gun-base", "attachment": "muzzle" }
+	{ "name": "muzzle", "bone": "gun-base", "attachment": "muzzle" },
+	{ "name": "laser", "bone": "gun-base", "attachment": "laser" }
 ],
 "transform": [
 	{
@@ -48,12 +49,16 @@
 				"color": "ce3a3aff"
 			}
 		},
+		"laser": {
+			"laser": { "type": "point", "x": 314.18, "y": -8.56 }
+		},
 		"muzzle": {
 			"muzzle": { "type": "point", "x": 328.89, "y": 88.65 }
 		}
 	}
 },
 "events": {
+	"laser": {},
 	"muzzle": {},
 	"pistol": { "audio": "pistol.ogg" }
 },
@@ -101,8 +106,7 @@
 						"y": 121.96,
 						"curve": [ 0.25, 0, 0.96, 0.67 ]
 					},
-					{ "time": 0.3333, "x": 0, "y": 0, "curve": "stepped" },
-					{ "time": 1, "x": 0, "y": 0 }
+					{ "time": 0.3333, "x": 0, "y": 0 }
 				]
 			}
 		},
@@ -115,8 +119,10 @@
 			}
 		],
 		"events": [
+			{ "time": 0, "name": "laser", "string": "laser;start" },
 			{ "time": 0.0333, "name": "muzzle", "string": "muzzle" },
-			{ "time": 0.0333, "name": "pistol" }
+			{ "time": 0.0333, "name": "pistol" },
+			{ "time": 1, "name": "laser", "string": "laser;stop" }
 		]
 	},
 	"hide": {

@@ -235,6 +235,13 @@ race-car-wheels
   orig: 472, 220
   offset: 0, 0
   index: -1
+rect
+  rotate: false
+  xy: 1386, 3353
+  size: 9, 9
+  orig: 9, 9
+  offset: 0, 0
+  index: -1
 rock
   rotate: false
   xy: 517, 2504

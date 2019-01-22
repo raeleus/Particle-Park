@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "idB/OFKYP6Qu2im9wa+EZlmPNx0", "spine": "3.7.87", "width": 841.12, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "rsOM3XSA2F5nOfHnx/+x+A7JWOc", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "star", "parent": "root", "length": 48.76, "x": -437.73, "y": 358.11 },
@@ -20,7 +20,7 @@
 			"camp-fire": { "x": 0.71, "y": 1.8, "width": 317, "height": 205 }
 		},
 		"fire": {
-			"fire": { "type": "point", "y": -205.35 }
+			"fire": { "type": "point", "y": -152.63 }
 		},
 		"moon": {
 			"moon": { "x": 12.53, "y": -4.66, "rotation": -0.51, "width": 300, "height": 300 }
@@ -59,10 +59,10 @@
 		},
 		"events": [
 			{ "time": 0, "name": "fire" },
-			{ "time": 0, "name": "fire-effect", "string": "fire;start" },
+			{ "time": 0, "name": "fire-effect", "string": "fire;start;back" },
 			{ "time": 0, "name": "star-trail", "string": "star-trail;start" },
 			{ "time": 0.5, "name": "star-trail", "string": "star-trail;stop" },
-			{ "time": 5.3333, "name": "fire-effect", "string": "fire;stop" }
+			{ "time": 5.3333, "name": "fire-effect", "string": "fire;stop;back" }
 		]
 	},
 	"hide": {

@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "uUnXSHUugpsxg1HnafzNTpzBI20", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "kwRx7bWLNZjXH0ogu6jmXTsx3Pc", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone3", "parent": "root", "x": -90.77, "y": -213.74, "color": "ff3f00ff" },
@@ -42,7 +42,8 @@
 	{ "name": "foot-right", "parent": "hip5", "length": 62.82, "rotation": 93.46, "x": 121.02, "y": -1.29 },
 	{ "name": "hand", "parent": "chest3", "length": 50.99, "rotation": 10.2, "x": 79.9, "y": -1.15 },
 	{ "name": "hand2", "parent": "chest5", "length": 53.87, "rotation": -0.38, "x": 84.11, "y": -0.98 },
-	{ "name": "head", "parent": "chest", "length": 76.21, "rotation": 0.18, "x": 143.59, "y": -5.7 }
+	{ "name": "head", "parent": "chest", "length": 76.21, "rotation": 0.18, "x": 143.59, "y": -5.7 },
+	{ "name": "fireball", "parent": "root", "length": 79.33, "x": -17.92, "y": 134.08 }
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
@@ -53,7 +54,7 @@
 	{ "name": "foot-right", "bone": "foot-right", "attachment": "foot-right" },
 	{ "name": "hand", "bone": "hand", "attachment": "hand" },
 	{ "name": "hand2", "bone": "hand2", "attachment": "hand" },
-	{ "name": "fireball", "bone": "root", "attachment": "fireball" }
+	{ "name": "fireball", "bone": "fireball", "attachment": "fireball" }
 ],
 "ik": [
 	{
@@ -76,7 +77,7 @@
 			"chest": { "x": 49.36, "y": -1.87, "rotation": -88.7, "width": 175, "height": 182 }
 		},
 		"fireball": {
-			"fireball": { "type": "point", "y": 134.56 }
+			"fireball": { "type": "point" }
 		},
 		"foot-left": {
 			"foot-left": { "x": 26.89, "y": -0.56, "rotation": 178.81, "width": 113, "height": 91 }
@@ -198,15 +199,17 @@
 					{ "time": 0.6667, "angle": 0 }
 				]
 			},
-			"hand2": {
-				"rotate": [
-					{ "time": 2.6667, "angle": 0 }
+			"fireball": {
+				"translate": [
+					{ "time": 0.3, "x": 0, "y": 0 },
+					{ "time": 1.8333, "x": 734.74, "y": 0 }
 				]
 			}
 		},
 		"events": [
 			{ "time": 0, "name": "kung-fu" },
-			{ "time": 0.3, "name": "fireball", "string": "fireball" }
+			{ "time": 0.3, "name": "fireball", "string": "fireball;start;back" },
+			{ "time": 2.6667, "name": "fireball", "string": "fireball;stop;back" }
 		]
 	},
 	"hide": {

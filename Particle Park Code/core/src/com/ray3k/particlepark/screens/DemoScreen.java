@@ -93,7 +93,8 @@ public class DemoScreen implements Screen {
     private ObjectMap<EventData, Tuple<String, FileHandle>> eventParticleMap;
     private PixmapPacker pixmapPacker;
     private TextureAtlas particleAtlas;
-    private Array<ParticleEffect> particleEffects;
+    private Array<ParticleEffect> particleEffectsBack;
+    private Array<ParticleEffect> particleEffectsFront;
     private ObjectMap<ParticleEffect, Slot> particleSlotFollowMap;
     
     private final Vector2 position;
@@ -111,7 +112,8 @@ public class DemoScreen implements Screen {
         
         pixmapPacker = new PixmapPacker(2048, 2048, Pixmap.Format.RGBA8888, 3, true);
         particleAtlas = new TextureAtlas();
-        particleEffects = new Array<ParticleEffect>();
+        particleEffectsBack = new Array<ParticleEffect>();
+        particleEffectsFront = new Array<ParticleEffect>();
         
         spineViewport = new FitViewport(800, 800, new OrthographicCamera());
         
@@ -160,6 +162,26 @@ public class DemoScreen implements Screen {
         core.batch.setProjectionMatrix(spineViewport.getCamera().combined);
         spineViewport.apply();
         core.batch.begin();
+        
+        core.batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+        Iterator<ParticleEffect> iter = particleEffectsBack.iterator();
+        while (iter.hasNext()) {
+            ParticleEffect particleEffect = iter.next();
+            if (particleEffect.isComplete()) {
+                iter.remove();
+                particleSlotFollowMap.remove(particleEffect);
+            } else {
+                Slot slot = particleSlotFollowMap.get(particleEffect);
+                if (slot != null) {
+                    PointAttachment point = (PointAttachment) slot.getAttachment();
+                    point.computeWorldPosition(slot.getBone(), position);
+                    particleEffect.setPosition(position.x, position.y);
+                }
+                particleEffect.draw(core.batch, delta);
+            }
+        }
+        core.batch.flush();
+        
         core.batch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA);
         animationState.update(delta);
         animationState.apply(skeleton);
@@ -168,9 +190,7 @@ public class DemoScreen implements Screen {
         core.batch.flush();
         
         core.batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
-        spineViewport.apply();
-        
-        Iterator<ParticleEffect> iter = particleEffects.iterator();
+        iter = particleEffectsFront.iterator();
         while (iter.hasNext()) {
             ParticleEffect particleEffect = iter.next();
             if (particleEffect.isComplete()) {
@@ -243,7 +263,11 @@ public class DemoScreen implements Screen {
                     sound.stop();
                 }
                 
-                for (ParticleEffect particleEffect : particleEffects) {
+                for (ParticleEffect particleEffect : particleEffectsBack) {
+                    particleEffect.allowCompletion();
+                }
+                
+                for (ParticleEffect particleEffect : particleEffectsFront) {
                     particleEffect.allowCompletion();
                 }
                 
@@ -281,6 +305,7 @@ public class DemoScreen implements Screen {
                 } else {
                     boolean create = true;
                     boolean continuous = false;
+                    boolean back = false;
                     Slot slot = null;
                     int index = 0;
                     for (String string : event.getString().split(";")) {
@@ -303,6 +328,11 @@ public class DemoScreen implements Screen {
                                     }
                                 }
                                 break;
+                            case 2:
+                                if (string.equals("back")) {
+                                    back = true;
+                                }
+                                break;
                         }
                         index++;
                     }
@@ -313,7 +343,11 @@ public class DemoScreen implements Screen {
                         particleEffect.start();
                         
                         particleEffect.setPosition(position.x, position.y);
-                        particleEffects.add(particleEffect);
+                        if (back) {
+                            particleEffectsBack.add(particleEffect);
+                        } else {
+                            particleEffectsFront.add(particleEffect);
+                        }
                         
                         if (continuous) {
                             particleSlotFollowMap.put(particleEffect, slot);
@@ -525,7 +559,7 @@ public class DemoScreen implements Screen {
     }
     
     private void prepareParticleAtlas() {
-        pixmapPacker.updateTextureAtlas(particleAtlas, Texture.TextureFilter.Linear, Texture.TextureFilter.Linear, false);
+        pixmapPacker.updateTextureAtlas(particleAtlas, Texture.TextureFilter.Linear, Texture.TextureFilter.Linear, false, false);
         
     }
 }

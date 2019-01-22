@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "NO/tCTSBWslvIJ+KtyaJntcG8lg", "spine": "3.7.87", "width": 800, "height": 881, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "wMjy3Hh4x1edT79aWPNy8xnLhIM", "spine": "3.7.87", "width": 800, "height": 881, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "lightning-a", "parent": "root", "x": -239.04, "y": -5.98 },
@@ -65,9 +65,9 @@
 		},
 		"events": [
 			{ "time": 0, "name": "rain" },
-			{ "time": 0, "name": "rain-effect", "string": "rain;start" },
+			{ "time": 0, "name": "rain-effect", "string": "rain;start;back" },
 			{ "time": 0.5333, "name": "thunder2" },
-			{ "time": 9.9667, "name": "rain-effect", "string": "rain;stop" }
+			{ "time": 9.9667, "name": "rain-effect", "string": "rain;stop;back" }
 		]
 	},
 	"hide": {
