@@ -172,6 +172,7 @@ public class DemoScreen implements Screen {
         frameBuffer.begin();
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        Gdx.gl20.glBlendFuncSeparate(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA, GL20.GL_ONE, GL20.GL_ONE);
         particleBatch.begin();
         renderParticlesBack(delta, particleBatch);
         TextureRegion textureRegion = new TextureRegion(frameBuffer.getColorBufferTexture());
@@ -181,7 +182,7 @@ public class DemoScreen implements Screen {
         
         particleBatch.setProjectionMatrix(spineViewport.getCamera().combined);
         spineViewport.apply();
-        particleBatch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+        particleBatch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA);
         particleBatch.begin();
         particleBatch.draw(textureRegion, 0, 0);
         particleBatch.end();
@@ -194,6 +195,7 @@ public class DemoScreen implements Screen {
         frameBuffer.begin();
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        Gdx.gl20.glBlendFuncSeparate(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA, GL20.GL_ONE, GL20.GL_ONE);
         particleBatch.begin();
         renderParticlesFront(delta, particleBatch);
         textureRegion = new TextureRegion(frameBuffer.getColorBufferTexture());
@@ -203,7 +205,7 @@ public class DemoScreen implements Screen {
         
         particleBatch.setProjectionMatrix(spineViewport.getCamera().combined);
         spineViewport.apply();
-        particleBatch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+        particleBatch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA);
         particleBatch.begin();
         particleBatch.draw(textureRegion, 0, 0);
         particleBatch.end();
