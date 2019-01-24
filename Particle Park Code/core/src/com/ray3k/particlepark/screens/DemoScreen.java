@@ -24,6 +24,7 @@
 package com.ray3k.particlepark.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
@@ -100,10 +101,9 @@ public class DemoScreen implements Screen {
     private Array<ParticleEffect> particleEffectsBack;
     private Array<ParticleEffect> particleEffectsFront;
     private ObjectMap<ParticleEffect, Slot> particleSlotFollowMap;
-    private SpriteBatch frameBatch;
     private FrameBuffer frameBuffer;
-    
     private final Vector2 position;
+    private SpriteBatch particleBatch;
 
     public DemoScreen(Core core, String animationPath) {
         this.core = core;
@@ -120,9 +120,9 @@ public class DemoScreen implements Screen {
         particleAtlas = new TextureAtlas();
         particleEffectsBack = new Array<ParticleEffect>();
         particleEffectsFront = new Array<ParticleEffect>();
+        particleBatch = new SpriteBatch();
         
-        frameBuffer = new FrameBuffer(Pixmap.Format.RGB888, 800, 800, false, false);
-        frameBatch = new SpriteBatch();
+        frameBuffer = new FrameBuffer(Pixmap.Format.RGBA8888, 800, 800, false, false);
         
         spineViewport = new FitViewport(800, 800, new OrthographicCamera());
         
@@ -140,6 +140,7 @@ public class DemoScreen implements Screen {
         getParticleFiles();
         initializeParticles();
         createMenu();
+        
     }
     
     @Override
@@ -171,35 +172,41 @@ public class DemoScreen implements Screen {
         frameBuffer.begin();
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        
-        frameBatch.begin();
-        
-        frameBatch.setBlendFunction(-1, -1);
-        frameBatch.enableBlending();
-        Gdx.gl20.glBlendFuncSeparate(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA, GL20.GL_ONE, GL20.GL_ONE);
-        renderParticlesBack(delta, frameBatch);
-        frameBatch.end();
-        frameBuffer.end();
-        
+        particleBatch.begin();
+        renderParticlesBack(delta, particleBatch);
         TextureRegion textureRegion = new TextureRegion(frameBuffer.getColorBufferTexture());
         textureRegion.flip(false, true);
+        particleBatch.end();
+        frameBuffer.end();
         
-        core.batch.setProjectionMatrix(spineViewport.getCamera().combined);
+        particleBatch.setProjectionMatrix(spineViewport.getCamera().combined);
         spineViewport.apply();
-        core.batch.setBlendFunction(-1, -1);
-        Gdx.gl20.glBlendFuncSeparate(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA,GL20.GL_ONE, GL20.GL_DST_ALPHA);
-        core.batch.begin();
-        core.batch.draw(textureRegion, 0, 0);
-        core.batch.flush();
+        particleBatch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+        particleBatch.begin();
+        particleBatch.draw(textureRegion, 0, 0);
+        particleBatch.end();
         
         core.batch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA);
-        renderSpine(delta);
+        core.batch.begin();
+        renderSpine(delta, core.batch);
         core.batch.end();
         
-        core.batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
-        core.batch.begin();
-        renderParticlesFront(delta, core.batch);
-        core.batch.end();
+        frameBuffer.begin();
+        Gdx.gl.glClearColor(0, 0, 0, 0);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        particleBatch.begin();
+        renderParticlesFront(delta, particleBatch);
+        textureRegion = new TextureRegion(frameBuffer.getColorBufferTexture());
+        textureRegion.flip(false, true);
+        particleBatch.end();
+        frameBuffer.end();
+        
+        particleBatch.setProjectionMatrix(spineViewport.getCamera().combined);
+        spineViewport.apply();
+        particleBatch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+        particleBatch.begin();
+        particleBatch.draw(textureRegion, 0, 0);
+        particleBatch.end();
         
         core.batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         renderStage(delta);
@@ -225,11 +232,11 @@ public class DemoScreen implements Screen {
         }
     }
     
-    private void renderSpine(float delta) {
+    private void renderSpine(float delta, Batch batch) {
         animationState.update(delta);
         animationState.apply(skeleton);
         skeleton.updateWorldTransform();
-        core.skeletonRenderer.draw(core.batch, skeleton);
+        core.skeletonRenderer.draw(batch, skeleton);
     }
     
     private void renderParticlesFront(float delta, Batch batch) {
@@ -284,7 +291,6 @@ public class DemoScreen implements Screen {
     public void dispose() {
         stage.dispose();
         particleAtlas.dispose();
-        frameBatch.dispose();
         frameBuffer.dispose();
     }
     
@@ -385,6 +391,7 @@ public class DemoScreen implements Screen {
 
                     if (create) {
                         ParticleEffect particleEffect = new ParticleEffect();
+                        particleEffect.setEmittersCleanUpBlendFunction(false);
                         particleEffect.load(eventParticleMap.get(event.getData()).y, particleAtlas);
                         particleEffect.start();
                         
