@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "pIh0ZwaHgIfUFZ14dsFI3w81ceQ", "spine": "3.7.87", "width": 849, "height": 836.02, "images": "../output/1x/", "audio": "" },
+"skeleton": { "hash": "pnreDCM6U+EVTKM1KLWqYI8NC3c", "spine": "3.7.87", "width": 849, "height": 811.01, "images": "../output/1x/", "audio": "../../Particle Park Code/core/assets/sound/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "city", "parent": "root", "length": 140.45, "y": -179.84 },
@@ -36,12 +36,14 @@
 	}
 },
 "events": {
-	"firework-a": {},
-	"firework-b": {},
-	"firework-c": {},
-	"trail-a": {},
-	"trail-b": {},
-	"trail-c": {}
+	"firework": { "audio": "firework.ogg" },
+	"firework-a": { "string": "Particle Park Fireworks" },
+	"firework-b": { "string": "Particle Park Fireworks" },
+	"firework-c": { "string": "Particle Park Fireworks" },
+	"firework-launch": { "audio": "firework-launch.ogg" },
+	"trail-a": { "string": "Particle Park Fireworks Tracer" },
+	"trail-b": { "string": "Particle Park Fireworks Tracer" },
+	"trail-c": { "string": "Particle Park Fireworks Tracer" }
 },
 "animations": {
 	"animation": {
@@ -71,20 +73,27 @@
 			"firework-b": {
 				"translate": [
 					{ "time": 3.2, "x": 0, "y": 0 },
-					{ "time": 4, "x": 0, "y": 717.66 }
+					{ "time": 4, "x": 0, "y": 717.66, "curve": "stepped" },
+					{ "time": 7.3333, "x": 0, "y": 717.66 }
 				]
 			}
 		},
 		"events": [
+			{ "time": 0, "name": "firework-launch" },
 			{ "time": 0, "name": "trail-a", "string": "firework-a;start;back" },
 			{ "time": 0.8, "name": "firework-a", "string": "firework-a;back" },
 			{ "time": 0.8, "name": "trail-a", "string": "firework-a;stop;back" },
+			{ "time": 1.0333, "name": "firework" },
+			{ "time": 1.6, "name": "firework-launch" },
 			{ "time": 1.6, "name": "trail-c", "string": "firework-c;start;back" },
 			{ "time": 2.4, "name": "firework-c", "string": "firework-c;;back" },
 			{ "time": 2.4, "name": "trail-c", "string": "firework-c;stop;back" },
+			{ "time": 2.6, "name": "firework" },
+			{ "time": 3.2, "name": "firework-launch" },
 			{ "time": 3.2, "name": "trail-b", "string": "firework-b;start;back" },
 			{ "time": 4, "name": "firework-b", "string": "firework-b;;back" },
-			{ "time": 4, "name": "trail-b", "string": "firework-b;stop;back" }
+			{ "time": 4, "name": "trail-b", "string": "firework-b;stop;back" },
+			{ "time": 4.2, "name": "firework" }
 		]
 	},
 	"hide": {

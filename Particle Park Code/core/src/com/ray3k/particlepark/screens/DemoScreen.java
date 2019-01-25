@@ -24,7 +24,6 @@
 package com.ray3k.particlepark.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
@@ -104,6 +103,7 @@ public class DemoScreen implements Screen {
     private FrameBuffer frameBuffer;
     private final Vector2 position;
     private SpriteBatch particleBatch;
+    private float particleAlpha;
 
     public DemoScreen(Core core, String animationPath) {
         this.core = core;
@@ -136,11 +136,12 @@ public class DemoScreen implements Screen {
         
         soundMap = new ObjectMap<Sound, Array<Long>>();
         
+        particleAlpha = 1.0f;
+        
         loadAnimation();
         getParticleFiles();
         initializeParticles();
         createMenu();
-        
     }
     
     @Override
@@ -184,6 +185,7 @@ public class DemoScreen implements Screen {
         spineViewport.apply();
         particleBatch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA);
         particleBatch.begin();
+        particleBatch.setColor(particleAlpha, particleAlpha, particleAlpha, particleAlpha);
         particleBatch.draw(textureRegion, 0, 0);
         particleBatch.end();
         
@@ -207,6 +209,7 @@ public class DemoScreen implements Screen {
         spineViewport.apply();
         particleBatch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA);
         particleBatch.begin();
+        particleBatch.setColor(particleAlpha, particleAlpha, particleAlpha, particleAlpha);
         particleBatch.draw(textureRegion, 0, 0);
         particleBatch.end();
         
@@ -579,6 +582,12 @@ public class DemoScreen implements Screen {
                     }
                     
                     stage.getRoot().addAction(Actions.fadeOut(.5f));
+                    stage.getRoot().addAction(new TemporalAction(.5f) {
+                        @Override
+                        protected void update(float percent) {
+                            particleAlpha = 1 - percent;
+                        }
+                    });
                 }
             });
             
@@ -600,9 +609,17 @@ public class DemoScreen implements Screen {
     
     private void initializeParticles() {
         for (EventData particleEvent : particleEvents) {
-            if (particleFiles.size > 0) {
-                loadParticleEffect(particleEvent, particleFiles.first());
+            Tuple<String, FileHandle> selectedParticleFile = null;
+            for (Tuple<String, FileHandle> particleFile : particleFiles) {
+                if (particleEvent.getString().equals(particleFile.x)) {
+                    selectedParticleFile = particleFile;
+                    break;
+                }
             }
+            
+            if (selectedParticleFile == null) selectedParticleFile = particleFiles.first();
+            
+            loadParticleEffect(particleEvent, selectedParticleFile);
         }
         
         prepareParticleAtlas();

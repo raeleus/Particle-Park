@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "BvTLJdeWVH54/LDmpC2w/ISdPs0", "spine": "3.7.87", "width": 841.37, "height": 811.91, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "OGip/60jZNsOh/ZW0wHvskgytf4", "spine": "3.7.87", "width": 841.37, "height": 811.91, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "droplet", "parent": "root", "length": 51.96, "rotation": -90, "x": 37.63, "y": 288.5 },
@@ -48,7 +48,7 @@
 },
 "events": {
 	"drop": { "audio": "drop.ogg" },
-	"splash": {}
+	"splash": { "string": "Particle Park Splash" }
 },
 "animations": {
 	"animation": {

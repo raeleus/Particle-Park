@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "qq0XZggs12BpnstOlntJmhjUBdk", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../Particle Park Code/core/assets/sound/" },
+"skeleton": { "hash": "FfhPUry5Y9KpFeh08ncdPUtSWWA", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../Particle Park Code/core/assets/sound/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "teleporter-pad", "parent": "root", "length": 162.53, "rotation": -0.35, "x": -36.54, "y": -37.82 },
@@ -45,8 +45,8 @@
 	}
 },
 "events": {
-	"portal": {},
-	"sphere": {},
+	"portal": { "string": "Particle Park Pentagram" },
+	"sphere": { "string": "Particle Park Hallucinogen" },
 	"teleporter": { "audio": "teleporter.ogg" }
 },
 "animations": {

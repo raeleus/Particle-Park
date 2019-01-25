@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "wMjy3Hh4x1edT79aWPNy8xnLhIM", "spine": "3.7.87", "width": 800, "height": 881, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "XLiYoVx4z/SwXlV0oehrHFxQ/yA", "spine": "3.7.87", "width": 800, "height": 881, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "lightning-a", "parent": "root", "x": -239.04, "y": -5.98 },
@@ -35,7 +35,7 @@
 },
 "events": {
 	"rain": { "audio": "rain.ogg" },
-	"rain-effect": {},
+	"rain-effect": { "string": "Particle Park Rain Cinematic" },
 	"thunder": { "audio": "thunder.ogg" },
 	"thunder2": { "audio": "thunder2.ogg" }
 },

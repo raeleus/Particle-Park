@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "kwRx7bWLNZjXH0ogu6jmXTsx3Pc", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "WzTo08xwTaukLKLCggrBQn5+Itg", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone3", "parent": "root", "x": -90.77, "y": -213.74, "color": "ff3f00ff" },
@@ -100,7 +100,7 @@
 	}
 },
 "events": {
-	"fireball": {},
+	"fireball": { "string": "Particle Park Fireball" },
 	"kung-fu": { "audio": "kung-fu.ogg" }
 },
 "animations": {

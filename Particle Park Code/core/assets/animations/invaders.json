@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "Uvd/Tdlgv6+YBWg+7Zl4I/FY/VM", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../Particle Park Code/core/assets/sound/" },
+"skeleton": { "hash": "brriaQUIsHGbFkJON0Sny1uF2qg", "spine": "3.7.87", "width": 800, "height": 808.84, "images": "../output/1x/", "audio": "../../Particle Park Code/core/assets/sound/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "shooter", "parent": "root", "length": 136.42, "rotation": 89.42, "x": 6.58, "y": -311.31 },
@@ -67,14 +67,14 @@
 },
 "events": {
 	"explosion": { "audio": "explosion.ogg" },
-	"explosion1": {},
-	"explosion2": {},
-	"explosion3": {},
+	"explosion1": { "string": "Particle Park Explosion Small" },
+	"explosion2": { "string": "Particle Park Explosion Small" },
+	"explosion3": { "string": "Particle Park Explosion" },
 	"explosion-big": { "audio": "explosion-big.ogg" },
 	"laser": { "audio": "laser.ogg" },
-	"trail1": {},
-	"trail2": {},
-	"trail3": {}
+	"trail1": { "string": "Particle Park Smoke" },
+	"trail2": { "string": "Particle Park Smoke" },
+	"trail3": { "string": "Particle Park Smoke" }
 },
 "animations": {
 	"animation": {

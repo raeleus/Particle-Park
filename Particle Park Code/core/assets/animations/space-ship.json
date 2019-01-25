@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "d04TSOSWZT+oSClQDLBsY6DEvnQ", "spine": "3.7.87", "width": 800, "height": 1142.7, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "wr6uckBWilc6Qjk+um9L3XYPuBI", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "rocket", "parent": "root", "length": 300.89, "rotation": 90, "y": -291.32 }
@@ -21,7 +21,7 @@
 },
 "events": {
 	"rocket": { "audio": "rocket.ogg" },
-	"thruster": {}
+	"thruster": { "string": "Particle Park Thruster" }
 },
 "animations": {
 	"animation": {

@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "FgCiVKN9eJgHAliWxxqLH/cg9Zc", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "nk+iZOSnz3EIlzQC+EZVERLHDy8", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "race-car-wheels", "parent": "root", "length": 341.11, "x": -103.67, "y": -109.5 },
@@ -33,11 +33,11 @@
 	}
 },
 "events": {
-	"burn-out": {},
+	"burn-out": { "string": "Particle Park Burnout" },
 	"burnout": { "audio": "burnout.ogg" },
 	"drop car": { "audio": "drop car.ogg" },
-	"dust-left": {},
-	"dust-right": {}
+	"dust-left": { "string": "Particle Park Dust Left" },
+	"dust-right": { "string": "Particle Park Dust Right" }
 },
 "animations": {
 	"animation": {

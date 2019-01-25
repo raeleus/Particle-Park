@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "6rUX7Xe3QHXpGIlvF67WZ8ig3CQ", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "oWU0RHgag8X/GGtt0ZPD14ZUDFo", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "fly", "parent": "root", "length": 24.2, "rotation": -1.04, "x": 216.05, "y": 93.43 },
@@ -47,11 +47,11 @@
 	}
 },
 "events": {
-	"fart": {},
+	"fart": { "string": "Particle Park Stink" },
 	"fart1": { "audio": "fart1.ogg" },
 	"fly": { "audio": "fly.ogg" },
 	"splat": { "audio": "splat.ogg" },
-	"trail": {}
+	"trail": { "string": "Particle Park Trail Pixel" }
 },
 "animations": {
 	"animation": {

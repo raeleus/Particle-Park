@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "rsOM3XSA2F5nOfHnx/+x+A7JWOc", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "BHbcmKgZbnqvJNObrBvn2WPCDBI", "spine": "3.7.87", "width": 841.12, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "star", "parent": "root", "length": 48.76, "x": -437.73, "y": 358.11 },
@@ -35,8 +35,8 @@
 },
 "events": {
 	"fire": { "audio": "fire.ogg" },
-	"fire-effect": {},
-	"star-trail": {}
+	"fire-effect": { "string": "Particle Park Flame" },
+	"star-trail": { "string": "Particle Park Trail" }
 },
 "animations": {
 	"animation": {

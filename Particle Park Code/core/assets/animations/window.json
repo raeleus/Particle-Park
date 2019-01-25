@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "lWkE9C8+s9cj2BcYud+QpGt4Rvw", "spine": "3.7.87", "width": 865.35, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "c0hG2IcVC1Eo5Yr+w7MQCU6Xk1s", "spine": "3.7.87", "width": 904.28, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{
@@ -52,7 +52,7 @@
 },
 "events": {
 	"glass": { "audio": "glass.ogg" },
-	"shards": {}
+	"shards": { "string": "Particle Park Glass" }
 },
 "animations": {
 	"animation": {

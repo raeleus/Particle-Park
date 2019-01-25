@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "Lorc3XUfK7MhAyiZTixeYoq3eyU", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "iTmbft5x2baMceyTo/loCNa9BvE", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone", "parent": "root", "rotation": 0.63, "color": "abe323ff" },
@@ -58,8 +58,8 @@
 	}
 },
 "events": {
-	"laser": {},
-	"muzzle": {},
+	"laser": { "string": "Particle Park Laser" },
+	"muzzle": { "string": "Particle Park Muzzle Flash" },
 	"pistol": { "audio": "pistol.ogg" }
 },
 "animations": {
