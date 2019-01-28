@@ -149,7 +149,7 @@ behind: false
 premultipliedAlpha: false
 spriteMode: random
 - Image Paths -
-/E:/workspace/Particle Park/particles/images/circle1.png
+/E:/workspace/Particle Park/particles/images/pp_circle1.png
 
 
 blurp
@@ -294,5 +294,5 @@ behind: false
 premultipliedAlpha: false
 spriteMode: random
 - Image Paths -
-/E:/workspace/Particle Park/particles/images/circle1.png
+/E:/workspace/Particle Park/particles/images/pp_circle1.png
 

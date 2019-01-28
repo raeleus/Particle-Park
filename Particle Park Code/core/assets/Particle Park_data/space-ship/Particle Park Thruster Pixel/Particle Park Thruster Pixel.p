@@ -131,7 +131,7 @@ behind: false
 premultipliedAlpha: false
 spriteMode: single
 - Image Paths -
-/E:/workspace/Particle Park/particles/images/rect.png
+/E:/workspace/Particle Park/particles/images/pp_rect.png
 
 
 thruster
@@ -273,5 +273,5 @@ behind: false
 premultipliedAlpha: false
 spriteMode: single
 - Image Paths -
-/E:/workspace/Particle Park/particles/images/rect.png
+/E:/workspace/Particle Park/particles/images/pp_rect.png
 

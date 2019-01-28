@@ -123,5 +123,5 @@ behind: false
 premultipliedAlpha: false
 spriteMode: single
 - Image Paths -
-/E:/workspace/Particle Park/particles/images/pentagram-glow.png
+/E:/workspace/Particle Park/particles/images/pp_pentagram-glow.png
 

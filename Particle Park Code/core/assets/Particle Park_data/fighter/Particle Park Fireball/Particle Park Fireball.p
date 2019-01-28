@@ -140,9 +140,9 @@ behind: false
 premultipliedAlpha: false
 spriteMode: random
 - Image Paths -
-/E:/workspace/Particle Park/particles/images/thrust-1.png
-/E:/workspace/Particle Park/particles/images/thrust-2.png
-/E:/workspace/Particle Park/particles/images/thrust-3.png
+/E:/workspace/Particle Park/particles/images/pp_thrust-1.png
+/E:/workspace/Particle Park/particles/images/pp_thrust-2.png
+/E:/workspace/Particle Park/particles/images/pp_thrust-3.png
 
 
 trail
@@ -312,7 +312,7 @@ behind: false
 premultipliedAlpha: false
 spriteMode: random
 - Image Paths -
-/E:/workspace/Particle Park/particles/images/thrust-1.png
-/E:/workspace/Particle Park/particles/images/thrust-2.png
-/E:/workspace/Particle Park/particles/images/thrust-3.png
+/E:/workspace/Particle Park/particles/images/pp_thrust-1.png
+/E:/workspace/Particle Park/particles/images/pp_thrust-2.png
+/E:/workspace/Particle Park/particles/images/pp_thrust-3.png
 

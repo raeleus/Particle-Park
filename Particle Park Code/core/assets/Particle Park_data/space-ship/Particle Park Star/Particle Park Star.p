@@ -175,5 +175,5 @@ behind: false
 premultipliedAlpha: false
 spriteMode: single
 - Image Paths -
-/E:/workspace/Particle Park/particles/images/star_1.png
+/E:/workspace/Particle Park/particles/images/pp_star_1.png
 

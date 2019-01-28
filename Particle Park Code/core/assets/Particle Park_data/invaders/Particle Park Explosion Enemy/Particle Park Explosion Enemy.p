@@ -136,9 +136,9 @@ behind: false
 premultipliedAlpha: false
 spriteMode: random
 - Image Paths -
-/E:/workspace/Particle Park/particles/images/explosion-1.png
-/E:/workspace/Particle Park/particles/images/explosion-2.png
-/E:/workspace/Particle Park/particles/images/explosion-3.png
+/E:/workspace/Particle Park/particles/images/pp_explosion-1.png
+/E:/workspace/Particle Park/particles/images/pp_explosion-2.png
+/E:/workspace/Particle Park/particles/images/pp_explosion-3.png
 
 
 explosion
@@ -281,9 +281,9 @@ behind: false
 premultipliedAlpha: false
 spriteMode: random
 - Image Paths -
-/E:/workspace/Particle Park/particles/images/explosion-1.png
-/E:/workspace/Particle Park/particles/images/explosion-2.png
-/E:/workspace/Particle Park/particles/images/explosion-3.png
+/E:/workspace/Particle Park/particles/images/pp_explosion-1.png
+/E:/workspace/Particle Park/particles/images/pp_explosion-2.png
+/E:/workspace/Particle Park/particles/images/pp_explosion-3.png
 
 
 explosion
@@ -426,9 +426,9 @@ behind: false
 premultipliedAlpha: false
 spriteMode: random
 - Image Paths -
-/E:/workspace/Particle Park/particles/images/explosion-1.png
-/E:/workspace/Particle Park/particles/images/explosion-2.png
-/E:/workspace/Particle Park/particles/images/explosion-3.png
+/E:/workspace/Particle Park/particles/images/pp_explosion-1.png
+/E:/workspace/Particle Park/particles/images/pp_explosion-2.png
+/E:/workspace/Particle Park/particles/images/pp_explosion-3.png
 
 
 explosion
@@ -571,9 +571,9 @@ behind: false
 premultipliedAlpha: false
 spriteMode: random
 - Image Paths -
-/E:/workspace/Particle Park/particles/images/explosion-1.png
-/E:/workspace/Particle Park/particles/images/explosion-2.png
-/E:/workspace/Particle Park/particles/images/explosion-3.png
+/E:/workspace/Particle Park/particles/images/pp_explosion-1.png
+/E:/workspace/Particle Park/particles/images/pp_explosion-2.png
+/E:/workspace/Particle Park/particles/images/pp_explosion-3.png
 
 
 explosion
@@ -716,7 +716,7 @@ behind: false
 premultipliedAlpha: false
 spriteMode: random
 - Image Paths -
-/E:/workspace/Particle Park/particles/images/explosion-1.png
-/E:/workspace/Particle Park/particles/images/explosion-2.png
-/E:/workspace/Particle Park/particles/images/explosion-3.png
+/E:/workspace/Particle Park/particles/images/pp_explosion-1.png
+/E:/workspace/Particle Park/particles/images/pp_explosion-2.png
+/E:/workspace/Particle Park/particles/images/pp_explosion-3.png
 

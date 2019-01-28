@@ -147,7 +147,7 @@ behind: false
 premultipliedAlpha: false
 spriteMode: single
 - Image Paths -
-/E:/workspace/Particle Park/particles/images/circle3.png
+/E:/workspace/Particle Park/particles/images/pp_circle3.png
 
 
 flame
@@ -285,5 +285,5 @@ behind: false
 premultipliedAlpha: false
 spriteMode: single
 - Image Paths -
-/E:/workspace/Particle Park/particles/images/circle2.png
+/E:/workspace/Particle Park/particles/images/pp_circle2.png
 

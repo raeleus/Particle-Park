@@ -143,5 +143,5 @@ behind: false
 premultipliedAlpha: false
 spriteMode: single
 - Image Paths -
-/E:/workspace/Particle Park/particles/images/snow-flake.png
+/E:/workspace/Particle Park/particles/images/pp_snow-flake.png
 

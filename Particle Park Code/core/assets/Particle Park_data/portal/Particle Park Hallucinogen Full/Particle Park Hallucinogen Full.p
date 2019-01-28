@@ -155,5 +155,5 @@ behind: false
 premultipliedAlpha: false
 spriteMode: single
 - Image Paths -
-/E:/workspace/Particle Park/particles/images/neutron-full.png
+/E:/workspace/Particle Park/particles/images/pp_neutron-full.png
 

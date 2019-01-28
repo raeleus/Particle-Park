@@ -153,10 +153,10 @@ behind: false
 premultipliedAlpha: false
 spriteMode: random
 - Image Paths -
-/E:/workspace/Particle Park/particles/images/glass-1.png
-/E:/workspace/Particle Park/particles/images/glass-2.png
-/E:/workspace/Particle Park/particles/images/glass-3.png
-/E:/workspace/Particle Park/particles/images/glass-4.png
-/E:/workspace/Particle Park/particles/images/glass-5.png
-/E:/workspace/Particle Park/particles/images/glass-6.png
+/E:/workspace/Particle Park/particles/images/pp_glass-1.png
+/E:/workspace/Particle Park/particles/images/pp_glass-2.png
+/E:/workspace/Particle Park/particles/images/pp_glass-3.png
+/E:/workspace/Particle Park/particles/images/pp_glass-4.png
+/E:/workspace/Particle Park/particles/images/pp_glass-5.png
+/E:/workspace/Particle Park/particles/images/pp_glass-6.png
 
