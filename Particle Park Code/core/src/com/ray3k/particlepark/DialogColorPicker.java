@@ -508,38 +508,35 @@ public class DialogColorPicker extends Dialog {
     }
     
     private void updateBoxColor() {
-        float[] hsb = selectedColor.toHsv(new float[3]);
+        float h = Integer.parseInt(((TextField) findActor("hue-field")).getText());
+        float s = Integer.parseInt(((TextField) findActor("saturation-field")).getText()) / 100f;
+        float b = Integer.parseInt(((TextField) findActor("brightness-field")).getText()) / 100f;
         switch (mode) {
             case HUE:
                 boxGradient1.getColor1().set(Color.WHITE);
                 boxGradient1.getColor2().set(Color.WHITE);
-                boxGradient1.getColor3().fromHsv(hsb[0], 1, 1).a = 1;
-                boxGradient1.getColor4().fromHsv(hsb[0], 1, 1).a = 1;
+                boxGradient1.getColor3().fromHsv(h, 1, 1).a = 1;
+                boxGradient1.getColor4().fromHsv(h, 1, 1).a = 1;
 
                 boxGradient2.getColor1().set(Color.BLACK);
                 boxGradient2.getColor4().set(Color.BLACK);
                 boxGradient2.getColor2().set(Color.CLEAR);
                 boxGradient2.getColor3().set(Color.CLEAR);
                 
-                float s = Integer.parseInt(((TextField) findActor("saturation-field")).getText());
-                float b = Integer.parseInt(((TextField) findActor("brightness-field")).getText());
-                reticle.setPosition(256f * s / 100, 256f * b / 100, Align.center);
+                reticle.setPosition(256f * s, 256f * b, Align.center);
                 break;
             case SATURATION:
-                boxGradient1.getColor1().set(1,1,1, 1 - hsb[1]);
-                boxGradient1.getColor2().set(1,1,1, 1 - hsb[1]);
-                boxGradient1.getColor3().set(1,1,1, 1 - hsb[1]);
-                boxGradient1.getColor4().set(1,1,1, 1 - hsb[1]);
+                boxGradient1.getColor1().set(1,1,1, 1f - s);
+                boxGradient1.getColor2().set(1,1,1, 1f - s);
+                boxGradient1.getColor3().set(1,1,1, 1f - s);
+                boxGradient1.getColor4().set(1,1,1, 1f - s);
 
                 boxGradient2.getColor1().set(Color.BLACK);
                 boxGradient2.getColor4().set(Color.BLACK);
                 boxGradient2.getColor2().set(Color.CLEAR);
                 boxGradient2.getColor3().set(Color.CLEAR);
                 
-                float h = Integer.parseInt(((TextField) findActor("hue-field")).getText());
-                b = Integer.parseInt(((TextField) findActor("brightness-field")).getText());
-                System.out.println(h + " " + b);
-                reticle.setPosition(256f * h / 360, 256f * b / 100, Align.center);
+                reticle.setPosition(256f * h / 360, 256f * b, Align.center);
                 break;
             case BRIGHTNESS:
                 boxGradient1.getColor1().set(Color.WHITE);
@@ -547,10 +544,10 @@ public class DialogColorPicker extends Dialog {
                 boxGradient1.getColor2().set(Color.CLEAR);
                 boxGradient1.getColor3().set(Color.CLEAR);
 
-                boxGradient2.getColor1().set(0, 0, 0, 1 - hsb[2]);
-                boxGradient2.getColor2().set(0, 0, 0, 1 - hsb[2]);
-                boxGradient2.getColor3().set(0, 0, 0, 1 - hsb[2]);
-                boxGradient2.getColor4().set(0, 0, 0, 1 - hsb[2]);
+                boxGradient2.getColor1().set(0, 0, 0, 1f - b);
+                boxGradient2.getColor2().set(0, 0, 0, 1f - b);
+                boxGradient2.getColor3().set(0, 0, 0, 1f - b);
+                boxGradient2.getColor4().set(0, 0, 0, 1f - b);
                 
                 h = Integer.parseInt(((TextField) findActor("hue-field")).getText());
                 s = Integer.parseInt(((TextField) findActor("saturation-field")).getText());
