@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "nk+iZOSnz3EIlzQC+EZVERLHDy8", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "zTvMUXvVYey1tn1+Cnm5VIja+tQ", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "race-car-wheels", "parent": "root", "length": 341.11, "x": -103.67, "y": -109.5 },
@@ -7,8 +7,8 @@
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
-	{ "name": "race-car", "bone": "race-car", "attachment": "race-car" },
-	{ "name": "race-car-wheels", "bone": "race-car-wheels", "attachment": "race-car-wheels" },
+	{ "name": "race-car", "bone": "race-car", "dark": "000000", "attachment": "race-car" },
+	{ "name": "race-car-wheels", "bone": "race-car-wheels", "dark": "000000", "attachment": "race-car-wheels" },
 	{ "name": "burn-out", "bone": "race-car-wheels", "attachment": "burn-out" },
 	{ "name": "dust-left", "bone": "root", "attachment": "dust-left" },
 	{ "name": "dust-right", "bone": "root", "attachment": "dust-right" }
@@ -71,15 +71,15 @@
 	"hide": {
 		"slots": {
 			"race-car": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 1, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 1, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"race-car-wheels": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 1, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 1, "light": "ffffff00", "dark": "000000" }
 				]
 			}
 		}

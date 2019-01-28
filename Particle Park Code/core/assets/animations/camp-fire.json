@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "BHbcmKgZbnqvJNObrBvn2WPCDBI", "spine": "3.7.87", "width": 841.12, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "Rlj843MIdpu+TKL+tKlWpJOfMPA", "spine": "3.7.87", "width": 841.12, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "star", "parent": "root", "length": 48.76, "x": -437.73, "y": 358.11 },
@@ -8,9 +8,9 @@
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
-	{ "name": "camp-fire", "bone": "camp-fire", "attachment": "camp-fire" },
-	{ "name": "moon", "bone": "moon", "attachment": "moon" },
-	{ "name": "star", "bone": "star", "attachment": "star" },
+	{ "name": "camp-fire", "bone": "camp-fire", "dark": "000000", "attachment": "camp-fire" },
+	{ "name": "moon", "bone": "moon", "dark": "000000", "attachment": "moon" },
+	{ "name": "star", "bone": "star", "dark": "000000", "attachment": "star" },
 	{ "name": "fire", "bone": "root", "attachment": "fire" },
 	{ "name": "star-trail", "bone": "star", "attachment": "star-trail" }
 ],
@@ -68,29 +68,31 @@
 	"hide": {
 		"slots": {
 			"camp-fire": {
-				"color": [
+				"twoColor": [
 					{
 						"time": 0,
-						"color": "ffffffff",
+						"light": "ffffffff",
+						"dark": "000000",
 						"curve": [ 0, 0.77, 0.75, 1 ]
 					},
-					{ "time": 1.2, "color": "ffffff00" }
+					{ "time": 1.2, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"moon": {
-				"color": [
+				"twoColor": [
 					{
 						"time": 0,
-						"color": "ffffffff",
+						"light": "ffffffff",
+						"dark": "000000",
 						"curve": [ 0, 0.77, 0.75, 1 ]
 					},
-					{ "time": 1.2, "color": "ffffff00" }
+					{ "time": 1.2, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"star": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 1.2, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 1.2, "light": "ffffff00", "dark": "000000" }
 				]
 			}
 		}

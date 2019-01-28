@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "sUDiKZRff1oY9KKKPEK9t3gTsqI", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "tMvopq1PW9Kp+HOLRDd9ZZlNahg", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "train", "parent": "root", "length": 295, "rotation": -179.81, "x": 198.95, "y": -69.83 },
@@ -7,8 +7,8 @@
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
-	{ "name": "train", "bone": "train", "attachment": "train" },
-	{ "name": "train-arm", "bone": "train-arm", "attachment": "train-arm" },
+	{ "name": "train", "bone": "train", "dark": "000000", "attachment": "train" },
+	{ "name": "train-arm", "bone": "train-arm", "dark": "000000", "attachment": "train-arm" },
 	{ "name": "arm-path", "bone": "train", "attachment": "arm-path" },
 	{ "name": "smoke", "bone": "train", "attachment": "smoke" }
 ],
@@ -93,15 +93,15 @@
 	"hide": {
 		"slots": {
 			"train": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 0.8333, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"train-arm": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 0.8333, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffff00", "dark": "000000" }
 				]
 			}
 		}

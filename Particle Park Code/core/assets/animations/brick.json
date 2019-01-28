@@ -1,13 +1,13 @@
 {
-"skeleton": { "hash": "d2Kewjf0OTwPWM+BQJHocaoWtMc", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "ESDLKTvPyt2yWoJ3rJV19KomvKs", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "brick", "parent": "root", "length": 325.01, "rotation": 89.54, "x": 179.18, "y": 15.81 }
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
-	{ "name": "brick", "bone": "brick", "attachment": "brick" },
-	{ "name": "brick-mouth", "bone": "brick", "attachment": "brick-mouth" },
+	{ "name": "brick", "bone": "brick", "dark": "000000", "attachment": "brick" },
+	{ "name": "brick-mouth", "bone": "brick", "dark": "000000", "attachment": "brick-mouth" },
 	{ "name": "dust-left", "bone": "brick", "attachment": "dust-left" },
 	{ "name": "dust-right", "bone": "brick", "attachment": "dust-right" }
 ],

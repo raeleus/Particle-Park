@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "brriaQUIsHGbFkJON0Sny1uF2qg", "spine": "3.7.87", "width": 800, "height": 808.84, "images": "../output/1x/", "audio": "../../Particle Park Code/core/assets/sound/" },
+"skeleton": { "hash": "4jZXTHOWFG4gIDDHu2oKhyoz7FE", "spine": "3.7.87", "width": 800, "height": 808.84, "images": "../output/1x/", "audio": "../../Particle Park Code/core/assets/sound/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "shooter", "parent": "root", "length": 136.42, "rotation": 89.42, "x": 6.58, "y": -311.31 },
@@ -10,11 +10,11 @@
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
-	{ "name": "missile", "bone": "missile" },
-	{ "name": "rocket-pod", "bone": "rocket-pod" },
-	{ "name": "rocket-pod2", "bone": "rocket-pod2" },
-	{ "name": "shooter", "bone": "shooter", "attachment": "shooter" },
-	{ "name": "alien", "bone": "alien", "attachment": "alien" },
+	{ "name": "missile", "bone": "missile", "dark": "000000" },
+	{ "name": "rocket-pod", "bone": "rocket-pod", "dark": "000000" },
+	{ "name": "rocket-pod2", "bone": "rocket-pod2", "dark": "000000" },
+	{ "name": "shooter", "bone": "shooter", "dark": "000000", "attachment": "shooter" },
+	{ "name": "alien", "bone": "alien", "dark": "000000", "attachment": "alien" },
 	{ "name": "missile-path", "bone": "root", "attachment": "missile-path" },
 	{ "name": "missile-explosion", "bone": "missile", "attachment": "missile-explosion" },
 	{ "name": "rocket-pod-explosion", "bone": "rocket-pod", "attachment": "rocket-pod-explosion" },

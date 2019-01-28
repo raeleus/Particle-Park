@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "oWU0RHgag8X/GGtt0ZPD14ZUDFo", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "15n6Fo/Fr0dRhNKmk4qi5u62FC0", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "fly", "parent": "root", "length": 24.2, "rotation": -1.04, "x": 216.05, "y": 93.43 },
@@ -7,8 +7,8 @@
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
-	{ "name": "poop", "bone": "poop", "attachment": "poop" },
-	{ "name": "fly", "bone": "fly", "attachment": "fly" },
+	{ "name": "poop", "bone": "poop", "dark": "000000", "attachment": "poop" },
+	{ "name": "fly", "bone": "fly", "dark": "000000", "attachment": "fly" },
 	{ "name": "fly-path", "bone": "root", "attachment": "fly-path" },
 	{ "name": "trail", "bone": "fly", "attachment": "trail" },
 	{ "name": "fart", "bone": "poop", "attachment": "fart" }
@@ -75,15 +75,15 @@
 	"hide": {
 		"slots": {
 			"fly": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 1, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 1, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"poop": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 1, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 1, "light": "ffffff00", "dark": "000000" }
 				]
 			}
 		}

@@ -68,6 +68,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationStateData;
+import com.esotericsoftware.spine.Bone;
 import com.esotericsoftware.spine.Event;
 import com.esotericsoftware.spine.EventData;
 import com.esotericsoftware.spine.Skeleton;
@@ -174,7 +175,7 @@ public class DemoScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClearColor(bgColor.r, bgColor.g, bgColor.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         
         frameBuffer.begin();
@@ -616,13 +617,19 @@ public class DemoScreen implements Screen {
             imageButton.addListener(new ChangeListener() {
                 @Override
                 public void changed(ChangeListener.ChangeEvent event, Actor actor) {
-                    DialogColorPicker dialog = new DialogColorPicker("FBO Rendering Color...", skin, core, bgColor);
+                    DialogColorPicker dialog = new DialogColorPicker("Background Color...", skin, core, bgColor);
                     dialog.addListener(new ColorPickerListener() {
                         @Override
                         public void colorSelected(Color color) {
                             bgColor.set(color);
                             bgStyle.imageUp = skin.newDrawable("button-color-fill", bgColor);
                             bgStyle.imageDown = skin.newDrawable("button-color-fill-pressed", bgColor);
+                            
+                            for (Slot slot : skeleton.getSlots()) {
+                                if (slot.getDarkColor() != null) {
+                                    slot.getDarkColor().set(bgColor);
+                                }
+                            }
                         }
 
                         @Override
@@ -648,13 +655,17 @@ public class DemoScreen implements Screen {
             imageButton.addListener(new ChangeListener() {
                 @Override
                 public void changed(ChangeListener.ChangeEvent event, Actor actor) {
-                    DialogColorPicker dialog = new DialogColorPicker("FBO Rendering Color...", skin, core, fgColor);
+                    DialogColorPicker dialog = new DialogColorPicker("Foreground Color...", skin, core, fgColor);
                     dialog.addListener(new ColorPickerListener() {
                         @Override
                         public void colorSelected(Color color) {
                             fgColor.set(color);
                             fgStyle.imageUp = skin.newDrawable("button-color-fill", fgColor);
                             fgStyle.imageDown = skin.newDrawable("button-color-fill-pressed", fgColor);
+                            
+                            for (Slot slot : skeleton.getSlots()) {
+                                slot.getColor().set(fgColor);
+                            }
                         }
 
                         @Override

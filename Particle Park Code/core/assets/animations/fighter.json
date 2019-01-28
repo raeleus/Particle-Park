@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "WzTo08xwTaukLKLCggrBQn5+Itg", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "kcc13LQMUV+rRDy+yiDrtzl7zSo", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone3", "parent": "root", "x": -90.77, "y": -213.74, "color": "ff3f00ff" },
@@ -47,13 +47,13 @@
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
-	{ "name": "hip", "bone": "hip", "attachment": "hip" },
-	{ "name": "chest", "bone": "chest", "attachment": "chest" },
-	{ "name": "head", "bone": "head", "attachment": "head" },
-	{ "name": "foot-left", "bone": "foot-left", "attachment": "foot-left" },
-	{ "name": "foot-right", "bone": "foot-right", "attachment": "foot-right" },
-	{ "name": "hand", "bone": "hand", "attachment": "hand" },
-	{ "name": "hand2", "bone": "hand2", "attachment": "hand" },
+	{ "name": "hip", "bone": "hip", "dark": "000000", "attachment": "hip" },
+	{ "name": "chest", "bone": "chest", "dark": "000000", "attachment": "chest" },
+	{ "name": "head", "bone": "head", "dark": "000000", "attachment": "head" },
+	{ "name": "foot-left", "bone": "foot-left", "dark": "000000", "attachment": "foot-left" },
+	{ "name": "foot-right", "bone": "foot-right", "dark": "000000", "attachment": "foot-right" },
+	{ "name": "hand", "bone": "hand", "dark": "000000", "attachment": "hand" },
+	{ "name": "hand2", "bone": "hand2", "dark": "000000", "attachment": "hand" },
 	{ "name": "fireball", "bone": "fireball", "attachment": "fireball" }
 ],
 "ik": [
@@ -215,45 +215,45 @@
 	"hide": {
 		"slots": {
 			"chest": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 0.8333, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"foot-left": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 0.8333, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"foot-right": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 0.8333, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"hand": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 0.8333, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"hand2": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 0.8333, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"head": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 0.8333, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"hip": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 0.8333, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffff00", "dark": "000000" }
 				]
 			}
 		}
@@ -261,45 +261,45 @@
 	"show": {
 		"slots": {
 			"chest": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" },
-					{ "time": 0.8333, "color": "ffffffff" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffffff", "dark": "000000" }
 				]
 			},
 			"foot-left": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" },
-					{ "time": 0.8333, "color": "ffffffff" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffffff", "dark": "000000" }
 				]
 			},
 			"foot-right": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" },
-					{ "time": 0.8333, "color": "ffffffff" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffffff", "dark": "000000" }
 				]
 			},
 			"hand": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" },
-					{ "time": 0.8333, "color": "ffffffff" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffffff", "dark": "000000" }
 				]
 			},
 			"hand2": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" },
-					{ "time": 0.8333, "color": "ffffffff" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffffff", "dark": "000000" }
 				]
 			},
 			"head": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" },
-					{ "time": 0.8333, "color": "ffffffff" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffffff", "dark": "000000" }
 				]
 			},
 			"hip": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" },
-					{ "time": 0.8333, "color": "ffffffff" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffffff", "dark": "000000" }
 				]
 			}
 		}

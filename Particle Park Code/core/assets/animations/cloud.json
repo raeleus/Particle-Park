@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "XLiYoVx4z/SwXlV0oehrHFxQ/yA", "spine": "3.7.87", "width": 800, "height": 881, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "0OPJM/nO8/+BGUTmgXT/hx2xUlI", "spine": "3.7.87", "width": 800, "height": 881, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "lightning-a", "parent": "root", "x": -239.04, "y": -5.98 },
@@ -8,9 +8,9 @@
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
-	{ "name": "cloud", "bone": "cloud", "attachment": "cloud" },
-	{ "name": "lightning-a", "bone": "lightning-a", "attachment": "lightning-a-1" },
-	{ "name": "lightning-b", "bone": "lightning-b", "attachment": "lightning-b-1" },
+	{ "name": "cloud", "bone": "cloud", "dark": "000000", "attachment": "cloud" },
+	{ "name": "lightning-a", "bone": "lightning-a", "dark": "000000", "attachment": "lightning-a-1" },
+	{ "name": "lightning-b", "bone": "lightning-b", "dark": "000000", "attachment": "lightning-b-1" },
 	{ "name": "rain", "bone": "root", "attachment": "rain" }
 ],
 "skins": {
@@ -43,9 +43,9 @@
 	"animation": {
 		"slots": {
 			"lightning-a": {
-				"color": [
-					{ "time": 0.1, "color": "ffffffff" },
-					{ "time": 0.5, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0.1, "light": "ffffffff", "dark": "000000" },
+					{ "time": 0.5, "light": "ffffff00", "dark": "000000" }
 				],
 				"attachment": [
 					{ "time": 0, "name": null },
@@ -53,9 +53,9 @@
 				]
 			},
 			"lightning-b": {
-				"color": [
-					{ "time": 1.2667, "color": "ffffffff" },
-					{ "time": 1.6333, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 1.2667, "light": "ffffffff", "dark": "000000" },
+					{ "time": 1.6333, "light": "ffffff00", "dark": "000000" }
 				],
 				"attachment": [
 					{ "time": 0, "name": null },
@@ -73,13 +73,13 @@
 	"hide": {
 		"slots": {
 			"lightning-a": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"lightning-b": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" }
 				]
 			}
 		},
@@ -95,13 +95,13 @@
 	"show": {
 		"slots": {
 			"lightning-a": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"lightning-b": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" }
 				]
 			}
 		},

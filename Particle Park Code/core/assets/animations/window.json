@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "c0hG2IcVC1Eo5Yr+w7MQCU6Xk1s", "spine": "3.7.87", "width": 904.28, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "xCeIIsUI6SRblizUV5YBqJOjLac", "spine": "3.7.87", "width": 904.28, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{
@@ -16,9 +16,9 @@
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
-	{ "name": "window", "bone": "window", "attachment": "window" },
-	{ "name": "rock", "bone": "rock", "attachment": "rock" },
-	{ "name": "window-crack", "bone": "window", "attachment": "window-crack" },
+	{ "name": "window", "bone": "window", "dark": "000000", "attachment": "window" },
+	{ "name": "rock", "bone": "rock", "dark": "000000", "attachment": "rock" },
+	{ "name": "window-crack", "bone": "window", "dark": "000000", "attachment": "window-crack" },
 	{ "name": "shards", "bone": "root", "attachment": "shards" }
 ],
 "transform": [
@@ -106,9 +106,9 @@
 	"hide": {
 		"slots": {
 			"rock": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 0.6667, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 0.6667, "light": "ffffff00", "dark": "000000" }
 				]
 			}
 		},

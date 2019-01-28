@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "7eOik9s1cDy9UnPpK7r0Vu9ZDfo", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "kkrrUZ2Dq3GLryKvdQgjJSTjpOc", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "welder-body", "parent": "root", "length": 473.39, "rotation": 90.42, "x": 1.73, "y": -169.44 },
@@ -10,11 +10,11 @@
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
-	{ "name": "welder-body", "bone": "welder-body", "attachment": "welder-body" },
-	{ "name": "welder-table", "bone": "welder-table", "attachment": "welder-table" },
-	{ "name": "welder-hand-left", "bone": "welder-hand-left", "attachment": "welder-hand-left" },
-	{ "name": "welder-hand-right", "bone": "welder-hand-right", "attachment": "welder-hand-right" },
-	{ "name": "welder-head", "bone": "welder-head", "attachment": "welder-head" },
+	{ "name": "welder-body", "bone": "welder-body", "dark": "000000", "attachment": "welder-body" },
+	{ "name": "welder-table", "bone": "welder-table", "dark": "000000", "attachment": "welder-table" },
+	{ "name": "welder-hand-left", "bone": "welder-hand-left", "dark": "000000", "attachment": "welder-hand-left" },
+	{ "name": "welder-hand-right", "bone": "welder-hand-right", "dark": "000000", "attachment": "welder-hand-right" },
+	{ "name": "welder-head", "bone": "welder-head", "dark": "000000", "attachment": "welder-head" },
 	{ "name": "sparks", "bone": "welder-hand-right", "attachment": "sparks" }
 ],
 "skins": {

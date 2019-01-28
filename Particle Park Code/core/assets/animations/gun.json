@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "iTmbft5x2baMceyTo/loCNa9BvE", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "52ewZo1SiMkUXCkDUNL0aSiy8NQ", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone", "parent": "root", "rotation": 0.63, "color": "abe323ff" },
@@ -9,10 +9,10 @@
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
-	{ "name": "gun-base", "bone": "gun-base", "attachment": "gun-base" },
-	{ "name": "gun-slide", "bone": "gun-slide", "attachment": "gun-slide" },
+	{ "name": "gun-base", "bone": "gun-base", "dark": "000000", "attachment": "gun-base" },
+	{ "name": "gun-slide", "bone": "gun-slide", "dark": "000000", "attachment": "gun-slide" },
 	{ "name": "gun-slide-clip", "bone": "gun-slide", "attachment": "gun-slide-clip" },
-	{ "name": "cartridge", "bone": "cartridge", "attachment": "cartridge" },
+	{ "name": "cartridge", "bone": "cartridge", "dark": "000000", "attachment": "cartridge" },
 	{ "name": "muzzle", "bone": "gun-base", "attachment": "muzzle" },
 	{ "name": "laser", "bone": "gun-base", "attachment": "laser" }
 ],
@@ -128,15 +128,15 @@
 	"hide": {
 		"slots": {
 			"gun-base": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 0.8333, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"gun-slide": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 0.8333, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffff00", "dark": "000000" }
 				]
 			}
 		}
@@ -144,15 +144,15 @@
 	"show": {
 		"slots": {
 			"gun-base": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" },
-					{ "time": 0.8333, "color": "ffffffff" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffffff", "dark": "000000" }
 				]
 			},
 			"gun-slide": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" },
-					{ "time": 0.8333, "color": "ffffffff" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" },
+					{ "time": 0.8333, "light": "ffffffff", "dark": "000000" }
 				]
 			}
 		}

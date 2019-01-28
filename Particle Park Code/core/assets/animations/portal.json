@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "FfhPUry5Y9KpFeh08ncdPUtSWWA", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../Particle Park Code/core/assets/sound/" },
+"skeleton": { "hash": "7hExxO4KEBvCBpfkzA0PiBHl998", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../Particle Park Code/core/assets/sound/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "teleporter-pad", "parent": "root", "length": 162.53, "rotation": -0.35, "x": -36.54, "y": -37.82 },
@@ -7,12 +7,12 @@
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
-	{ "name": "teleporter", "bone": "root", "attachment": "teleporter" },
-	{ "name": "teleporter-pad", "bone": "teleporter-pad", "attachment": "teleporter-pad" },
-	{ "name": "teleporter cursor", "bone": "root", "attachment": "teleporter cursor" },
-	{ "name": "teleporter sphere", "bone": "teleporter sphere", "attachment": "teleporter sphere" },
-	{ "name": "teleporter led", "bone": "root", "attachment": "teleporter led" },
-	{ "name": "teleporter led2", "bone": "root", "attachment": "teleporter led" },
+	{ "name": "teleporter", "bone": "root", "dark": "000000", "attachment": "teleporter" },
+	{ "name": "teleporter-pad", "bone": "teleporter-pad", "dark": "000000", "attachment": "teleporter-pad" },
+	{ "name": "teleporter cursor", "bone": "root", "dark": "000000", "attachment": "teleporter cursor" },
+	{ "name": "teleporter sphere", "bone": "teleporter sphere", "dark": "000000", "attachment": "teleporter sphere" },
+	{ "name": "teleporter led", "bone": "root", "dark": "000000", "attachment": "teleporter led" },
+	{ "name": "teleporter led2", "bone": "root", "dark": "000000", "attachment": "teleporter led" },
 	{ "name": "portal", "bone": "teleporter-pad", "attachment": "portal" },
 	{ "name": "sphere", "bone": "teleporter sphere", "attachment": "sphere" }
 ],
@@ -89,45 +89,45 @@
 				]
 			},
 			"teleporter led": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 1, "color": "ffffff00" },
-					{ "time": 2, "color": "ffffffff" },
-					{ "time": 3, "color": "ffffff00" },
-					{ "time": 4, "color": "ffffffff" },
-					{ "time": 5, "color": "ffffff00" },
-					{ "time": 6, "color": "ffffffff" },
-					{ "time": 7, "color": "ffffff00" },
-					{ "time": 8, "color": "ffffffff" },
-					{ "time": 9, "color": "ffffff00" },
-					{ "time": 10, "color": "ffffffff" },
-					{ "time": 11, "color": "ffffff00" },
-					{ "time": 12, "color": "ffffffff" },
-					{ "time": 13, "color": "ffffff00" },
-					{ "time": 14, "color": "ffffffff" },
-					{ "time": 15, "color": "ffffff00" },
-					{ "time": 16.2667, "color": "ffffffff" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 1, "light": "ffffff00", "dark": "000000" },
+					{ "time": 2, "light": "ffffffff", "dark": "000000" },
+					{ "time": 3, "light": "ffffff00", "dark": "000000" },
+					{ "time": 4, "light": "ffffffff", "dark": "000000" },
+					{ "time": 5, "light": "ffffff00", "dark": "000000" },
+					{ "time": 6, "light": "ffffffff", "dark": "000000" },
+					{ "time": 7, "light": "ffffff00", "dark": "000000" },
+					{ "time": 8, "light": "ffffffff", "dark": "000000" },
+					{ "time": 9, "light": "ffffff00", "dark": "000000" },
+					{ "time": 10, "light": "ffffffff", "dark": "000000" },
+					{ "time": 11, "light": "ffffff00", "dark": "000000" },
+					{ "time": 12, "light": "ffffffff", "dark": "000000" },
+					{ "time": 13, "light": "ffffff00", "dark": "000000" },
+					{ "time": 14, "light": "ffffffff", "dark": "000000" },
+					{ "time": 15, "light": "ffffff00", "dark": "000000" },
+					{ "time": 16.2667, "light": "ffffffff", "dark": "000000" }
 				]
 			},
 			"teleporter led2": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" },
-					{ "time": 1, "color": "ffffffff" },
-					{ "time": 2, "color": "ffffff00" },
-					{ "time": 3, "color": "ffffffff" },
-					{ "time": 4, "color": "ffffff00" },
-					{ "time": 5, "color": "ffffffff" },
-					{ "time": 6, "color": "ffffff00" },
-					{ "time": 7, "color": "ffffffff" },
-					{ "time": 8, "color": "ffffff00" },
-					{ "time": 9, "color": "ffffffff" },
-					{ "time": 10, "color": "ffffff00" },
-					{ "time": 11, "color": "ffffffff" },
-					{ "time": 12, "color": "ffffff00" },
-					{ "time": 13, "color": "ffffffff" },
-					{ "time": 14, "color": "ffffff00" },
-					{ "time": 15, "color": "ffffffff" },
-					{ "time": 16.2667, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" },
+					{ "time": 1, "light": "ffffffff", "dark": "000000" },
+					{ "time": 2, "light": "ffffff00", "dark": "000000" },
+					{ "time": 3, "light": "ffffffff", "dark": "000000" },
+					{ "time": 4, "light": "ffffff00", "dark": "000000" },
+					{ "time": 5, "light": "ffffffff", "dark": "000000" },
+					{ "time": 6, "light": "ffffff00", "dark": "000000" },
+					{ "time": 7, "light": "ffffffff", "dark": "000000" },
+					{ "time": 8, "light": "ffffff00", "dark": "000000" },
+					{ "time": 9, "light": "ffffffff", "dark": "000000" },
+					{ "time": 10, "light": "ffffff00", "dark": "000000" },
+					{ "time": 11, "light": "ffffffff", "dark": "000000" },
+					{ "time": 12, "light": "ffffff00", "dark": "000000" },
+					{ "time": 13, "light": "ffffffff", "dark": "000000" },
+					{ "time": 14, "light": "ffffff00", "dark": "000000" },
+					{ "time": 15, "light": "ffffffff", "dark": "000000" },
+					{ "time": 16.2667, "light": "ffffff00", "dark": "000000" }
 				]
 			}
 		},
@@ -370,39 +370,39 @@
 	"hide": {
 		"slots": {
 			"teleporter": {
-				"color": [
-					{ "time": 1, "color": "ffffffff" },
-					{ "time": 2, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 1, "light": "ffffffff", "dark": "000000" },
+					{ "time": 2, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"teleporter cursor": {
-				"color": [
-					{ "time": 1, "color": "ffffffff" },
-					{ "time": 2, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 1, "light": "ffffffff", "dark": "000000" },
+					{ "time": 2, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"teleporter led": {
-				"color": [
-					{ "time": 1, "color": "ffffffff" },
-					{ "time": 2, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 1, "light": "ffffffff", "dark": "000000" },
+					{ "time": 2, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"teleporter led2": {
-				"color": [
-					{ "time": 1, "color": "ffffffff" },
-					{ "time": 2, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 1, "light": "ffffffff", "dark": "000000" },
+					{ "time": 2, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"teleporter sphere": {
-				"color": [
-					{ "time": 1, "color": "ffffffff" },
-					{ "time": 2, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 1, "light": "ffffffff", "dark": "000000" },
+					{ "time": 2, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"teleporter-pad": {
-				"color": [
-					{ "time": 1, "color": "ffffffff" },
-					{ "time": 2, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 1, "light": "ffffffff", "dark": "000000" },
+					{ "time": 2, "light": "ffffff00", "dark": "000000" }
 				]
 			}
 		},
@@ -424,38 +424,38 @@
 	"show": {
 		"slots": {
 			"teleporter": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" },
-					{ "time": 1, "color": "ffffffff" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" },
+					{ "time": 1, "light": "ffffffff", "dark": "000000" }
 				]
 			},
 			"teleporter cursor": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" },
-					{ "time": 1, "color": "ffffffff" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" },
+					{ "time": 1, "light": "ffffffff", "dark": "000000" }
 				]
 			},
 			"teleporter led": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" },
-					{ "time": 1, "color": "ffffffff" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" },
+					{ "time": 1, "light": "ffffffff", "dark": "000000" }
 				]
 			},
 			"teleporter led2": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" }
 				]
 			},
 			"teleporter sphere": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" },
-					{ "time": 1, "color": "ffffffff" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" },
+					{ "time": 1, "light": "ffffffff", "dark": "000000" }
 				]
 			},
 			"teleporter-pad": {
-				"color": [
-					{ "time": 0, "color": "ffffff00" },
-					{ "time": 1, "color": "ffffffff" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffff00", "dark": "000000" },
+					{ "time": 1, "light": "ffffffff", "dark": "000000" }
 				]
 			}
 		},

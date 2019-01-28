@@ -1,12 +1,12 @@
 {
-"skeleton": { "hash": "wr6uckBWilc6Qjk+um9L3XYPuBI", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "NOrbj4YF25UQE02x1qCLWZy5YKE", "spine": "3.7.87", "width": 800, "height": 800, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "rocket", "parent": "root", "length": 300.89, "rotation": 90, "y": -291.32 }
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
-	{ "name": "rocket", "bone": "rocket", "attachment": "rocket" },
+	{ "name": "rocket", "bone": "rocket", "dark": "000000", "attachment": "rocket" },
 	{ "name": "thruster", "bone": "rocket", "attachment": "thruster" }
 ],
 "skins": {
@@ -42,9 +42,9 @@
 	"hide": {
 		"slots": {
 			"rocket": {
-				"color": [
-					{ "time": 0, "color": "ffffffff" },
-					{ "time": 1, "color": "ffffff00" }
+				"twoColor": [
+					{ "time": 0, "light": "ffffffff", "dark": "000000" },
+					{ "time": 1, "light": "ffffff00", "dark": "000000" }
 				]
 			}
 		}

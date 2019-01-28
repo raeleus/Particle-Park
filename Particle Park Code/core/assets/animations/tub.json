@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "OGip/60jZNsOh/ZW0wHvskgytf4", "spine": "3.7.87", "width": 841.37, "height": 811.91, "images": "../output/1x/", "audio": "../../audio/output/" },
+"skeleton": { "hash": "FWNhfh4+rLiPPZ2St90P2j70HsE", "spine": "3.7.87", "width": 841.37, "height": 811.91, "images": "../output/1x/", "audio": "../../audio/output/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "droplet", "parent": "root", "length": 51.96, "rotation": -90, "x": 37.63, "y": 288.5 },
@@ -8,9 +8,9 @@
 "slots": [
 	{ "name": "bg", "bone": "root" },
 	{ "name": "cutoff", "bone": "root", "attachment": "rect" },
-	{ "name": "tub", "bone": "tub", "attachment": "tub" },
+	{ "name": "tub", "bone": "tub", "dark": "000000", "attachment": "tub" },
 	{ "name": "clip", "bone": "root", "attachment": "clip" },
-	{ "name": "droplet", "bone": "droplet", "attachment": "droplet" },
+	{ "name": "droplet", "bone": "droplet", "dark": "000000", "attachment": "droplet" },
 	{ "name": "splash", "bone": "root", "attachment": "splash" }
 ],
 "skins": {

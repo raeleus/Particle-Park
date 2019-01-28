@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "pnreDCM6U+EVTKM1KLWqYI8NC3c", "spine": "3.7.87", "width": 849, "height": 811.01, "images": "../output/1x/", "audio": "../../Particle Park Code/core/assets/sound/" },
+"skeleton": { "hash": "zSBbTW2q1X0Tj1VouctRiLoJvfo", "spine": "3.7.87", "width": 849, "height": 811.01, "images": "../output/1x/", "audio": "../../Particle Park Code/core/assets/sound/" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "city", "parent": "root", "length": 140.45, "y": -179.84 },
@@ -10,8 +10,8 @@
 ],
 "slots": [
 	{ "name": "bg", "bone": "root" },
-	{ "name": "city", "bone": "city", "attachment": "city" },
-	{ "name": "city-foreground", "bone": "city-foreground", "attachment": "city-foreground" },
+	{ "name": "city", "bone": "city", "dark": "000000", "attachment": "city" },
+	{ "name": "city-foreground", "bone": "city-foreground", "dark": "000000", "attachment": "city-foreground" },
 	{ "name": "firework-a", "bone": "firework-a", "attachment": "firework-a" },
 	{ "name": "firework-b", "bone": "firework-b", "attachment": "firework-b" },
 	{ "name": "firework-c", "bone": "firework-c", "attachment": "firework-c" }
