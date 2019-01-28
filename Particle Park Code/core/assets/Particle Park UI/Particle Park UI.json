@@ -26,6 +26,12 @@ com.badlogic.gdx.graphics.Color: {
 		b: 0
 		a: 1
 	}
+	dialog-bg: {
+		r: 0
+		g: 0
+		b: 0
+		a: 0.5133333
+	}
 	disabled: {
 		r: 0.23137255
 		g: 0.24705882
@@ -74,6 +80,10 @@ com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable: {
 		name: white
 		color: bg
 	}
+	dialog-bg: {
+		name: white
+		color: dialog-bg
+	}
 }
 com.badlogic.gdx.scenes.scene2d.utils.TiledDrawable: {
 	progress-bar-knob-t: {
@@ -104,6 +114,13 @@ com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
 		up: button-close
 		down: button-close-pressed
 		over: button-close-over
+	}
+	radio: {
+		up: radio
+		down: radio
+		over: radio-over
+		checked: radio-selected
+		checkedOver: radio-selected-over
 	}
 }
 com.badlogic.gdx.scenes.scene2d.ui.CheckBox$CheckBoxStyle: {
@@ -168,6 +185,13 @@ com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle: {
 		down: button-normal-pressed
 		over: button-normal-over
 		focused: button-normal-over
+	}
+	color: {
+		imageUp: button-color-fill
+		imageDown: button-color-fill-pressed
+		up: button-color
+		down: button-color-pressed
+		over: button-color-over
 	}
 }
 com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton$ImageTextButtonStyle: {
@@ -268,6 +292,10 @@ com.badlogic.gdx.scenes.scene2d.ui.Slider$SliderStyle: {
 		background: slider
 		knob: slider-knob
 	}
+	color-slider: {
+		background: color-slider
+		knob: hue-slider-knob
+	}
 }
 com.badlogic.gdx.scenes.scene2d.ui.SplitPane$SplitPaneStyle: {
 	default-horizontal: {
@@ -309,6 +337,14 @@ com.badlogic.gdx.scenes.scene2d.ui.TextField$TextFieldStyle: {
 		messageFont: font
 		messageFontColor: message
 	}
+	color: {
+		font: font
+		fontColor: white
+		background: textfield-color
+		focusedBackground: textfield-color-over
+		cursor: white
+		selection: highlight
+	}
 }
 com.badlogic.gdx.scenes.scene2d.ui.TextTooltip$TextTooltipStyle: {
 	default: {
@@ -326,6 +362,11 @@ com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle: {
 	default: {
 		background: window
 		titleFont: window
+	}
+	dialog: {
+		background: window
+		titleFont: window
+		stageBackground: dialog-bg
 	}
 }
 }

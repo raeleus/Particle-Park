@@ -28,6 +28,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -52,6 +53,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.TemporalAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
@@ -73,6 +75,8 @@ import com.esotericsoftware.spine.SkeletonData;
 import com.esotericsoftware.spine.Slot;
 import com.esotericsoftware.spine.attachments.PointAttachment;
 import com.ray3k.particlepark.Core;
+import com.ray3k.particlepark.DialogColorPicker;
+import com.ray3k.particlepark.DialogColorPicker.ColorPickerListener;
 import com.ray3k.particlepark.Tuple;
 import java.util.Iterator;
 import java.util.Locale;
@@ -82,6 +86,9 @@ import java.util.Locale;
  * @author Raymond
  */
 public class DemoScreen implements Screen {
+    public static Color fboRenderColor = new Color(Color.BLACK);
+    public static Color bgColor = new Color(Color.BLACK);
+    public static Color fgColor = new Color(Color.WHITE);
     private Viewport spineViewport;
     private Stage stage;
     private Skin skin;
@@ -559,6 +566,105 @@ public class DemoScreen implements Screen {
                 table.add(imageButton);
                 imageButton.addListener(core.handListener);
             }
+            
+            dialog.getContentTable().row();
+            Table table = new Table();
+            dialog.getContentTable().add(table);
+            
+            Label label = new Label("FBO Rendering Color", skin);
+            table.add(label).right().expandX();
+            
+            final ImageButtonStyle fboStyle = new ImageButtonStyle(skin.get("color", ImageButtonStyle.class));
+            fboStyle.imageUp = skin.newDrawable("button-color-fill", fboRenderColor);
+            fboStyle.imageDown = skin.newDrawable("button-color-fill-pressed", fboRenderColor);
+            
+            ImageButton imageButton = new ImageButton(fboStyle);
+            table.add(imageButton);
+            imageButton.addListener(core.handListener);
+            imageButton.addListener(new ChangeListener() {
+                @Override
+                public void changed(ChangeListener.ChangeEvent event, Actor actor) {
+                    DialogColorPicker dialog = new DialogColorPicker("FBO Rendering Color...", skin, core, fboRenderColor);
+                    dialog.addListener(new ColorPickerListener() {
+                        @Override
+                        public void colorSelected(Color color) {
+                            fboRenderColor.set(color);
+                            fboStyle.imageUp = skin.newDrawable("button-color-fill", fboRenderColor);
+                            fboStyle.imageDown = skin.newDrawable("button-color-fill-pressed", fboRenderColor);
+                        }
+
+                        @Override
+                        public void cancelled() {
+                            
+                        }
+                    });
+                    dialog.show(stage);
+                }
+            });
+            
+            table.row();            
+            label = new Label("Background Color", skin);
+            table.add(label).right().expandX();
+            
+            final ImageButtonStyle bgStyle = new ImageButtonStyle(skin.get("color", ImageButtonStyle.class));
+            bgStyle.imageUp = skin.newDrawable("button-color-fill", bgColor);
+            bgStyle.imageDown = skin.newDrawable("button-color-fill-pressed", bgColor);
+            
+            imageButton = new ImageButton(bgStyle);
+            table.add(imageButton);
+            imageButton.addListener(core.handListener);
+            imageButton.addListener(new ChangeListener() {
+                @Override
+                public void changed(ChangeListener.ChangeEvent event, Actor actor) {
+                    DialogColorPicker dialog = new DialogColorPicker("FBO Rendering Color...", skin, core, bgColor);
+                    dialog.addListener(new ColorPickerListener() {
+                        @Override
+                        public void colorSelected(Color color) {
+                            bgColor.set(color);
+                            bgStyle.imageUp = skin.newDrawable("button-color-fill", bgColor);
+                            bgStyle.imageDown = skin.newDrawable("button-color-fill-pressed", bgColor);
+                        }
+
+                        @Override
+                        public void cancelled() {
+                            
+                        }
+                    });
+                    dialog.show(stage);
+                }
+            });
+            
+            table.row();            
+            label = new Label("Foreground Color", skin);
+            table.add(label).right().expandX();
+            
+            final ImageButtonStyle fgStyle = new ImageButtonStyle(skin.get("color", ImageButtonStyle.class));
+            fgStyle.imageUp = skin.newDrawable("button-color-fill", fgColor);
+            fgStyle.imageDown = skin.newDrawable("button-color-fill-pressed", fgColor);
+            
+            imageButton = new ImageButton(fgStyle);
+            table.add(imageButton);
+            imageButton.addListener(core.handListener);
+            imageButton.addListener(new ChangeListener() {
+                @Override
+                public void changed(ChangeListener.ChangeEvent event, Actor actor) {
+                    DialogColorPicker dialog = new DialogColorPicker("FBO Rendering Color...", skin, core, fgColor);
+                    dialog.addListener(new ColorPickerListener() {
+                        @Override
+                        public void colorSelected(Color color) {
+                            fgColor.set(color);
+                            fgStyle.imageUp = skin.newDrawable("button-color-fill", fgColor);
+                            fgStyle.imageDown = skin.newDrawable("button-color-fill-pressed", fgColor);
+                        }
+
+                        @Override
+                        public void cancelled() {
+                            
+                        }
+                    });
+                    dialog.show(stage);
+                }
+            });
             
             dialog.getContentTable().row();
             TextButton textButton = new TextButton("Quit to Menu", skin);

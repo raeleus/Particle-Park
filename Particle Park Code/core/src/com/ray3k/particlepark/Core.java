@@ -31,6 +31,7 @@ public class Core extends Game {
     public PlayList<Music> playList;
     public SkeletonRenderer skeletonRenderer;
     public HandListener handListener;
+    public IbeamListener iBeamListener;
     public Preferences preferences;
     
     @Override
@@ -39,6 +40,7 @@ public class Core extends Game {
         skeletonRenderer = new SkeletonRenderer();
         skeletonRenderer.setPremultipliedAlpha(true);
         handListener = new HandListener();
+        iBeamListener = new IbeamListener();
         preferences = Gdx.app.getPreferences("particle-park");
         
         addAssets();
