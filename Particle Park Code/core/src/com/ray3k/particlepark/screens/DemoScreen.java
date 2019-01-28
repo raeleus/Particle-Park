@@ -197,6 +197,8 @@ public class DemoScreen implements Screen {
         particleBatch.draw(textureRegion, 0, 0);
         particleBatch.end();
         
+        core.batch.setProjectionMatrix(spineViewport.getCamera().combined);
+        spineViewport.apply();
         core.batch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA);
         core.batch.begin();
         renderSpine(delta, core.batch);
