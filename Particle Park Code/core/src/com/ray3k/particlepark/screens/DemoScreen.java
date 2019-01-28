@@ -568,6 +568,21 @@ public class DemoScreen implements Screen {
                 selectBox.addListener(new ChangeListener() {
                     @Override
                     public void changed(ChangeListener.ChangeEvent event, Actor actor) {
+                        Array<Sound> sounds = core.internalAssetManager.getAll(Sound.class, new Array<Sound>());
+                        for (Sound sound : sounds) {
+                            sound.stop();
+                        }
+                        
+                        for (ParticleEffect particleEffect : particleEffectsBack) {
+                            particleEffect.allowCompletion();
+                        }
+                        
+                        for (ParticleEffect particleEffect : particleEffectsFront) {
+                            particleEffect.allowCompletion();
+                        }
+                        
+                        animationState.getCurrent(0).setTrackTime(0);
+                        
                         loadParticleEffect(particleEvent, selectBox.getSelected());
                         prepareParticleAtlas();
                     }
