@@ -68,7 +68,6 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.esotericsoftware.spine.AnimationState;
 import com.esotericsoftware.spine.AnimationStateData;
-import com.esotericsoftware.spine.Bone;
 import com.esotericsoftware.spine.Event;
 import com.esotericsoftware.spine.EventData;
 import com.esotericsoftware.spine.Skeleton;
@@ -87,7 +86,6 @@ import java.util.Locale;
  * @author Raymond
  */
 public class DemoScreen implements Screen {
-    public static Color fboRenderColor = new Color(Color.BLACK);
     public static Color bgColor = new Color(Color.BLACK);
     public static Color fgColor = new Color(Color.WHITE);
     private Viewport spineViewport;
@@ -584,46 +582,15 @@ public class DemoScreen implements Screen {
             Table table = new Table();
             dialog.getContentTable().add(table);
             
-            Label label = new Label("FBO Rendering Color", skin);
-            table.add(label).right().expandX();
-            
-            final ImageButtonStyle fboStyle = new ImageButtonStyle(skin.get("color", ImageButtonStyle.class));
-            fboStyle.imageUp = skin.newDrawable("button-color-fill", fboRenderColor);
-            fboStyle.imageDown = skin.newDrawable("button-color-fill-pressed", fboRenderColor);
-            
-            ImageButton imageButton = new ImageButton(fboStyle);
-            table.add(imageButton);
-            imageButton.addListener(core.handListener);
-            imageButton.addListener(new ChangeListener() {
-                @Override
-                public void changed(ChangeListener.ChangeEvent event, Actor actor) {
-                    DialogColorPicker dialog = new DialogColorPicker("FBO Rendering Color...", skin, core, fboRenderColor);
-                    dialog.addListener(new ColorPickerListener() {
-                        @Override
-                        public void colorSelected(Color color) {
-                            fboRenderColor.set(color);
-                            fboStyle.imageUp = skin.newDrawable("button-color-fill", fboRenderColor);
-                            fboStyle.imageDown = skin.newDrawable("button-color-fill-pressed", fboRenderColor);
-                        }
-
-                        @Override
-                        public void cancelled() {
-                            
-                        }
-                    });
-                    dialog.show(stage);
-                }
-            });
-            
             table.row();            
-            label = new Label("Background Color", skin);
+            Label label = new Label("Background Color", skin);
             table.add(label).right().expandX();
             
             final ImageButtonStyle bgStyle = new ImageButtonStyle(skin.get("color", ImageButtonStyle.class));
             bgStyle.imageUp = skin.newDrawable("button-color-fill", bgColor);
             bgStyle.imageDown = skin.newDrawable("button-color-fill-pressed", bgColor);
             
-            imageButton = new ImageButton(bgStyle);
+            ImageButton imageButton = new ImageButton(bgStyle);
             table.add(imageButton);
             imageButton.addListener(core.handListener);
             imageButton.addListener(new ChangeListener() {
