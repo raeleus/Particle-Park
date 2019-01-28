@@ -430,6 +430,16 @@ public class DemoScreen implements Screen {
         animationState.apply(skeleton);
         skeleton.setPosition(400, 400);
         skeleton.updateWorldTransform();
+        
+        for (Slot slot : skeleton.getSlots()) {
+            if (slot.getDarkColor() != null) {
+                slot.getDarkColor().set(bgColor);
+            }
+        }
+        
+        for (Slot slot : skeleton.getSlots()) {
+            slot.getColor().set(fgColor);
+        }
     }
     
     private void getParticleFiles() {
