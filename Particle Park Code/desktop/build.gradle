@@ -24,6 +24,7 @@ task debug(dependsOn: classes, type: JavaExec) {
 }
 
 task dist(type: Jar) {
+    archiveName = "particle_park.jar";
     from files(sourceSets.main.output.classesDir)
     from files(sourceSets.main.output.resourcesDir)
     from {configurations.compile.collect {zipTree(it)}}
@@ -31,11 +32,113 @@ task dist(type: Jar) {
     exclude("/particles/")
  
     manifest {
-        attributes 'Main-Class': project.mainClassName
+        attributes ('Main-Class': project.mainClassName, 'SplashScreen-Image' : 'splash.png')
     }
 }
 
 dist.dependsOn classes
+
+// creates application bundle (executable + runtime)
+task javaPackager(type: Exec, dependsOn: dist) {
+    workingDir project.projectDir
+    def commands = [
+        'javapackager',
+        '-deploy',
+        '-nosign',
+        '-outdir', "${buildDir}/distribution",
+        '-srcdir', "${buildDir}/libs",
+        '-native', 'image',
+        '-name', project.appName,
+        '-appclass', project.mainClassName
+    ]
+    
+    def osName = System.getProperty('os.name').toLowerCase(Locale.ROOT)
+    if (osName.contains('windows')) {
+        commands << "-Bicon=${project.projectDir}/logo.ico"
+        commands << "-BjvmOptions=-splash:splash.png"
+    } else if (osName.contains('linux')) {
+        commands << "-Bicon=${project.projectDir}/logo.png"
+        commands << "-BjvmOptions=-splash:splash.png"
+    } else if (osName.contains('mac')) {
+        commands << "-Bicon=${project.projectDir}/logo.icns"
+        commands << "-BjvmOptions=-XstartOnFirstThread"
+    }
+    
+    commandLine = commands
+    
+    doLast() {
+        copy {
+            from file("${project.projectDir}/splash.png");
+            into file("${buildDir}/distribution/${project.appName}/app");
+        }
+    }
+}
+
+// removes bloated runtime created by javapackager
+task cleanPackagerRuntime(dependsOn: javaPackager) {
+    doLast() {
+        File runtimeFile = new File("${buildDir}/distribution/${project.appName}/runtime")
+        runtimeFile.deleteDir()
+        delete {
+            delete fileTree("${buildDir}/distribution/${project.appName}").matching {
+                include "api*.dll"
+            }
+        }
+        System.out.println("deleting bloated runtime in " + runtimeFile)
+    }
+}
+
+// creates a replacement runtime via jlink command (much smaller than jpackager)
+task createFinalAppBundle(type: Exec, dependsOn: [cleanPackagerRuntime]) {
+    def jdk = System.getProperty("java.home")
+
+    workingDir project.projectDir
+    commandLine = [
+        'jlink',
+        '-p', "${jdk}/jmods",
+        '--add-modules', 'java.base,java.desktop,jdk.unsupported',
+        '--strip-debug',
+        '--no-header-files',
+        '--no-man-pages',
+        '--strip-native-commands',
+        "--vm=server",
+        "--compress=2",
+        '--output', "${buildDir}/distribution/${project.appName}/runtime"
+    ]
+
+    doLast{
+        System.out.println("Application '${project.appName}' packaged.")
+        System.out.println(" -> location: ${buildDir}/distribution/${project.appName}/")
+    }
+}
+
+task updateAndCreateZip(type: Zip, dependsOn: [dist]) {
+    doFirst {
+        copy {
+            from "${buildDir}/libs"
+            into "${buildDir}/distribution/${project.appName}/app"
+        }
+        
+        copy {
+            from '../README.md'
+            into "${buildDir}/distribution/${project.appName}"
+        }
+
+        copy {
+            from '../CHANGES.md'
+            into "${buildDir}/distribution/${project.appName}"
+        }
+
+        copy {
+            from '../core/assets/splash.png'
+            into "${buildDir}/distribution/${project.appName}/app"
+        }
+    }
+    
+    archiveName "particle_park_${org.gradle.internal.os.OperatingSystem.current().getFamilyName()}.zip"
+    from "${buildDir}/distribution/${project.appName}"
+    destinationDir = file("${buildDir}/distribution/")
+}
 
 eclipse {
     project {
