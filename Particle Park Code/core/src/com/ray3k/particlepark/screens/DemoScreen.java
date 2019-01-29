@@ -77,6 +77,7 @@ import com.esotericsoftware.spine.attachments.PointAttachment;
 import com.ray3k.particlepark.Core;
 import com.ray3k.particlepark.DialogColorPicker;
 import com.ray3k.particlepark.DialogColorPicker.ColorPickerListener;
+import com.ray3k.particlepark.DialogLicense;
 import com.ray3k.particlepark.Tuple;
 import java.util.Iterator;
 import java.util.Locale;
@@ -101,6 +102,7 @@ public class DemoScreen implements Screen {
     private Array<EventData> particleEvents;
     private Array<Tuple<String, FileHandle>> particleFiles;
     private ObjectMap<EventData, Tuple<String, FileHandle>> eventParticleMap;
+    private ObjectMap<EventData, FileHandle> eventLicenseMap;
     private PixmapPacker pixmapPacker;
     private TextureAtlas particleAtlas;
     private Array<ParticleEffect> particleEffectsBack;
@@ -120,6 +122,7 @@ public class DemoScreen implements Screen {
         particleEvents = new Array<EventData>();
         particleFiles = new Array<Tuple<String, FileHandle>>();
         eventParticleMap = new ObjectMap<EventData, Tuple<String, FileHandle>>();
+        eventLicenseMap = new ObjectMap<EventData, FileHandle>();
         particleSlotFollowMap = new ObjectMap<ParticleEffect, Slot>();
         
         pixmapPacker = new PixmapPacker(2048, 2048, Pixmap.Format.RGBA8888, 3, true);
@@ -591,6 +594,13 @@ public class DemoScreen implements Screen {
                 ImageButton imageButton = new ImageButton(skin, "download");
                 table.add(imageButton);
                 imageButton.addListener(core.handListener);
+                imageButton.addListener(new ChangeListener() {
+                    @Override
+                    public void changed(ChangeListener.ChangeEvent event, Actor actor) {
+                        DialogLicense dialog = new DialogLicense(core, skin, eventLicenseMap.get(particleEvent));
+                        dialog.show(stage);
+                    }
+                });
             }
             
             dialog.getContentTable().row();
@@ -738,11 +748,14 @@ public class DemoScreen implements Screen {
     
     private void loadParticleEffect(final EventData particleEvent, final Tuple<String, FileHandle> selected) {
         for (FileHandle fileHandle : selected.y.parent().list()) {
-            if (fileHandle.extension().toLowerCase(Locale.ROOT).equals("png")) {
+            String extension = fileHandle.extension().toLowerCase(Locale.ROOT);
+            if (extension.equals("png")) {
                 if (pixmapPacker.getRect(fileHandle.nameWithoutExtension()) == null) {
                     Pixmap pixmap = new Pixmap(fileHandle);
                     pixmapPacker.pack(fileHandle.nameWithoutExtension(), pixmap);
                 }
+            } else if (extension.equals("txt")) {
+                eventLicenseMap.put(particleEvent, fileHandle);
             }
         }
         

@@ -1,5 +1,8 @@
 {
 com.badlogic.gdx.graphics.g2d.BitmapFont: {
+	download: {
+		file: download.fnt
+	}
 	font: {
 		file: font.fnt
 	}
@@ -261,6 +264,11 @@ com.badlogic.gdx.scenes.scene2d.ui.ScrollPane$ScrollPaneStyle: {
 		hScrollKnob: scrollbar
 		vScrollKnob: scrollbar
 	}
+	license: {
+		background: license-box
+		hScrollKnob: scrollbar
+		vScrollKnob: scrollbar
+	}
 }
 com.badlogic.gdx.scenes.scene2d.ui.SelectBox$SelectBoxStyle: {
 	default: {
@@ -312,6 +320,12 @@ com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
 		down: button-normal-pressed
 		over: button-normal-over
 		focused: button-normal-over
+	}
+	download: {
+		font: download
+		up: button-download
+		down: button-download-pressed
+		over: button-download-over
 	}
 }
 com.badlogic.gdx.scenes.scene2d.ui.TextField$TextFieldStyle: {

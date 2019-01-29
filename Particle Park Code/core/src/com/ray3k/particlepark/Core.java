@@ -33,6 +33,7 @@ public class Core extends Game {
     public HandListener handListener;
     public IbeamListener iBeamListener;
     public Preferences preferences;
+    public DesktopWorker desktopWorker;
     
     @Override
     public void create() {
@@ -149,7 +150,7 @@ public class Core extends Game {
         if (playList == null) {
             playList = new PlayList<Music>();
             Array<Music> musics = internalAssetManager.getAll(Music.class, new Array<Music>());
-            playList.addAll(musics.toArray());
+            playList.addAll(musics.toArray(Music.class));
             
             for (Music music : musics) {
                 music.setVolume(.5f);
