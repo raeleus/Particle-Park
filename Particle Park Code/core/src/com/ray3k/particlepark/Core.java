@@ -34,6 +34,7 @@ public class Core extends Game {
     public IbeamListener iBeamListener;
     public Preferences preferences;
     public DesktopWorker desktopWorker;
+    public String version = "1";
     
     @Override
     public void create() {

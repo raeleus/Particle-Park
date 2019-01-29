@@ -29,6 +29,12 @@ com.badlogic.gdx.graphics.Color: {
 		b: 0
 		a: 1
 	}
+	clear: {
+		r: 1
+		g: 0
+		b: 0
+		a: 0
+	}
 	dialog-bg: {
 		r: 0
 		g: 0
@@ -59,6 +65,12 @@ com.badlogic.gdx.graphics.Color: {
 		b: 0.5372549
 		a: 1
 	}
+	visited: {
+		r: 0.60840327
+		g: 0.07333338
+		b: 1
+		a: 1
+	}
 	white: {
 		r: 1
 		g: 1
@@ -86,6 +98,10 @@ com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable: {
 	dialog-bg: {
 		name: white
 		color: dialog-bg
+	}
+	button-link-clear: {
+		name: button-link
+		color: clear
 	}
 }
 com.badlogic.gdx.scenes.scene2d.utils.TiledDrawable: {
@@ -124,6 +140,11 @@ com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
 		over: radio-over
 		checked: radio-selected
 		checkedOver: radio-selected-over
+	}
+	about: {
+		up: button-about
+		down: button-about-pressed
+		over: button-about-over
 	}
 }
 com.badlogic.gdx.scenes.scene2d.ui.CheckBox$CheckBoxStyle: {
@@ -326,6 +347,14 @@ com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
 		up: button-download
 		down: button-download-pressed
 		over: button-download-over
+	}
+	link: {
+		font: font
+		fontColor: highlight
+		downFontColor: visited
+		up: button-link-clear
+		down: button-link-clear
+		over: button-link
 	}
 }
 com.badlogic.gdx.scenes.scene2d.ui.TextField$TextFieldStyle: {

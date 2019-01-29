@@ -45,6 +45,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.ray3k.particlepark.Core;
+import com.ray3k.particlepark.DialogAbout;
 
 /**
  *
@@ -82,8 +83,22 @@ public class MenuScreen implements Screen {
         stage.addActor(root);
         root.pad(5).padTop(10);
         
+        Table table = new Table();
+        root.add(table).growX();
+        
         Label label = new Label("Select a Scene", skin, "window");
-        root.add(label);
+        table.add(label).expandX();
+        
+        Button button = new Button(skin, "about");
+        table.add(button).padRight(5);
+        button.addListener(core.handListener);
+        button.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeListener.ChangeEvent event, Actor actor) {
+                DialogAbout dialog = new DialogAbout(core, skin);
+                dialog.show(stage);
+            }
+        });
         
         HorizontalGroup horizontalGroup = new HorizontalGroup();
         horizontalGroup.wrap();
@@ -115,7 +130,7 @@ public class MenuScreen implements Screen {
         label = new Label("Copyright 2019 Raymond Buckley", skin);
         root.add(label).left().padTop(5);
         
-        Table table = new Table();
+        table = new Table();
         table.setFillParent(true);
         stage.addActor(table);
         
