@@ -751,8 +751,7 @@ public class DemoScreen implements Screen {
             String extension = fileHandle.extension().toLowerCase(Locale.ROOT);
             if (extension.equals("png")) {
                 if (pixmapPacker.getRect(fileHandle.nameWithoutExtension()) == null) {
-                    Pixmap pixmap = new Pixmap(fileHandle);
-                    pixmapPacker.pack(fileHandle.nameWithoutExtension(), pixmap);
+                    packPixmap(fileHandle);
                 }
             } else if (extension.equals("txt")) {
                 eventLicenseMap.put(particleEvent, fileHandle);
@@ -760,6 +759,11 @@ public class DemoScreen implements Screen {
         }
         
         eventParticleMap.put(particleEvent, selected);
+    }
+    
+    private void packPixmap(FileHandle fileHandle) {
+        Pixmap pixmap = new Pixmap(fileHandle);
+        pixmapPacker.pack(fileHandle.nameWithoutExtension(), pixmap);
     }
     
     private void prepareParticleAtlas() {
