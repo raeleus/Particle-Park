@@ -43,7 +43,6 @@ import com.badlogic.gdx.utils.Align;
 import com.ray3k.particlepark.Core;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.zip.ZipEntry;
@@ -122,15 +121,22 @@ public class DialogLicense extends Dialog {
         textButton.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeListener.ChangeEvent event, Actor actor) {
-                File file = core.desktopWorker.saveDialog("Save Particle Zip...", zipFolder.path() + "/" + zipFolder.name() + ".zip", new String[] {"zip"}, "Zip files");
-                
-                if (file != null) {
-                    hide();
-                    FileHandle handle = new FileHandle(file);
-                    createZip(zipFolder, handle);
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        File file = core.desktopWorker.saveDialog("Save Particle Zip...", zipFolder.path() + "/" + zipFolder.name() + ".zip", new String[]{"zip"}, "Zip files");
 
-                    fire(new LicenseEvent(true));
-                }
+                        if (file != null) {
+                            hide();
+                            FileHandle handle = new FileHandle(file);
+                            createZip(zipFolder, handle);
+
+                            fire(new LicenseEvent(true));
+                        }
+                    }
+                });
+                
+                thread.start();
             }
         });
     }
