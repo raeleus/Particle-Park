@@ -41,6 +41,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.Value;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
@@ -86,10 +87,12 @@ public class MenuScreen implements Screen {
         Table table = new Table();
         root.add(table).growX();
         
+        Button button = new Button(skin, "about");
+        table.add().width(Value.percentWidth(1, button));
+        
         Label label = new Label("Select a Scene", skin, "window");
         table.add(label).expandX();
         
-        Button button = new Button(skin, "about");
         table.add(button).padRight(5);
         button.addListener(core.handListener);
         button.addListener(new ChangeListener() {
