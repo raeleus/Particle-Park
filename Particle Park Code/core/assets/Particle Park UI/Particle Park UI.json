@@ -202,9 +202,9 @@ com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle: {
 		focused: button-normal-over
 	}
 	download: {
-		imageUp: icon-download
-		imageDown: icon-download-over
-		imageOver: icon-download-over
+		imageUp: icon-disk
+		imageDown: icon-disk-pressed
+		imageOver: icon-disk-over
 		up: button-normal
 		down: button-normal-pressed
 		over: button-normal-over

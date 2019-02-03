@@ -413,6 +413,27 @@ icon-bgm-over
   orig: 40, 40
   offset: 0, 0
   index: -1
+icon-disk
+  rotate: false
+  xy: 491, 286
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+icon-disk-over
+  rotate: false
+  xy: 491, 264
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+icon-disk-pressed
+  rotate: false
+  xy: 491, 308
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
 icon-download
   rotate: false
   xy: 491, 352
