@@ -60,6 +60,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.TextTooltip;
+import com.badlogic.gdx.scenes.scene2d.ui.TooltipManager;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ObjectMap;
@@ -146,6 +148,9 @@ public class DemoScreen implements Screen {
         soundMap = new ObjectMap<Sound, Array<Long>>();
         
         particleAlpha = 1.0f;
+        
+        TooltipManager.getInstance().initialTime = .5f;
+        TooltipManager.getInstance().hideAll();
         
         loadAnimation();
         getParticleFiles();
@@ -568,6 +573,7 @@ public class DemoScreen implements Screen {
                 table.add(selectBox);
                 selectBox.addListener(core.handListener);
                 selectBox.getList().addListener(core.handListener);
+                selectBox.addListener(new TextTooltip("Change displayed particle", skin));
                 selectBox.addListener(new ChangeListener() {
                     @Override
                     public void changed(ChangeListener.ChangeEvent event, Actor actor) {
@@ -594,6 +600,7 @@ public class DemoScreen implements Screen {
                 ImageButton imageButton = new ImageButton(skin, "download");
                 table.add(imageButton);
                 imageButton.addListener(core.handListener);
+                imageButton.addListener(new TextTooltip("Save the particle effect", skin));
                 imageButton.addListener(new ChangeListener() {
                     @Override
                     public void changed(ChangeListener.ChangeEvent event, Actor actor) {
