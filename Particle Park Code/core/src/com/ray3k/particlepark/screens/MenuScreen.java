@@ -46,7 +46,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.ray3k.particlepark.Core;
-import com.ray3k.particlepark.DialogAbout;
+import com.ray3k.particlepark.dialogs.DialogAbout;
 
 /**
  *
