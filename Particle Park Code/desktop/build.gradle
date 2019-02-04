@@ -24,7 +24,7 @@ task debug(dependsOn: classes, type: JavaExec) {
 }
 
 task dist(type: Jar) {
-    archiveName = "particle_park.jar";
+    archiveName = "${project.appName}.jar";
     from files(sourceSets.main.output.classesDir)
     from files(sourceSets.main.output.resourcesDir)
     from {configurations.compile.collect {zipTree(it)}}
@@ -109,6 +109,29 @@ task createFinalAppBundle(type: Exec, dependsOn: [cleanPackagerRuntime]) {
     doLast{
         System.out.println("Application '${project.appName}' packaged.")
         System.out.println(" -> location: ${buildDir}/distribution/${project.appName}/")
+    }
+}
+
+task createMacApp(type: Exec, dependsOn: [dist]) {
+    workingDir project.projectDir
+    
+    commandLine = [
+        'java',
+        '-jar', "${project.projectDir}/packr.jar",
+        '--platform', 'mac',
+        '--jdk', '"C:/openjdk/zulu8mac64.zip"',
+        '--executable', 'Particle-Park',
+        '--classpath', "${buildDir}/libs/${project.appName}.jar",
+        '--mainclass', "com.ray3k.particlepark.desktop.DesktopLauncher",
+        '--minimizejre', "hard",
+        '--output', "${buildDir}/distribution/${project.appName}.app",
+        '--cachejre', "${project.projectDir}/macjre/",
+        '--icon', "${project.projectDir}/logo.icns",
+        '--bundle', 'com.ray3k.particlepark'
+    ]
+    
+    doLast{
+        System.out.println("Application '${project.appName}' packaged to Mac.")
     }
 }
 
