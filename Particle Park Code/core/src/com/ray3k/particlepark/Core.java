@@ -45,6 +45,8 @@ public class Core extends Game {
         iBeamListener = new IbeamListener();
         preferences = Gdx.app.getPreferences("particle-park");
         
+        extractData("Particle Park_data");
+        
         addAssets();
         
         setScreen(new LoadScreen(this));
@@ -115,6 +117,19 @@ public class Core extends Game {
         }
         
         return assetFiles;
+    }
+    
+    private void extractData(String folderName) {
+        //if running from JAR
+        if (Gdx.files.internal(folderName).list().length == 0) {
+            System.out.println("start");
+            UnzipUtility util = new UnzipUtility();
+            try {
+                util.unzip("Particle Park_data", Gdx.files.local("Particle Park_data"));
+            } catch (IOException e) {
+                
+            }
+        }
     }
     
     public void playSong() {
