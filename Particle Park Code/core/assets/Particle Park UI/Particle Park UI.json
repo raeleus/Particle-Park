@@ -217,6 +217,17 @@ com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle: {
 		down: button-color-pressed
 		over: button-color-over
 	}
+	eye: {
+		imageUp: icon-eye
+		imageDown: icon-eye-closed-over
+		imageOver: icon-eye-over
+		imageChecked: icon-eye-closed
+		imageCheckedOver: icon-eye-closed-over
+		up: button-normal
+		down: button-normal-pressed
+		over: button-normal-over
+		focused: button-normal-over
+	}
 }
 com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton$ImageTextButtonStyle: {
 	default: {

@@ -24,6 +24,7 @@
 package com.ray3k.particlepark.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
@@ -473,7 +474,7 @@ public class DemoScreen implements Screen {
         stage.addActor(root);
         
         menuButton = new ImageButton(skin, "menu");
-        root.add(menuButton).expand().top().left();
+        root.add(menuButton);
         menuButton.addListener(core.handListener);
         menuButton.addListener(new ChangeListener() {
             @Override
@@ -484,9 +485,37 @@ public class DemoScreen implements Screen {
             }
         });
         
+        root.row().expandY();
+        root.add();
+        
+        root.row();
+        final ImageButton hideButton = new ImageButton(skin, "eye");
+        root.add(hideButton).bottom().left().fill();
+        hideButton.addListener(core.handListener);
+        hideButton.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeListener.ChangeEvent event, Actor actor) {
+                if (hideButton.isChecked()) {
+                    stage.addAction(Actions.fadeOut(1.0f));
+                    Gdx.input.setInputProcessor(new InputAdapter() {
+                        @Override
+                        public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+                            Gdx.graphics.setSystemCursor(Cursor.SystemCursor.Arrow);
+                            Gdx.input.setInputProcessor(stage);
+                            stage.addAction(Actions.fadeIn(1.0f));
+                            hideButton.setChecked(false);
+                            return true;
+                        }
+                        
+                    });
+                    Gdx.graphics.setSystemCursor(Cursor.SystemCursor.Hand);
+                }
+            }
+        });
+        
         final ImageButton bgmButton = new ImageButton(skin, "bgm");
         bgmButton.setChecked(core.preferences.getBoolean("bgm", true));
-        root.add(bgmButton).expand().bottom().right();
+        root.add(bgmButton).bottom().right().expandX();
         bgmButton.addListener(core.handListener);
         bgmButton.addListener(new ChangeListener() {
             @Override

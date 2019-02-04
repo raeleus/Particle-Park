@@ -173,42 +173,42 @@ filter: Linear,Linear
 repeat: none
 button-about
   rotate: false
-  xy: 444, 80
+  xy: 468, 104
   size: 21, 22
   orig: 21, 22
   offset: 0, 0
   index: -1
 button-about-over
   rotate: false
-  xy: 444, 104
+  xy: 468, 128
   size: 21, 22
   orig: 21, 22
   offset: 0, 0
   index: -1
 button-about-pressed
   rotate: false
-  xy: 468, 128
+  xy: 468, 80
   size: 21, 22
   orig: 21, 22
   offset: 0, 0
   index: -1
 button-close
   rotate: false
-  xy: 491, 421
+  xy: 491, 375
   size: 20, 23
   orig: 20, 23
   offset: 0, 0
   index: -1
 button-close-over
   rotate: false
-  xy: 491, 396
+  xy: 491, 350
   size: 20, 23
   orig: 20, 23
   offset: 0, 0
   index: -1
 button-close-pressed
   rotate: false
-  xy: 491, 446
+  xy: 491, 400
   size: 20, 23
   orig: 20, 23
   offset: 0, 0
@@ -313,7 +313,7 @@ button-normal-pressed
   index: -1
 checkbox
   rotate: false
-  xy: 467, 82
+  xy: 491, 425
   size: 20, 21
   orig: 20, 21
   offset: 0, 0
@@ -327,14 +327,14 @@ checkbox-over
   index: -1
 checkbox-selected
   rotate: false
-  xy: 467, 105
+  xy: 175, 1
   size: 20, 21
   orig: 20, 21
   offset: 0, 0
   index: -1
 checkbox-selected-over
   rotate: false
-  xy: 175, 1
+  xy: 491, 448
   size: 20, 21
   orig: 20, 21
   offset: 0, 0
@@ -415,44 +415,86 @@ icon-bgm-over
   index: -1
 icon-disk
   rotate: false
-  xy: 491, 286
+  xy: 491, 284
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 icon-disk-over
   rotate: false
-  xy: 491, 264
+  xy: 491, 262
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 icon-disk-pressed
   rotate: false
-  xy: 491, 308
+  xy: 491, 306
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 icon-download
   rotate: false
-  xy: 491, 352
+  xy: 99, 1
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 icon-download-over
   rotate: false
-  xy: 491, 330
+  xy: 491, 328
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 icon-download-pressed
   rotate: false
-  xy: 491, 374
+  xy: 77, 1
   size: 20, 20
   orig: 20, 20
+  offset: 0, 0
+  index: -1
+icon-eye
+  rotate: false
+  xy: 77, 23
+  size: 24, 14
+  orig: 24, 14
+  offset: 0, 0
+  index: -1
+icon-eye-closed
+  rotate: false
+  xy: 103, 23
+  size: 24, 14
+  orig: 24, 14
+  offset: 0, 0
+  index: -1
+icon-eye-closed-over
+  rotate: false
+  xy: 217, 14
+  size: 24, 14
+  orig: 24, 14
+  offset: 0, 0
+  index: -1
+icon-eye-closed-pressed
+  rotate: false
+  xy: 465, 455
+  size: 24, 14
+  orig: 24, 14
+  offset: 0, 0
+  index: -1
+icon-eye-over
+  rotate: false
+  xy: 42, 5
+  size: 24, 14
+  orig: 24, 14
+  offset: 0, 0
+  index: -1
+icon-eye-pressed
+  rotate: false
+  xy: 217, 30
+  size: 24, 14
+  orig: 24, 14
   offset: 0, 0
   index: -1
 icon-menu
@@ -534,35 +576,35 @@ progress-bar-square-knob
   index: -1
 radio
   rotate: false
-  xy: 444, 128
+  xy: 444, 80
   size: 22, 22
   orig: 22, 22
   offset: 0, 0
   index: -1
 radio-over
   rotate: false
-  xy: 217, 22
+  xy: 464, 431
   size: 22, 22
   orig: 22, 22
   offset: 0, 0
   index: -1
 radio-selected
   rotate: false
-  xy: 101, 15
+  xy: 444, 104
   size: 22, 22
   orig: 22, 22
   offset: 0, 0
   index: -1
 radio-selected-over
   rotate: false
-  xy: 77, 15
+  xy: 444, 128
   size: 22, 22
   orig: 22, 22
   offset: 0, 0
   index: -1
 reticle
   rotate: false
-  xy: 42, 1
+  xy: 197, 4
   size: 18, 18
   orig: 18, 18
   offset: 0, 0
@@ -595,7 +637,7 @@ select-box-open
   index: -1
 selection
   rotate: false
-  xy: 444, 227
+  xy: 444, 211
   size: 16, 16
   split: 2, 2, 2, 2
   pad: 3, 3, 3, 3
@@ -618,21 +660,21 @@ slider-knob-over
   index: -1
 spinner-down
   rotate: false
-  xy: 444, 293
+  xy: 444, 277
   size: 16, 14
   orig: 16, 14
   offset: 0, 0
   index: -1
 spinner-down-over
   rotate: false
-  xy: 197, 8
+  xy: 444, 309
   size: 16, 14
   orig: 16, 14
   offset: 0, 0
   index: -1
 spinner-down-pressed
   rotate: false
-  xy: 444, 309
+  xy: 444, 293
   size: 16, 14
   orig: 16, 14
   offset: 0, 0
@@ -657,21 +699,21 @@ spinner-textfield-selected
   index: -1
 spinner-up
   rotate: false
-  xy: 444, 245
+  xy: 444, 229
   size: 16, 14
   orig: 16, 14
   offset: 0, 0
   index: -1
 spinner-up-over
   rotate: false
-  xy: 444, 277
+  xy: 444, 261
   size: 16, 14
   orig: 16, 14
   offset: 0, 0
   index: -1
 spinner-up-pressed
   rotate: false
-  xy: 444, 261
+  xy: 444, 245
   size: 16, 14
   orig: 16, 14
   offset: 0, 0
@@ -746,7 +788,7 @@ tooltip
   index: -1
 white
   rotate: false
-  xy: 412, 510
+  xy: 129, 36
   size: 1, 1
   orig: 1, 1
   offset: 0, 0
