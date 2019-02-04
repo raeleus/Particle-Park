@@ -4,7 +4,7 @@ Particle Park is a showcase for community created particle effects for LibGDX.
 
 ## Premise
 
-With the success of the [Scene2D.UI Skins](https://ray3k.wordpress.com/artwork/) project, it was time address the community's next largest need: particle effects. Despite great support and an official editor, particle effect examples were few and far between. The goal of this project is to create an abundance of such examples that can be dropped into your very own game. The effects are to be framed in a simple catalog program using animation and selectable options to best represent their use in context.
+<img align="right" src="docs/images/fireworks-preview.gif"> With the success of the [Scene2D.UI Skins](https://ray3k.wordpress.com/artwork/) project, it was time address the community's next largest need: particle effects. Despite great support and an official editor, particle effect examples were few and far between. The goal of this project is to create an abundance of such examples that can be dropped into your very own game. The effects are to be framed in a simple catalog program using animation and selectable options to best represent their use in context.
 
 ## How to use
 
@@ -14,7 +14,7 @@ Adding your own particle effects to the catalog is a simple process. Just copy t
 
 ## Submitting Particle Effects
 
-We are accepting particle effect submissions! Please create an issue and attach the required files for your effect. Include copyright text such as the following:
+<img align="left" src="docs/images/cloud-preview.png"> We are accepting particle effect submissions! Please create an issue and attach the required files for your effect. Include copyright text such as the following:
 
 > Copyright (C) 2019 Raymond Buckley
 
@@ -24,7 +24,7 @@ Suggest an existing scene for this effect to be added to. New scenes can be sugg
 
 ## About
 
-Particle Park is developed by Raeleus for the LibGDX community.
+<img align="right" src="docs/images/rocket-preview.png"> Particle Park is developed by Raeleus for the LibGDX community.
 Copyright (c) 2019 Raymond Buckley.
 
 All particle effects donated graciously by community members.
