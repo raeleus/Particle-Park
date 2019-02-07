@@ -163,6 +163,12 @@ task updateAndCreateZip(type: Zip, dependsOn: [dist]) {
     destinationDir = file("${buildDir}/distribution/")
 }
 
+task createMacZip(type: Zip, dependsOn: [createMacApp]) {
+    archiveName "particle_park_mac.app.zip"
+    from "${buildDir}/distribution/${project.appName}.app"
+    destinationDir = file("${buildDir}/distribution/")
+}
+
 eclipse {
     project {
         name = appName + "-desktop"
