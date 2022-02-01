@@ -8,7 +8,7 @@ Particle Park is a showcase for community created particle effects for LibGDX.
 
 ## How to use
 
-Download and run a [release version](https://github.com/raeleus/Particle-Park/releases) of Particle Park. Browse the different scenes and select an effect to download. See the [LibGDX wiki](https://github.com/libgdx/libgdx/wiki/2D-ParticleEffects) on the subject of implementing particle effects in your games.
+Download and run a [release version](https://github.com/raeleus/Particle-Park/releases) of Particle Park. Browse the different scenes and select an effect to download. See the [libGDX wiki](https://libgdx.com/wiki/graphics/2d/2d-particleeffects) on the subject of implementing particle effects in your games.
 
 Adding your own particle effects to the catalog is a simple process. Just copy the associated particle files into the locally generated data folder of the scene you want to view them in. The effect will now be selectable on the next startup of the catalog.
 
